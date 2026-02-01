@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import LogoIcon from "../assets/LogoIcon";
 
-const LOADER_DURATION_MS = 1000;
+const LOADER_DURATION_MS = 1000; 
 
 interface PageLoaderProps {
   onComplete?: () => void;
