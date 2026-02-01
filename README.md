@@ -23,6 +23,18 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+### Blog (finance/gold news)
+
+The Blog page uses the [MarketAux](https://marketaux.com) finance news API. To enable live articles:
+
+1. Sign up for a free API token at [marketaux.com/register](https://www.marketaux.com/register).
+2. Create a `.env.local` file in the project root and add:
+   ```bash
+   MARKETAUX_API_TOKEN=your_api_token_here
+   ```
+   Or use `NEXT_PUBLIC_MARKETAUX_API_TOKEN` if you prefer a client-visible key.
+3. Restart the dev server. Without the token, the Blog page still loads and shows sample articles.
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:

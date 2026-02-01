@@ -23,7 +23,7 @@ const cards = [
 
 export default function Features() {
   return (
-    <section className="relative px-[5.5rem] pt-20 pb-36 overflow-hidden">
+    <section id="features" className="relative px-[5.5rem] pt-20 pb-36 overflow-hidden">
       {/* Warm gradient overlay behind section */}
       <div
         className="absolute inset-0 pointer-events-none opacity-40"

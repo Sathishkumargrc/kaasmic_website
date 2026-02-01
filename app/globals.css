@@ -18,13 +18,103 @@
 }
 
 body {
-  background: linear-gradient(180deg, var(--primary-start) 0%, var(--primary-end) 100%);
+  background: linear-gradient(180deg, var(--primary-start) 0%, #162a6b 40%, var(--primary-end) 100%);
   background-attachment: fixed;
   color: var(--foreground);
   font-family: var(--font-sans), system-ui, sans-serif;
 }
 
-/* Pixel-perfect gradient for main sections */
+/* Milder dark gradient for main sections */
 .bg-gold-gradient {
-  background: linear-gradient(180deg, #203DA3 0%, #0C173D 100%);
+  background: linear-gradient(180deg, #203DA3 0%, #162a6b 40%, #0C173D 100%);
+}
+
+/* Accordion animations */
+@keyframes accordion-down {
+  from {
+    height: 0;
+    opacity: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+    opacity: 1;
+  }
+}
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+    opacity: 1;
+  }
+  to {
+    height: 0;
+    opacity: 0;
+  }
+}
+.animate-accordion-down {
+  animation: accordion-down 0.2s ease-out;
+}
+.animate-accordion-up {
+  animation: accordion-up 0.2s ease-out;
+}
+
+/* Page loader: outer circle slow clockwise rotation */
+@keyframes loader-outer-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.animate-loader-outer {
+  animation: loader-outer-rotate 5s linear infinite;
+}
+
+/* Page loader: inner gold arc rapid snappy spin */
+@keyframes loader-arc-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.animate-loader-arc {
+  transform-origin: 50% 50%;
+  animation: loader-arc-spin 1s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+/* Right-corner floating blobs (Hero): subtle float + rotate over 10s */
+@keyframes float-blob-1 {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(4deg);
+  }
+}
+@keyframes float-blob-2 {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(10px) rotate(-3deg);
+  }
+}
+@keyframes float-blob-3 {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(5deg);
+  }
+}
+.animate-float-blob-1 {
+  animation: float-blob-1 10s ease-in-out infinite;
+}
+.animate-float-blob-2 {
+  animation: float-blob-2 10s ease-in-out infinite 1.5s;
+}
+.animate-float-blob-3 {
+  animation: float-blob-3 10s ease-in-out infinite 3s;
 }

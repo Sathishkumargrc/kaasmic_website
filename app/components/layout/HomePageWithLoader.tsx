@@ -1,0 +1,106 @@
+// "use client";
+
+// import { useState, useEffect } from "react";
+// import { motion } from "framer-motion";
+// import PageLoader from "./PageLoader";
+// import Header, { HEADER_HEIGHT_PX } from "./Header";
+// import Hero from "../sections/Hero";
+// import Features from "../sections/Features";
+// import Footer from "./Footer";
+
+// const SCROLL_THRESHOLD = 60;
+
+// export default function HomePageWithLoader() {
+//   const [loaderDone, setLoaderDone] = useState(false);
+//   const [isScrolled, setIsScrolled] = useState(false);
+
+//   useEffect(() => {
+//     const onScroll = () => setIsScrolled(window.scrollY > SCROLL_THRESHOLD);
+//     onScroll();
+//     window.addEventListener("scroll", onScroll, { passive: true });
+//     return () => window.removeEventListener("scroll", onScroll);
+//   }, []);
+
+//   return (
+//     <>
+//       <PageLoader onComplete={() => setLoaderDone(true)} />
+//       {loaderDone && (
+//         <motion.div
+//           initial={{ opacity: 0 }}
+//           animate={{ opacity: 1 }}
+//           transition={{ duration: 0.4, ease: "easeOut" }}
+//         >
+//           {/* Sticky placeholder: reserves space when header is fixed so layout doesn't jump (like indiagoldratesapi) */}
+//           <div
+//             id="sticky-placeholder"
+//             className="transition-[height] duration-300"
+//             style={{ height: isScrolled ? HEADER_HEIGHT_PX : 0 }}
+//             aria-hidden
+//           />
+//           {/* Header + Banner: header is in-flow at top, fixed at top when scrolled (like indiagoldratesapi) */}
+//           <div className="min-h-screen bg-gold-gradient">
+//             <Header isScrolled={isScrolled} fixedWhenScrolled />
+//             <Hero />
+//           </div>
+//           <Features />
+//           <Footer />
+//         </motion.div>
+//       )}
+//     </>
+//   );
+// }
+
+"use client";
+
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import PageLoader from "./PageLoader";
+import HeroWithHeader from "../sections/Hero";
+import StickyHeader from "./StickyHeader";
+import Features from "../sections/Features";
+import Footer from "./Footer";
+
+export default function HomePageWithLoader() {
+  const [loaderDone, setLoaderDone] = useState(false);
+  const [showStickyHeader, setShowStickyHeader] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      // Show sticky header after scrolling past 80% of viewport height
+      setShowStickyHeader(scrollY > window.innerHeight * 0.8);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  return (
+    <>
+      <PageLoader onComplete={() => setLoaderDone(true)} />
+      
+      <AnimatePresence>
+        {loaderDone && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+          >
+            {/* Sticky Header (appears on scroll) */}
+            <StickyHeader isVisible={showStickyHeader} />
+            
+            {/* Hero Section with integrated header */}
+            <HeroWithHeader />
+            
+            {/* Rest of the content */}
+            <div className="bg-white">
+              <Features />
+              <Footer />
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
+  );
+}

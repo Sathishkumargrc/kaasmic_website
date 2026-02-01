@@ -1,8 +1,272 @@
+// "use client";
+
+// import { motion } from "framer-motion";
+// import Image from "next/image";
+// import { useMemo } from "react";
+// import Link from "next/link";
+// import LogoIcon from "../assets/LogoIcon";
+
+// const navLinks = [
+//   { label: "Home", href: "/" },
+//   { label: "Features", href: "/#features" },
+//   { label: "Pricing", href: "/#pricing" },
+//   { label: "About", href: "/about" },
+//   { label: "Blog", href: "/blog" },
+//   { label: "FAQ", href: "/faq" },
+// ];
+
+// function generateParticles() {
+//   return [...Array(24)].map(() => ({
+//     left: Math.random() * 100,
+//     top: Math.random() * 100,
+//     duration: 2 + Math.random() * 2,
+//   }));
+// }
+
+// const shapeTransition = { duration: 2, ease: "easeOut" as const };
+// const transitionContent = { duration: 0.15, ease: "easeOut" as const };
+// const transitionZoom = { duration: 0.1, ease: "easeOut" as const };
+
+// export default function HeroWithHeader() {
+//   const particles = useMemo(() => generateParticles(), []);
+
+//   return (
+//     <section className="relative min-h-screen overflow-hidden bg-gradient-to-br from-[#0C173D] via-[#1A2664] to-[#0C173D]">
+//       {/* Header Navigation - Integrated with Hero */}
+//       <motion.header
+//         initial={{ y: -20, opacity: 0 }}
+//         animate={{ y: 0, opacity: 1 }}
+//         transition={{ duration: 0.5, ease: "easeOut" }}
+//         className="absolute top-0 left-0 right-0 z-50 flex items-center justify-between px-[5.5rem] py-6"
+//       >
+//         <Link href="/" className="flex items-center gap-3">
+//           <LogoIcon className="w-10 h-10 shrink-0 text-white" />
+//           <span className="text-xl font-bold text-white tracking-tight">
+//             Kaasmic
+//           </span>
+//         </Link>
+
+//         <nav className="flex items-center gap-10">
+//           {navLinks.map(({ label, href }, i) => (
+//             <motion.div
+//               key={label}
+//               initial={{ opacity: 0 }}
+//               animate={{ opacity: 1 }}
+//               transition={{ delay: 0.1 + i * 0.05 }}
+//             >
+//               <Link
+//                 href={href}
+//                 className="text-[15px] font-medium text-white hover:text-[#D4AF37] transition-colors"
+//               >
+//                 {label}
+//               </Link>
+//             </motion.div>
+//           ))}
+//           <motion.button
+//             initial={{ opacity: 0 }}
+//             animate={{ opacity: 1 }}
+//             transition={{ delay: 0.3 }}
+//             whileHover={{ scale: 1.02 }}
+//             whileTap={{ scale: 0.98 }}
+//             className="rounded-lg border-2 border-[#D4AF37] bg-transparent px-6 py-2.5 text-[15px] font-medium text-white hover:bg-[#D4AF37]/10 transition-colors"
+//           >
+//             Login
+//           </motion.button>
+//         </nav>
+//       </motion.header>
+
+//       {/* Hero Content */}
+//       <div className="relative min-h-screen px-[5.5rem] pt-32 pb-24 grid grid-cols-[1fr_1fr] gap-12 items-center">
+//         {/* Fixed layer: right-side SVG background */}
+//         <div
+//           className="pointer-events-none absolute top-0 right-0 z-0 w-[min(70%,1500px)] h-full"
+//           aria-hidden
+//         >
+//           {/* Outer shape: dark purple/blue gradient */}
+//           <motion.div
+//             initial={{ x: "75%", y: "-75%", opacity: 0 }}
+//             animate={{ x: 0, y: 0, opacity: 1 }}
+//             transition={{ ...shapeTransition, delay: 0.1 }}
+//             className="absolute top-0 right-0 w-full h-full"
+//           >
+//             <svg
+//               className="h-full w-full object-right-top object-fit"
+//               viewBox="0 0 1350 850"
+//               fill="none"
+//               preserveAspectRatio="xMaxYMin meet"
+//             >
+//               <path
+//                 d="M0 0H1414V640L1028 972C1028 972 887 1068 774 927L0 0Z"
+//                 fill="rgb(208, 203, 224)"
+//               />
+//             </svg>
+//           </motion.div>
+
+//           {/* Inner shape: purple gradient */}
+//           <motion.div
+//             initial={{ x: "75%", y: "-75%", opacity: 0 }}
+//             animate={{ x: 0, y: 0, opacity: 1 }}
+//             transition={{ ...shapeTransition, delay: 0.35 }}
+//             className="absolute top-0 right-0 w-[85%] h-full"
+//           >
+//             <svg
+//               className="h-full w-full object-right-top object-cover"
+//               viewBox="0 0 1200 920"
+//               fill="none"
+//               preserveAspectRatio="xMaxYMin meet"
+//             >
+//               <defs>
+//                 <linearGradient
+//                   id="shape-gradient"
+//                   x1="0%"
+//                   x2="50%"
+//                   y1="86.603%"
+//                   y2="0%"
+//                 >
+//                   <stop offset="50%" stopColor="rgb(72,10,231)" stopOpacity="1" />
+//                   <stop offset="100%" stopColor="rgb(127,6,238)" stopOpacity="1" />
+//                 </linearGradient>
+//               </defs>
+//               <path
+//                 d="M0 0H1245V640L941 890C941 890 812 978 709 849L0 0Z"
+//                 fill="url(#shape-gradient)"
+//               />
+//             </svg>
+//           </motion.div>
+//         </div>
+
+//         {/* Subtle particles */}
+//         <div className="absolute inset-0 pointer-events-none z-[1]">
+//           {particles?.map((particle, i) => (
+//             <motion.div
+//               key={i}
+//               className="absolute w-1 h-1 rounded-full bg-white/30"
+//               style={{
+//                 left: `${particle?.left}%`,
+//                 top: `${particle.top}%`,
+//               }}
+//               animate={{ opacity: [0.2, 0.6, 0.2] }}
+//               transition={{ duration: particle?.duration, repeat: Infinity }}
+//             />
+//           ))}
+//         </div>
+
+//         {/* Left content – above shapes */}
+//         <div className="relative z-10" data-aos='fade-up'>
+//           <motion.h1
+//             initial={{ y: 75, opacity: 0 }}
+//             animate={{ y: 0, opacity: 1 }}
+//             transition={{ ...transitionContent, delay: 1.2 }}
+//             className="text-[3.25rem] leading-[1.15] font-bold text-white tracking-tight"
+//           >
+//             Invest in{" "}
+//             <span className="text-[#D4AF37]">Digital Gold</span>
+//             <br />
+//             with Ease
+//           </motion.h1>
+
+//           <motion.p
+//             initial={{ y: 75, opacity: 0 }}
+//             animate={{ y: 0, opacity: 1 }}
+//             transition={{ ...transitionContent, delay: 1.5 }}
+//             className="mt-6 text-lg text-white/90 leading-relaxed max-w-[28rem]"
+//           >
+//             Grow your wealth by investing in 24K digital gold securely, starting
+//             with just <span className="font-bold text-white">₹100</span>.
+//           </motion.p>
+
+//           <motion.div
+//             initial={{ y: 75, opacity: 0 }}
+//             animate={{ y: 0, opacity: 1 }}
+//             transition={{ ...transitionContent, delay: 1.8 }}
+//             className="mt-10 flex gap-5"
+//           >
+//             <motion.button
+//               whileHover={{ scale: 1.03, boxShadow: "0 0 30px rgba(212,175,55,0.4)" }}
+//               whileTap={{ scale: 0.98 }}
+//               className="rounded-lg bg-[#D4AF37] px-8 py-3.5 text-base font-semibold text-[#0C173D] shadow-lg"
+//             >
+//               Get Started
+//             </motion.button>
+//             <motion.button
+//               whileHover={{ scale: 1.03, borderColor: "#F5D78E" }}
+//               whileTap={{ scale: 0.98 }}
+//               className="rounded-lg border-2 border-[#D4AF37] bg-transparent px-8 py-3.5 text-base font-medium text-white"
+//             >
+//               Learn More
+//             </motion.button>
+//           </motion.div>
+//         </div>
+
+//         {/* Right: phone + gold images */}
+//         <div className="relative z-10 h-[520px] flex justify-center items-center" data-aos='fade-right' data-aos-duration='1000'>
+//           <div className="relative w-full h-full flex justify-center items-center">
+//             <motion.div
+//               initial={{ x: 40, opacity: 0 }}
+//               animate={{ x: 0, opacity: 1 }}
+//               transition={{ ...transitionContent, delay: 1.8 }}
+//               className="absolute w-[420px] h-[420px] rounded-full bg-[#D4AF37]/20 blur-[100px]"
+//             />
+//             <motion.div
+//               animate={{ opacity: [0.4, 0.7, 0.4] }}
+//               transition={{ duration: 4, repeat: Infinity }}
+//               className="absolute w-[380px] h-[380px] rounded-full bg-[#D4AF37]/15 blur-3xl"
+//             />
+
+//             <motion.div
+//               initial={{ scale: 0.5, opacity: 0 }}
+//               animate={{ scale: 1, opacity: 1 }}
+//               transition={{ ...transitionZoom, delay: 2.2 }}
+//               className="absolute w-64 left-[5%] top-[2%]"
+//             >
+//               <Image src="/assets/gold_coin.png" alt="" width={256} height={256} />
+//             </motion.div>
+//             <motion.div
+//               initial={{ scale: 0.5, opacity: 0 }}
+//               animate={{ scale: 1, opacity: 1 }}
+//               transition={{ ...transitionZoom, delay: 2.4 }}
+//               className="absolute w-64 right-[2%] bottom-[18%]"
+//             >
+//               <Image src="/assets/gold_biscuit.png" alt="" width={256} height={256} />
+//             </motion.div>
+
+//             <motion.div
+//               initial={{ scale: 0.5, opacity: 0 }}
+//               animate={{ scale: 1, opacity: 1 }}
+//               transition={{ ...transitionZoom, delay: 2.6 }}
+//               className="relative z-10"
+//             >
+//               <Image
+//                 src="/assets/phone.png"
+//                 alt="GoldInvest app"
+//                 width={300}
+//                 height={520}
+//                 className="drop-shadow-2xl object-contain"
+//               />
+//             </motion.div>
+//           </div>
+//         </div>
+//       </div>
+//     </section>
+//   );
+// }
+
 "use client";
 
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useMemo } from "react";
+import Link from "next/link";
+import LogoIcon from "../assets/LogoIcon";
+
+const navLinks = [
+  { label: "Home", href: "/" },
+  { label: "Features", href: "/#features" },
+  { label: "Pricing", href: "/#pricing" },
+  { label: "About", href: "/about" },
+  { label: "Blog", href: "/blog" },
+  { label: "FAQ", href: "/faq" },
+];
 
 function generateParticles() {
   return [...Array(24)].map(() => ({
@@ -12,144 +276,267 @@ function generateParticles() {
   }));
 }
 
-export default function Hero() {
+const shapeTransition = { duration: 2, ease: "easeOut" as const };
+const transitionContent = { duration: 0.15, ease: "easeOut" as const };
+const transitionZoom = { duration: 0.1, ease: "easeOut" as const };
+
+export default function HeroWithHeader() {
   const particles = useMemo(() => generateParticles(), []);
 
   return (
-    <section className="relative min-h-[90vh] overflow-hidden px-[5.5rem] pt-8 pb-24 grid grid-cols-[1fr_1fr] gap-12 items-center">
-      {/* Subtle particles / stars */}
-      <div className="absolute inset-0 pointer-events-none">
-        {particles?.map((particle, i) => (
+    <section className="relative min-h-screen overflow-hidden bg-gradient-to-br from-[#0C173D] via-[#1A2664] to-[#0C173D]">
+      {/* Header Navigation - Integrated with Hero */}
+      <motion.header
+        initial={{ y: -20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+        className="absolute top-0 left-0 right-0 z-50 flex items-center justify-between px-[5.5rem] py-6"
+      >
+        <Link href="/" className="flex items-center gap-3">
+          <LogoIcon className="w-10 h-10 shrink-0 text-white" />
+          <span className="text-xl font-bold text-white tracking-tight">
+            Kaasmic
+          </span>
+        </Link>
+
+        <nav className="flex items-center gap-10">
+          {navLinks.map(({ label, href }, i) => (
+            <motion.div
+              key={label}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.1 + i * 0.05 }}
+            >
+              <Link
+                href={href}
+                className="text-[15px] font-medium text-white hover:text-[#D4AF37] transition-colors"
+              >
+                {label}
+              </Link>
+            </motion.div>
+          ))}
+          <motion.button
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.3 }}
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            className="rounded-lg border-2 border-[#D4AF37] bg-transparent px-6 py-2.5 text-[15px] font-medium text-white hover:bg-[#D4AF37]/10 transition-colors"
+          >
+            Login
+          </motion.button>
+        </nav>
+      </motion.header>
+
+      {/* Hero Content */}
+      <div className="relative min-h-screen px-[5.5rem] pt-32 pb-24 grid grid-cols-[1fr_1fr] gap-12 items-center">
+        {/* Fixed layer: right-side SVG background */}
+        <div
+          className="pointer-events-none absolute top-0 right-0 z-0 w-[min(70%,1500px)] h-full"
+          aria-hidden
+        >
+          {/* Outer shape: dark purple/blue gradient */}
           <motion.div
-            key={i}
-            className="absolute w-1 h-1 rounded-full bg-white/30"
-            style={{
-              left: `${particle?.left}%`,
-              top: `${particle.top}%`,
-            }}
-            animate={{ opacity: [0.2, 0.6, 0.2] }}
-            transition={{ duration: particle?.duration, repeat: Infinity }}
-          />
-        ))}
-      </div>
-
-      {/* Left content */}
-      <div className="relative z-10">
-        <motion.h1
-          initial={{ y: 32, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
-          className="text-[3.25rem] leading-[1.15] font-bold text-white tracking-tight"
-        >
-          Invest in{" "}
-          <span className="text-[#D4AF37]">Digital Gold</span>
-          <br />
-          with Ease
-        </motion.h1>
-
-        <motion.p
-          initial={{ y: 24, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.15 }}
-          className="mt-6 text-lg text-white/90 leading-relaxed max-w-[28rem]"
-        >
-          Grow your wealth by investing in 24K digital gold securely, starting
-          with just <span className="font-bold text-white">₹100</span>.
-        </motion.p>
-
-        <motion.div
-          initial={{ y: 24, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.25 }}
-          className="mt-10 flex gap-5"
-        >
-          <motion.button
-            whileHover={{ scale: 1.03, boxShadow: "0 0 30px rgba(212,175,55,0.4)" }}
-            whileTap={{ scale: 0.98 }}
-            className="rounded-lg bg-[#D4AF37] px-8 py-3.5 text-base font-semibold text-[#0C173D] shadow-lg"
+            initial={{ x: "75%", y: "-75%", opacity: 0 }}
+            animate={{ x: 0, y: 0, opacity: 1 }}
+            transition={{ ...shapeTransition, delay: 0.1 }}
+            className="absolute top-0 right-0 w-full h-full"
           >
-            Get Started
-          </motion.button>
-          <motion.button
-            whileHover={{ scale: 1.03, borderColor: "#F5D78E" }}
-            whileTap={{ scale: 0.98 }}
-            className="rounded-lg border-2 border-[#D4AF37] bg-transparent px-8 py-3.5 text-base font-medium text-white"
+            <svg
+              className="h-full w-full object-right-top object-fit"
+              viewBox="0 0 1350 850"
+              fill="none"
+              preserveAspectRatio="xMaxYMin meet"
+            >
+              <path
+                d="M0 0H1414V640L1028 972C1028 972 887 1068 774 927L0 0Z"
+                fill="rgba(255, 255, 255, 0.2)"
+              />
+            </svg>
+          </motion.div>
+
+          {/* Inner shape: purple gradient */}
+          <motion.div
+            initial={{ x: "75%", y: "-75%", opacity: 0 }}
+            animate={{ x: 0, y: 0, opacity: 1 }}
+            transition={{ ...shapeTransition, delay: 0.35 }}
+            className="absolute top-0 right-0 w-[85%] h-full"
           >
-            Learn More
-          </motion.button>
-        </motion.div>
-      </div>
+            <svg
+              className="h-full w-full object-right-top object-cover"
+              viewBox="0 0 1200 920"
+              fill="none"
+              preserveAspectRatio="xMaxYMin meet"
+            >
+              <defs>
+                <linearGradient
+                  id="shape-gradient"
+                  x1="0%"
+                  x2="50%"
+                  y1="86.603%"
+                  y2="0%"
+                >
+                  <stop offset="50%" stopColor="rgba(255, 255, 255, 0.2)" stopOpacity="1" />
+                  <stop offset="100%" stopColor="rgba(255, 255, 255, 0.2)" stopOpacity="1" />
+                </linearGradient>
+              </defs>
+              <path
+                d="M0 0H1245V640L941 890C941 890 812 978 709 849L0 0Z"
+                fill="url(#shape-gradient)"
+              />
+            </svg>
+          </motion.div>
+        </div>
 
-      {/* Right: phone + gold assets with glow */}
-      <div className="relative h-[520px] flex justify-center items-center">
-        {/* Golden glow behind illustration */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, delay: 0.2 }}
-          className="absolute w-[420px] h-[420px] rounded-full bg-[#D4AF37]/20 blur-[100px]"
-        />
-        <motion.div
-          animate={{ opacity: [0.4, 0.7, 0.4] }}
-          transition={{ duration: 4, repeat: Infinity }}
-          className="absolute w-[380px] h-[380px] rounded-full bg-[#D4AF37]/15 blur-3xl"
-        />
-
-        {/* Existing assets: gold coin, gold bar */}
-        <motion.div
-          className="absolute w-64 left-[5%] top-[2%]"
-          animate={{ y: [0, -12, 0] }}
-          transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
-        >
-          <Image src="/assets/gold_coin.png" alt="" width={256} height={256} />
-        </motion.div>
-        <motion.div
-          className="absolute w-64 right-[2%] bottom-[18%]"
-          animate={{ y: [0, 14, 0] }}
-          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-        >
-          <Image src="/assets/gold_biscuit.png" alt="" width={256} height={256} />
-        </motion.div>
-
-        {/* Phone with app UI */}
-        <motion.div
-          initial={{ scale: 0.85, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.35 }}
-          className="relative z-10"
-        >
-          <div className="relative">
-            <Image
-              src="/assets/phone.png"
-              alt="GoldInvest app"
-              width={300}
-              height={520}
-              className="drop-shadow-2xl object-contain"
+        {/* Subtle particles */}
+        <div className="absolute inset-0 pointer-events-none z-[1]">
+          {particles?.map((particle, i) => (
+            <motion.div
+              key={i}
+              className="absolute w-1 h-1 rounded-full bg-white/30"
+              style={{
+                left: `${particle?.left}%`,
+                top: `${particle.top}%`,
+              }}
+              animate={{ opacity: [0.2, 0.6, 0.2] }}
+              transition={{ duration: particle?.duration, repeat: Infinity }}
             />
-            {/* In-screen UI overlay to match design: My Gold Balance, Gold Rate, Buy/Sell */}
-            {/* <div className="absolute inset-0 flex flex-col justify-center items-center pt-[38%] px-6">
-              <div className="w-full text-center">
-                <p className="text-white/90 text-[11px]">My Gold Balance</p>
-                <p className="text-white text-2xl font-bold mt-0.5">₹75,200</p>
-              </div>
-              <div className="w-full mt-4 text-center">
-                <p className="text-white/90 text-[11px]">Gold Rate</p>
-                <div className="flex items-center justify-center gap-2 mt-0.5">
-                  <p className="text-white text-xl font-bold">₹5,20/g</p>
-                  <span className="text-green-400 text-xs font-medium">+10 day</span>
-                </div>
-              </div>
-              <div className="flex gap-2 mt-6 w-full justify-center">
-                <span className="rounded bg-white/10 px-4 py-2 text-[#D4AF37] text-xs font-medium">
-                  Buy Gold
-                </span>
-                <span className="rounded bg-white/10 px-4 py-2 text-[#D4AF37] text-xs font-medium">
-                  Sell Gold
-                </span>
-              </div>
-            </div> */}
+          ))}
+        </div>
+
+        {/* Left content – fade up animation after SVG (2.4s delay for SVG completion) */}
+        <div 
+          className="relative z-10"
+          data-aos="fade-up"
+          data-aos-delay="2400" // 2.4 seconds after SVG animations complete
+          data-aos-duration="800"
+          data-aos-once="true"
+        >
+          <motion.h1
+            initial={{ y: 75, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ ...transitionContent, delay: 2.4 }}
+            className="text-[3.25rem] leading-[1.15] font-bold text-white tracking-tight"
+          >
+            Invest in{" "}
+            <span className="text-[#D4AF37]">Digital Gold</span>
+            <br />
+            with Ease
+          </motion.h1>
+
+          <motion.p
+            initial={{ y: 75, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ ...transitionContent, delay: 2.6 }}
+            className="mt-6 text-lg text-white/90 leading-relaxed max-w-[28rem]"
+          >
+            Grow your wealth by investing in 24K digital gold securely, starting
+            with just <span className="font-bold text-white">₹100</span>.
+          </motion.p>
+
+          <motion.div
+            initial={{ y: 75, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ ...transitionContent, delay: 2.8 }}
+            className="mt-10 flex gap-5"
+          >
+            <motion.button
+              whileHover={{ scale: 1.03, boxShadow: "0 0 30px rgba(212,175,55,0.4)" }}
+              whileTap={{ scale: 0.98 }}
+              className="rounded-lg bg-[#D4AF37] px-8 py-3.5 text-base font-semibold text-[#0C173D] shadow-lg"
+            >
+              Get Started
+            </motion.button>
+            <motion.button
+              whileHover={{ scale: 1.03, borderColor: "#F5D78E" }}
+              whileTap={{ scale: 0.98 }}
+              className="rounded-lg border-2 border-[#D4AF37] bg-transparent px-8 py-3.5 text-base font-medium text-white"
+            >
+              Learn More
+            </motion.button>
+          </motion.div>
+        </div>
+
+        {/* Right: phone + gold images – fade from right after SVG */}
+        <div 
+          className="relative z-10 h-[520px] flex justify-center items-center"
+          data-aos="fade-right"
+          data-aos-delay="2600" // Slightly later than left content for staggered effect
+          data-aos-duration="1000"
+          data-aos-once="true"
+        >
+          <div className="relative w-full h-full flex justify-center items-center">
+            {/* Background glow effects - keep framer motion for these */}
+            <motion.div
+              initial={{ x: 40, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ ...transitionContent, delay: 2.8 }}
+              className="absolute w-[420px] h-[420px] rounded-full bg-[#D4AF37]/20 blur-[100px]"
+            />
+            <motion.div
+              animate={{ opacity: [0.4, 0.7, 0.4] }}
+              transition={{ duration: 4, repeat: Infinity }}
+              className="absolute w-[380px] h-[380px] rounded-full bg-[#D4AF37]/15 blur-3xl"
+            />
+
+            {/* Gold coin - with both framer motion and AOS */}
+            <div
+              data-aos="zoom-in"
+              data-aos-delay="2800"
+              data-aos-duration="600"
+              data-aos-once="true"
+              className="absolute w-64 left-[5%] top-[2%]"
+            >
+              <motion.div
+                initial={{ scale: 0.5, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ ...transitionZoom, delay: 3.0 }}
+              >
+                <Image src="/assets/gold_coin.png" alt="" width={256} height={256} />
+              </motion.div>
+            </div>
+
+            {/* Gold biscuit */}
+            <div
+              data-aos="zoom-in"
+              data-aos-delay="3000"
+              data-aos-duration="600"
+              data-aos-once="true"
+              className="absolute w-64 right-[2%] bottom-[18%]"
+            >
+              <motion.div
+                initial={{ scale: 0.5, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ ...transitionZoom, delay: 3.2 }}
+              >
+                <Image src="/assets/gold_biscuit.png" alt="" width={256} height={256} />
+              </motion.div>
+            </div>
+
+            {/* Phone */}
+            <div
+              data-aos="fade-left"
+              data-aos-delay="3200"
+              data-aos-duration="800"
+              data-aos-once="true"
+              className="relative z-10"
+            >
+              <motion.div
+                initial={{ scale: 0.5, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ ...transitionZoom, delay: 3.4 }}
+              >
+                <Image
+                  src="/assets/phone.png"
+                  alt="GoldInvest app"
+                  width={300}
+                  height={520}
+                  className="drop-shadow-2xl object-contain"
+                />
+              </motion.div>
+            </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

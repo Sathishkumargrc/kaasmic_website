@@ -1,20 +1,35 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { FacebookIcon, TwitterIcon, InstagramIcon } from "../assets/SocialIcons";
 
 const columns = [
   {
     title: "Company",
-    links: ["About Us", "Careers", "Blog", "Contact"],
+    links: [
+      { label: "About Us", href: "/about" },
+      { label: "Careers", href: "#" },
+      { label: "Blog", href: "/blog" },
+      { label: "Contact", href: "#" },
+    ],
   },
   {
     title: "Support",
-    links: ["FAQs", "Help Center", "Security", "Terms"],
+    links: [
+      { label: "FAQs", href: "/faq" },
+      { label: "Help Center", href: "#" },
+      { label: "Security", href: "#" },
+      { label: "Terms", href: "#" },
+    ],
   },
   {
     title: "Resources",
-    links: ["Investment Tips", "Calculator", "Gold Insights"],
+    links: [
+      { label: "Investment Tips", href: "#" },
+      { label: "Calculator", href: "#" },
+      { label: "Gold Insights", href: "#" },
+    ],
   },
 ];
 
@@ -26,7 +41,7 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="relative border-t border-white/10 bg-[#0C173D]/80 backdrop-blur-sm">
+    <footer className="relative border-t border-white/10 bg-background backdrop-blur-sm">
       <div className="px-[5.5rem] pt-16 pb-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -35,18 +50,18 @@ export default function Footer() {
           transition={{ duration: 0.5 }}
           className="grid grid-cols-4 gap-12 mb-12"
         >
-          {columns.map((col, i) => (
+          {columns?.map((col, i) => (
             <div key={col.title}>
               <p className="text-sm font-semibold text-white mb-4">{col.title}</p>
               <ul className="space-y-3">
                 {col.links.map((link) => (
-                  <li key={link}>
-                    <a
-                      href="#"
+                  <li key={link.label}>
+                    <Link
+                      href={link.href}
                       className="text-[14px] text-white/70 hover:text-[#D4AF37] transition-colors"
                     >
-                      {link}
-                    </a>
+                      {link.label}
+                    </Link>
                   </li>
                 ))}
               </ul>
