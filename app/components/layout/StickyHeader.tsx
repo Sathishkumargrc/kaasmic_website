@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import LogoIcon from "../assets/LogoIcon";
+import Image from "next/image";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -29,7 +30,14 @@ export default function StickyHeader({ isVisible }: StickyHeaderProps) {
       className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-[5.5rem] py-4 bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-lg"
     >
       <Link href="/" className="flex items-center gap-3">
-        <LogoIcon className="w-8 h-8 shrink-0 text-[#0C173D]" />
+        {/* <LogoIcon className="w-8 h-8 shrink-0 text-[#0C173D]" /> */}
+        <Image
+          src="/assets/kassmic_logo.png"
+          alt="Kaasmic Logo"
+          width={40}
+          height={40}
+          className="shrink-0"
+        />
         <span className="text-lg font-bold text-[#0C173D] tracking-tight">
           Kaasmic
         </span>
@@ -45,9 +53,7 @@ export default function StickyHeader({ isVisible }: StickyHeaderProps) {
             {label}
           </Link>
         ))}
-        <button
-          className="rounded-lg bg-[#D4AF37] px-6 py-2 text-sm font-medium text-white hover:bg-[#D4AF37]/90 transition-colors"
-        >
+        <button className="rounded-lg bg-[#D4AF37] px-6 py-2 text-sm font-medium text-white hover:bg-[#D4AF37]/90 transition-colors">
           Login
         </button>
       </nav>

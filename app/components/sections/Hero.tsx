@@ -293,7 +293,9 @@ export default function HeroWithHeader() {
         className="absolute top-0 left-0 right-0 z-50 flex items-center justify-between px-[5.5rem] py-6"
       >
         <Link href="/" className="flex items-center gap-3">
-          <LogoIcon className="w-10 h-10 shrink-0 text-white" />
+          {/* <LogoIcon className="w-10 h-10 shrink-0 text-white" />
+           */}
+          <Image src="/assets/kassmic_logo.png" alt="Kaasmic Logo" width={40} height={40} className="shrink-0" />
           <span className="text-xl font-bold text-white tracking-tight">
             Kaasmic
           </span>
@@ -343,7 +345,7 @@ export default function HeroWithHeader() {
             className="absolute top-0 right-0 w-full h-full"
           >
             <svg
-              className="h-full w-full object-right-top object-fit"
+              className="h-full w-full object-right-top object-fit opacity-30"
               viewBox="0 0 1350 850"
               fill="none"
               preserveAspectRatio="xMaxYMin meet"
@@ -363,7 +365,7 @@ export default function HeroWithHeader() {
             className="absolute top-0 right-0 w-[85%] h-full"
           >
             <svg
-              className="h-full w-full object-right-top object-cover"
+              className="h-full w-full object-right-top object-cover opacity-20"
               viewBox="0 0 1200 920"
               fill="none"
               preserveAspectRatio="xMaxYMin meet"
@@ -485,19 +487,19 @@ export default function HeroWithHeader() {
               data-aos-delay="2800"
               data-aos-duration="600"
               data-aos-once="true"
-              className="absolute w-64 left-[5%] top-[2%]"
+              className="absolute w-80 left-[55%] top-[50%]"
             >
               <motion.div
                 initial={{ scale: 0.5, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ ...transitionZoom, delay: 3.0 }}
               >
-                <Image src="/assets/gold_coin.png" alt="" width={256} height={256} />
+                <Image src="/assets/gold_coin.png" alt="" width={300} height={256} className="" />
               </motion.div>
             </div>
 
             {/* Gold biscuit */}
-            <div
+            {/* <div
               data-aos="zoom-in"
               data-aos-delay="3000"
               data-aos-duration="600"
@@ -511,7 +513,7 @@ export default function HeroWithHeader() {
               >
                 <Image src="/assets/gold_biscuit.png" alt="" width={256} height={256} />
               </motion.div>
-            </div>
+            </div> */}
 
             {/* Phone */}
             <div
@@ -527,11 +529,11 @@ export default function HeroWithHeader() {
                 transition={{ ...transitionZoom, delay: 3.4 }}
               >
                 <Image
-                  src="/assets/phone.png"
+                  src="/assets/iPhone_15.png"
                   alt="GoldInvest app"
-                  width={300}
+                  width={550}
                   height={520}
-                  className="drop-shadow-2xl object-contain"
+                  className="drop-shadow-2xl object-contain ml-100px"
                 />
               </motion.div>
             </div>
