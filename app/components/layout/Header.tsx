@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import LogoIcon from "../assets/LogoIcon";
+import Image from "next/image";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -53,7 +54,8 @@ export default function Header({ isScrolled: isScrolledProp, fixedWhenScrolled =
       }`}
     >
       <Link href="/" className="flex items-center gap-3">
-        <LogoIcon className="w-10 h-10 shrink-0" />
+        {/* <LogoIcon className="w-10 h-10 shrink-0" /> */}
+        <Image src="/assets/kassmic_logo.png" alt="Kaasmic Logo" width={40} height={40} className="shrink-0" />
         <span className="text-xl font-bold text-white tracking-tight">
           Kaasmic
         </span>

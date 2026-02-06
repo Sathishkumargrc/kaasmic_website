@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "GoldInvest – Invest in Digital Gold with Ease",
+  title: "Kassmic – Gold Savings & Investment App",
   description:
     "Grow your wealth by investing in 24K digital gold securely, starting with just ₹100.",
 };

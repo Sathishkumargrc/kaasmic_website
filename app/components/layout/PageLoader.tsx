@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import LogoIcon from "../assets/LogoIcon";
+import Image from "next/image";
 
 const LOADER_DURATION_MS = 1000; 
 
@@ -54,7 +55,7 @@ export default function PageLoader({ onComplete }: PageLoaderProps) {
 
             {/* Center logo */}
             <div className="absolute inset-0 flex items-center justify-center">
-              <LogoIcon className="w-10 h-10 text-[#D4AF37]" />
+              <Image src="/assets/kassmic_logo.png" alt="Kaasmic Logo" width={40} height={40} className="shrink-0" />
             </div>
           </motion.div>
         </motion.div>
