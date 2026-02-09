@@ -40,7 +40,9 @@
 //         className="absolute top-0 left-0 right-0 z-50 flex items-center justify-between px-[5.5rem] py-6"
 //       >
 //         <Link href="/" className="flex items-center gap-3">
-//           <LogoIcon className="w-10 h-10 shrink-0 text-white" />
+//           {/* <LogoIcon className="w-10 h-10 shrink-0 text-white" />
+//            */}
+//           <Image src="/assets/kassmic_logo.png" alt="Kaasmic Logo" width={40} height={40} className="shrink-0" />
 //           <span className="text-xl font-bold text-white tracking-tight">
 //             Kaasmic
 //           </span>
@@ -90,14 +92,14 @@
 //             className="absolute top-0 right-0 w-full h-full"
 //           >
 //             <svg
-//               className="h-full w-full object-right-top object-fit"
+//               className="h-full w-full object-right-top object-fit opacity-30"
 //               viewBox="0 0 1350 850"
 //               fill="none"
 //               preserveAspectRatio="xMaxYMin meet"
 //             >
 //               <path
 //                 d="M0 0H1414V640L1028 972C1028 972 887 1068 774 927L0 0Z"
-//                 fill="rgb(208, 203, 224)"
+//                 fill="rgba(255, 255, 255, 0.2)"
 //               />
 //             </svg>
 //           </motion.div>
@@ -110,7 +112,7 @@
 //             className="absolute top-0 right-0 w-[85%] h-full"
 //           >
 //             <svg
-//               className="h-full w-full object-right-top object-cover"
+//               className="h-full w-full object-right-top object-cover opacity-20"
 //               viewBox="0 0 1200 920"
 //               fill="none"
 //               preserveAspectRatio="xMaxYMin meet"
@@ -123,8 +125,8 @@
 //                   y1="86.603%"
 //                   y2="0%"
 //                 >
-//                   <stop offset="50%" stopColor="rgb(72,10,231)" stopOpacity="1" />
-//                   <stop offset="100%" stopColor="rgb(127,6,238)" stopOpacity="1" />
+//                   <stop offset="50%" stopColor="rgba(255, 255, 255, 0.2)" stopOpacity="1" />
+//                   <stop offset="100%" stopColor="rgba(255, 255, 255, 0.2)" stopOpacity="1" />
 //                 </linearGradient>
 //               </defs>
 //               <path
@@ -151,12 +153,18 @@
 //           ))}
 //         </div>
 
-//         {/* Left content – above shapes */}
-//         <div className="relative z-10" data-aos='fade-up'>
+//         {/* Left content – fade up animation after SVG (2.4s delay for SVG completion) */}
+//         <div
+//           className="relative z-10"
+//           data-aos="fade-up"
+//           data-aos-delay="2400" // 2.4 seconds after SVG animations complete
+//           data-aos-duration="800"
+//           data-aos-once="true"
+//         >
 //           <motion.h1
 //             initial={{ y: 75, opacity: 0 }}
 //             animate={{ y: 0, opacity: 1 }}
-//             transition={{ ...transitionContent, delay: 1.2 }}
+//             transition={{ ...transitionContent, delay: 2.4 }}
 //             className="text-[3.25rem] leading-[1.15] font-bold text-white tracking-tight"
 //           >
 //             Invest in{" "}
@@ -168,7 +176,7 @@
 //           <motion.p
 //             initial={{ y: 75, opacity: 0 }}
 //             animate={{ y: 0, opacity: 1 }}
-//             transition={{ ...transitionContent, delay: 1.5 }}
+//             transition={{ ...transitionContent, delay: 2.6 }}
 //             className="mt-6 text-lg text-white/90 leading-relaxed max-w-[28rem]"
 //           >
 //             Grow your wealth by investing in 24K digital gold securely, starting
@@ -178,7 +186,7 @@
 //           <motion.div
 //             initial={{ y: 75, opacity: 0 }}
 //             animate={{ y: 0, opacity: 1 }}
-//             transition={{ ...transitionContent, delay: 1.8 }}
+//             transition={{ ...transitionContent, delay: 2.8 }}
 //             className="mt-10 flex gap-5"
 //           >
 //             <motion.button
@@ -198,13 +206,20 @@
 //           </motion.div>
 //         </div>
 
-//         {/* Right: phone + gold images */}
-//         <div className="relative z-10 h-[520px] flex justify-center items-center" data-aos='fade-right' data-aos-duration='1000'>
+//         {/* Right: phone + gold images – fade from right after SVG */}
+//         <div
+//           className="relative z-10 h-[520px] flex justify-center items-center"
+//           data-aos="fade-right"
+//           data-aos-delay="2600" // Slightly later than left content for staggered effect
+//           data-aos-duration="1000"
+//           data-aos-once="true"
+//         >
 //           <div className="relative w-full h-full flex justify-center items-center">
+//             {/* Background glow effects - keep framer motion for these */}
 //             <motion.div
 //               initial={{ x: 40, opacity: 0 }}
 //               animate={{ x: 0, opacity: 1 }}
-//               transition={{ ...transitionContent, delay: 1.8 }}
+//               transition={{ ...transitionContent, delay: 2.8 }}
 //               className="absolute w-[420px] h-[420px] rounded-full bg-[#D4AF37]/20 blur-[100px]"
 //             />
 //             <motion.div
@@ -213,37 +228,62 @@
 //               className="absolute w-[380px] h-[380px] rounded-full bg-[#D4AF37]/15 blur-3xl"
 //             />
 
-//             <motion.div
-//               initial={{ scale: 0.5, opacity: 0 }}
-//               animate={{ scale: 1, opacity: 1 }}
-//               transition={{ ...transitionZoom, delay: 2.2 }}
-//               className="absolute w-64 left-[5%] top-[2%]"
+//             {/* Gold coin - with both framer motion and AOS */}
+//             <div
+//               data-aos="zoom-in"
+//               data-aos-delay="2800"
+//               data-aos-duration="600"
+//               data-aos-once="true"
+//               className="absolute w-80 left-[55%] top-[50%]"
 //             >
-//               <Image src="/assets/gold_coin.png" alt="" width={256} height={256} />
-//             </motion.div>
-//             <motion.div
-//               initial={{ scale: 0.5, opacity: 0 }}
-//               animate={{ scale: 1, opacity: 1 }}
-//               transition={{ ...transitionZoom, delay: 2.4 }}
+//               <motion.div
+//                 initial={{ scale: 0.5, opacity: 0 }}
+//                 animate={{ scale: 1, opacity: 1 }}
+//                 transition={{ ...transitionZoom, delay: 3.0 }}
+//               >
+//                 <Image src="/assets/gold_coin.png" alt="" width={300} height={256} className="" />
+//               </motion.div>
+//             </div>
+
+//             {/* Gold biscuit */}
+//             {/* <div
+//               data-aos="zoom-in"
+//               data-aos-delay="3000"
+//               data-aos-duration="600"
+//               data-aos-once="true"
 //               className="absolute w-64 right-[2%] bottom-[18%]"
 //             >
-//               <Image src="/assets/gold_biscuit.png" alt="" width={256} height={256} />
-//             </motion.div>
+//               <motion.div
+//                 initial={{ scale: 0.5, opacity: 0 }}
+//                 animate={{ scale: 1, opacity: 1 }}
+//                 transition={{ ...transitionZoom, delay: 3.2 }}
+//               >
+//                 <Image src="/assets/gold_biscuit.png" alt="" width={256} height={256} />
+//               </motion.div>
+//             </div> */}
 
-//             <motion.div
-//               initial={{ scale: 0.5, opacity: 0 }}
-//               animate={{ scale: 1, opacity: 1 }}
-//               transition={{ ...transitionZoom, delay: 2.6 }}
+//             {/* Phone */}
+//             <div
+//               data-aos="fade-left"
+//               data-aos-delay="3200"
+//               data-aos-duration="800"
+//               data-aos-once="true"
 //               className="relative z-10"
 //             >
-//               <Image
-//                 src="/assets/phone.png"
-//                 alt="GoldInvest app"
-//                 width={300}
-//                 height={520}
-//                 className="drop-shadow-2xl object-contain"
-//               />
-//             </motion.div>
+//               <motion.div
+//                 initial={{ scale: 0.5, opacity: 0 }}
+//                 animate={{ scale: 1, opacity: 1 }}
+//                 transition={{ ...transitionZoom, delay: 3.4 }}
+//               >
+//                 <Image
+//                   src="/assets/iPhone_15.png"
+//                   alt="GoldInvest app"
+//                   width={550}
+//                   height={520}
+//                   className="drop-shadow-2xl object-contain ml-100px"
+//                 />
+//               </motion.div>
+//             </div>
 //           </div>
 //         </div>
 //       </div>
@@ -255,9 +295,9 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { useMemo } from "react";
+import { useMemo, useState, useEffect } from "react";
 import Link from "next/link";
-import LogoIcon from "../assets/LogoIcon";
+import LivePrice from "../livePrice";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -293,16 +333,20 @@ export default function HeroWithHeader() {
         className="absolute top-0 left-0 right-0 z-50 flex items-center justify-between px-[5.5rem] py-6"
       >
         <Link href="/" className="flex items-center gap-3">
-          {/* <LogoIcon className="w-10 h-10 shrink-0 text-white" />
-           */}
-          <Image src="/assets/kassmic_logo.png" alt="Kaasmic Logo" width={40} height={40} className="shrink-0" />
+          <Image
+            src="/assets/kassmic_logo.png"
+            alt="Kaasmic Logo"
+            width={40}
+            height={40}
+            className="shrink-0"
+          />
           <span className="text-xl font-bold text-white tracking-tight">
             Kaasmic
           </span>
         </Link>
 
         <nav className="flex items-center gap-10">
-          {navLinks.map(({ label, href }, i) => (
+          {navLinks?.map(({ label, href }, i) => (
             <motion.div
               key={label}
               initial={{ opacity: 0 }}
@@ -317,16 +361,9 @@ export default function HeroWithHeader() {
               </Link>
             </motion.div>
           ))}
-          <motion.button
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.3 }}
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            className="rounded-lg border-2 border-[#D4AF37] bg-transparent px-6 py-2.5 text-[15px] font-medium text-white hover:bg-[#D4AF37]/10 transition-colors"
-          >
-            Login
-          </motion.button>
+
+          {/* Live Metal Rates */}
+         <LivePrice />
         </nav>
       </motion.header>
 
@@ -378,8 +415,16 @@ export default function HeroWithHeader() {
                   y1="86.603%"
                   y2="0%"
                 >
-                  <stop offset="50%" stopColor="rgba(255, 255, 255, 0.2)" stopOpacity="1" />
-                  <stop offset="100%" stopColor="rgba(255, 255, 255, 0.2)" stopOpacity="1" />
+                  <stop
+                    offset="50%"
+                    stopColor="rgba(255, 255, 255, 0.2)"
+                    stopOpacity="1"
+                  />
+                  <stop
+                    offset="100%"
+                    stopColor="rgba(255, 255, 255, 0.2)"
+                    stopOpacity="1"
+                  />
                 </linearGradient>
               </defs>
               <path
@@ -407,10 +452,10 @@ export default function HeroWithHeader() {
         </div>
 
         {/* Left content – fade up animation after SVG (2.4s delay for SVG completion) */}
-        <div 
+        <div
           className="relative z-10"
           data-aos="fade-up"
-          data-aos-delay="2400" // 2.4 seconds after SVG animations complete
+          data-aos-delay="2400"
           data-aos-duration="800"
           data-aos-once="true"
         >
@@ -420,8 +465,7 @@ export default function HeroWithHeader() {
             transition={{ ...transitionContent, delay: 2.4 }}
             className="text-[3.25rem] leading-[1.15] font-bold text-white tracking-tight"
           >
-            Invest in{" "}
-            <span className="text-[#D4AF37]">Digital Gold</span>
+            Invest in <span className="text-[#D4AF37]">Digital Gold</span>
             <br />
             with Ease
           </motion.h1>
@@ -443,7 +487,10 @@ export default function HeroWithHeader() {
             className="mt-10 flex gap-5"
           >
             <motion.button
-              whileHover={{ scale: 1.03, boxShadow: "0 0 30px rgba(212,175,55,0.4)" }}
+              whileHover={{
+                scale: 1.03,
+                boxShadow: "0 0 30px rgba(212,175,55,0.4)",
+              }}
               whileTap={{ scale: 0.98 }}
               className="rounded-lg bg-[#D4AF37] px-8 py-3.5 text-base font-semibold text-[#0C173D] shadow-lg"
             >
@@ -460,15 +507,15 @@ export default function HeroWithHeader() {
         </div>
 
         {/* Right: phone + gold images – fade from right after SVG */}
-        <div 
+        <div
           className="relative z-10 h-[520px] flex justify-center items-center"
           data-aos="fade-right"
-          data-aos-delay="2600" // Slightly later than left content for staggered effect
+          data-aos-delay="2600"
           data-aos-duration="1000"
           data-aos-once="true"
         >
           <div className="relative w-full h-full flex justify-center items-center">
-            {/* Background glow effects - keep framer motion for these */}
+            {/* Background glow effects */}
             <motion.div
               initial={{ x: 40, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
@@ -481,7 +528,7 @@ export default function HeroWithHeader() {
               className="absolute w-[380px] h-[380px] rounded-full bg-[#D4AF37]/15 blur-3xl"
             />
 
-            {/* Gold coin - with both framer motion and AOS */}
+            {/* Gold coin */}
             <div
               data-aos="zoom-in"
               data-aos-delay="2800"
@@ -494,26 +541,15 @@ export default function HeroWithHeader() {
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ ...transitionZoom, delay: 3.0 }}
               >
-                <Image src="/assets/gold_coin.png" alt="" width={300} height={256} className="" />
+                <Image
+                  src="/assets/gold_coin.png"
+                  alt=""
+                  width={300}
+                  height={256}
+                  className=""
+                />
               </motion.div>
             </div>
-
-            {/* Gold biscuit */}
-            {/* <div
-              data-aos="zoom-in"
-              data-aos-delay="3000"
-              data-aos-duration="600"
-              data-aos-once="true"
-              className="absolute w-64 right-[2%] bottom-[18%]"
-            >
-              <motion.div
-                initial={{ scale: 0.5, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                transition={{ ...transitionZoom, delay: 3.2 }}
-              >
-                <Image src="/assets/gold_biscuit.png" alt="" width={256} height={256} />
-              </motion.div>
-            </div> */}
 
             {/* Phone */}
             <div
@@ -521,7 +557,7 @@ export default function HeroWithHeader() {
               data-aos-delay="3200"
               data-aos-duration="800"
               data-aos-once="true"
-              className="relative z-10"
+              className="relative z-10 blur-lg"
             >
               <motion.div
                 initial={{ scale: 0.5, opacity: 0 }}
@@ -534,6 +570,7 @@ export default function HeroWithHeader() {
                   width={550}
                   height={520}
                   className="drop-shadow-2xl object-contain ml-100px"
+                  title="🚀 Mobile app launching soon"
                 />
               </motion.div>
             </div>
