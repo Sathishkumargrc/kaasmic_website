@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import LogoIcon from "../assets/LogoIcon";
 import Image from "next/image";
+import LivePrice from "../livePrice";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -53,9 +54,8 @@ export default function StickyHeader({ isVisible }: StickyHeaderProps) {
             {label}
           </Link>
         ))}
-        <button className="rounded-lg bg-[#D4AF37] px-6 py-2 text-sm font-medium text-white hover:bg-[#D4AF37]/90 transition-colors">
-          Login
-        </button>
+       
+       <LivePrice type="sticky" />
       </nav>
     </motion.header>
   );

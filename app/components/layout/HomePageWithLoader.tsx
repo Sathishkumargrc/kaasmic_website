@@ -59,6 +59,11 @@ import HeroWithHeader from "../sections/Hero";
 import StickyHeader from "./StickyHeader";
 import Features from "../sections/Features";
 import Footer from "./Footer";
+import HowItWorksSection from "../sections/HowItWorks";
+import LivePriceSection from "../sections/Livepricesection";
+import WhyChooseSection from "../sections/Whychoosesection";
+import TestimonialsSection from "../sections/Testimonialssection";
+import AppDownloadSection from "../sections/Appdownloadsection";
 
 export default function HomePageWithLoader() {
   const [loaderDone, setLoaderDone] = useState(false);
@@ -96,6 +101,11 @@ export default function HomePageWithLoader() {
             {/* Rest of the content */}
             <div className="bg-white">
               <Features />
+              <HowItWorksSection />
+              <LivePriceSection />
+              <WhyChooseSection />
+              <TestimonialsSection />
+              <AppDownloadSection />
               <Footer />
             </div>
           </motion.div>
