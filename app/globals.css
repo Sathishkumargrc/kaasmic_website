@@ -8,21 +8,22 @@
   --gold-accent: #C9A227;
   --background: #0C173D;
   --foreground: #ffffff;
+  --font-roboto: Roboto, system-ui, sans-serif;
 }
 
-@theme inline {
+@theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-roboto);
 }
 
 body {
   background: linear-gradient(180deg, var(--primary-start) 0%, #162a6b 40%, var(--primary-end) 100%);
   background-attachment: fixed;
   color: var(--foreground);
-  font-family: var(--font-sans), system-ui, sans-serif;
+  font-family: var(--font-roboto), system-ui, sans-serif;
 }
+
 
 /* Milder dark gradient for main sections */
 .bg-gold-gradient {

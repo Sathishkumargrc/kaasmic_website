@@ -18,6 +18,7 @@ import {
   DialogTitle,
 } from "../ui/dialog";
 import { Pagination } from "../ui/pagination";
+import Image from "next/image";
 
 interface BlogArticle {
   uuid: string;
@@ -133,8 +134,8 @@ export default function BlogContent() {
                 <Card className="h-full overflow-hidden border-white/10 bg-[#0C173D]/80 transition-colors hover:border-[#D4AF37]/30">
                   {article.image_url ? (
                     <div className="relative h-40 w-full overflow-hidden">
-                      <img
-                        src={article.image_url}
+                      <Image
+                        src={article?.image_url}
                         alt=""
                         className="h-full w-full object-cover"
                       />
@@ -186,7 +187,7 @@ export default function BlogContent() {
               </DialogHeader>
               {selected.image_url && (
                 <div className="relative h-48 w-full overflow-hidden rounded-lg">
-                  <img
+                  <Image
                     src={selected.image_url}
                     alt=""
                     className="h-full w-full object-cover"

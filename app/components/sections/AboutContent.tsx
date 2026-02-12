@@ -11,29 +11,11 @@ import {
 
 const profiles = [
   {
-    name: "Alex Chen",
-    role: "CEO & Co-founder",
-    bio: "Former fintech lead. Passionate about making gold investment accessible.",
-    initials: "AC",
-  },
-  {
-    name: "Priya Sharma",
-    role: "CFO",
-    bio: "15+ years in treasury and commodity markets. Ensures your gold is safe.",
-    initials: "PS",
-  },
-  {
-    name: "Marcus Webb",
-    role: "Head of Product",
-    bio: "Designs simple, secure experiences for buying and redeeming digital gold.",
-    initials: "MW",
-  },
-  {
-    name: "Dr. Ravi Krishnan",
-    role: "Advisor",
-    bio: "Economist and gold market expert. Guides our product and compliance.",
-    initials: "RK",
-  },
+    name: "Saravanan",
+    role: "founder",
+    bio: "Founder of Kaasmic technology",
+    initials: "S",
+  }
 ];
 
 export default function AboutContent() {
