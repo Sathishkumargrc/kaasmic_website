@@ -25,7 +25,7 @@ const benefits = [
   {
     title: "Trusted Platform",
     description: "Over 5 lakh+ satisfied investors trust us with their gold investments. Join India's fastest-growing gold investment platform.",
-    stat: "5L+",
+    stat: "10k+",
     icon: "🛡️"
   }
 ];

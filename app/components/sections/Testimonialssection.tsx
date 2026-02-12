@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 
 const testimonials = [
   {
@@ -53,7 +54,42 @@ const testimonials = [
   }
 ];
 
+// Duplicate testimonials for seamless infinite scroll
+const duplicatedTestimonials = [...testimonials, ...testimonials, ...testimonials];
+
 export default function TestimonialsSection() {
+  const [isHovered, setIsHovered] = useState(false);
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const animationRef = useRef<number | null>(null);
+  const scrollPositionRef = useRef(0);
+
+  useEffect(() => {
+    const scrollContainer = scrollRef.current;
+    if (!scrollContainer) return;
+
+    const scroll = () => {
+      if (!isHovered) {
+        scrollPositionRef.current += 0.8; // Scroll speed
+        
+        // Reset to start when reaching the end of first set
+        if (scrollPositionRef.current >= scrollContainer.scrollWidth / 3) {
+          scrollPositionRef.current = 0;
+        }
+        
+        scrollContainer.scrollLeft = scrollPositionRef.current;
+      }
+      
+      animationRef.current = requestAnimationFrame(scroll);
+    };
+
+    animationRef.current = requestAnimationFrame(scroll);
+
+    return () => {
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+      }
+    };
+  }, [isHovered]);
 
   return (
     <section className="relative py-24 bg-white overflow-hidden">
@@ -74,51 +110,65 @@ export default function TestimonialsSection() {
           </p>
         </motion.div>
 
-        {/* Testimonials Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {testimonials.map((testimonial, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ y: -8 }}
-              className="group"
-            >
-              <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg border border-gray-100 h-full hover:shadow-2xl transition-all duration-300 relative overflow-hidden">
-                {/* Gold accent */}
-                <div className="absolute top-0 right-0 w-24 h-24 bg-[#D4AF37]/10 rounded-full blur-2xl group-hover:bg-[#D4AF37]/20 transition-colors"></div>
-                
-                {/* Rating */}
-                <div className="flex gap-1 mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <span key={i} className="text-[#D4AF37] text-xl">★</span>
-                  ))}
-                </div>
+        {/* Continuous Scroll Container */}
+        <div 
+          ref={scrollRef}
+          className="overflow-x-auto scrollbar-hide py-4"
+          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
+          <style jsx>{`
+            div::-webkit-scrollbar {
+              display: none;
+            }
+          `}</style>
+          
+          <div className="grid grid-flow-col auto-cols-[calc(33.333%-1.33rem)] gap-8">
+            {duplicatedTestimonials?.map((testimonial, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.02 }}
+                whileHover={{ y: -8 }}
+                className="group w-full"
+              >
+                <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg border border-gray-100 h-full hover:shadow-2xl transition-all duration-300 relative overflow-hidden">
+                  {/* Gold accent */}
+                  <div className="absolute top-0 right-0 w-24 h-24 bg-[#D4AF37]/10 rounded-full blur-2xl group-hover:bg-[#D4AF37]/20 transition-colors"></div>
+                  
+                  {/* Rating */}
+                  <div className="flex gap-1 mb-4">
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <span key={i} className="text-[#D4AF37] text-xl">★</span>
+                    ))}
+                  </div>
 
-                {/* Quote */}
-                <p className="text-gray-700 leading-relaxed mb-6 relative z-10">
-                  &quot;{testimonial.text}&quot;
-                </p>
+                  {/* Quote */}
+                  <p className="text-gray-700 leading-relaxed mb-6 relative z-10">
+                    &quot;{testimonial.text}&quot;
+                  </p>
 
-                {/* User Info */}
-                <div className="flex items-center gap-4 pt-6 border-t border-gray-200">
-                  <div className="w-14 h-14 bg-gradient-to-br from-[#D4AF37] to-[#F5D78E] rounded-full flex items-center justify-center text-3xl shadow-md">
-                    {testimonial.image}
-                  </div>
-                  <div className="flex-1">
-                    <h4 className="font-bold text-[#0C173D]">{testimonial.name}</h4>
-                    <p className="text-sm text-gray-500">{testimonial.location}</p>
-                  </div>
-                  <div className="text-right">
-                    <p className="text-xs text-gray-500">Invested</p>
-                    <p className="text-sm font-bold text-[#D4AF37]">{testimonial.investment}</p>
+                  {/* User Info */}
+                  <div className="flex items-center gap-4 pt-6 border-t border-gray-200">
+                    <div className="w-14 h-14 bg-gradient-to-br from-[#D4AF37] to-[#F5D78E] rounded-full flex items-center justify-center text-3xl shadow-md">
+                      {testimonial.image}
+                    </div>
+                    <div className="flex-1">
+                      <h4 className="font-bold text-[#0C173D]">{testimonial.name}</h4>
+                      <p className="text-sm text-gray-500">{testimonial.location}</p>
+                    </div>
+                    <div className="text-right">
+                      <p className="text-xs text-gray-500">Invested</p>
+                      <p className="text-sm font-bold text-[#D4AF37]">{testimonial.investment}</p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            ))}
+          </div>
         </div>
 
         {/* Stats Bar */}
@@ -131,11 +181,11 @@ export default function TestimonialsSection() {
         >
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-4xl font-bold text-[#D4AF37] mb-2">5L+</div>
+              <div className="text-4xl font-bold text-[#D4AF37] mb-2">10K+</div>
               <div className="text-white/80">Happy Investors</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-[#D4AF37] mb-2">₹500Cr+</div>
+              <div className="text-4xl font-bold text-[#D4AF37] mb-2">₹5Cr+</div>
               <div className="text-white/80">Gold Invested</div>
             </div>
             <div>

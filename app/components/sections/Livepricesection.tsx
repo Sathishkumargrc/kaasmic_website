@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
 
@@ -44,7 +45,7 @@ export default function LivePriceSection() {
   }, []);
 
   return (
-    <section className="relative py-24 bg-white overflow-hidden">
+    <section className="relative py-24 bg-white overflow-hidden scroll-mt-[100px]" id="pricing" >
       <div className="max-w-7xl mx-auto px-8">
         {/* Section Header */}
         <motion.div
@@ -79,8 +80,16 @@ export default function LivePriceSection() {
           >
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-3">
-                <div className="w-12 h-12 bg-[#D4AF37] rounded-full flex items-center justify-center">
-                  <span className="text-2xl">🏆</span>
+                <div className="w-12 h-12  rounded-full flex items-center justify-center">
+                  <span className="text-2xl">
+                    <Image 
+                     src="/assets/gold_icon.png"
+                     alt="Gold Icon"
+                      width={70}
+                      height={70}
+                      className="object-contain"
+                    />
+                  </span>
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold text-[#0C173D]">Gold</h3>
@@ -114,8 +123,16 @@ export default function LivePriceSection() {
           >
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-3">
-                <div className="w-12 h-12 bg-gray-400 rounded-full flex items-center justify-center">
-                  <span className="text-2xl">⚪</span>
+                <div className="w-12 h-12 rounded-full flex items-center justify-center">
+                  <span className="text-2xl">
+                     <Image 
+                     src="/assets/silver_icon.png"
+                     alt="Silver Icon"
+                      width={70}
+                      height={70}
+                      className="object-contain"
+                    />
+                  </span>
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold text-[#0C173D]">Silver</h3>
@@ -155,7 +172,7 @@ export default function LivePriceSection() {
                   onClick={() => setActiveTimeframe(tf?.value)}
                   className={`px-4 py-2 rounded-lg font-medium text-sm transition-all ${
                     activeTimeframe === tf?.value
-                      ? "bg-[#D4AF37] text-white shadow-md"
+                      ? `${activeTab === "gold" ? `bg-[#D4AF37]` : `bg-[#C0C0C0]`} text-white shadow-md`
                       : "text-gray-600 hover:text-[#0C173D]"
                   }`}
                 >

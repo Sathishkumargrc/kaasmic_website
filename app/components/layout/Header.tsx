@@ -5,15 +5,8 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import LogoIcon from "../assets/LogoIcon";
 import Image from "next/image";
-
-const navLinks = [
-  { label: "Home", href: "/" },
-  { label: "Features", href: "/#features" },
-  { label: "Pricing", href: "/#pricing" },
-  { label: "About", href: "/about" },
-  { label: "Blog", href: "/blog" },
-  { label: "FAQ", href: "/faq" },
-];
+import LivePrice from "../livePrice";
+import { navLinks } from "../helper/CommonVariable";
 
 const SCROLL_THRESHOLD = 60;
 
@@ -26,10 +19,14 @@ interface HeaderProps {
   fixedWhenScrolled?: boolean;
 }
 
-export default function Header({ isScrolled: isScrolledProp, fixedWhenScrolled = false }: HeaderProps) {
+export default function Header({
+  isScrolled: isScrolledProp,
+  fixedWhenScrolled = false,
+}: HeaderProps) {
   const [internalScrolled, setInternalScrolled] = useState(false);
   useEffect(() => {
-    const onScroll = () => setInternalScrolled(window.scrollY > SCROLL_THRESHOLD);
+    const onScroll = () =>
+      setInternalScrolled(window.scrollY > SCROLL_THRESHOLD);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -55,38 +52,30 @@ export default function Header({ isScrolled: isScrolledProp, fixedWhenScrolled =
     >
       <Link href="/" className="flex items-center gap-3">
         {/* <LogoIcon className="w-10 h-10 shrink-0" /> */}
-        <Image src="/assets/kassmic_logo.png" alt="Kaasmic Logo" width={40} height={40} className="shrink-0" />
+        <Image
+          src="/assets/kassmic_logo.png"
+          alt="Kaasmic Logo"
+          width={40}
+          height={40}
+          className="shrink-0"
+        />
         <span className="text-xl font-bold text-white tracking-tight">
           Kaasmic
         </span>
       </Link>
 
-      <nav className="flex items-center gap-10">
-        {navLinks.map(({ label, href }, i) => (
-          <motion.div
+      <nav className="flex items-center gap-8">
+        {navLinks?.map(({ label, href }) => (
+          <Link
             key={label}
-            initial={!isScrolled ? { opacity: 0 } : false}
-            animate={!isScrolled ? { opacity: 1 } : false}
-            transition={{ delay: 0.1 + i * 0.05 }}
+            className="text-sm font-medium text-white-700 hover:text-[#D4AF37] transition-colors"
+            href={label === "Pricing" ? "/#pricing" : href}
           >
-            <Link
-              href={href}
-              className="text-[15px] font-medium text-white hover:text-[#D4AF37] transition-colors"
-            >
-              {label}
-            </Link>
-          </motion.div>
+            {label}
+          </Link>
         ))}
-        <motion.button
-          initial={!isScrolled ? { opacity: 0 } : false}
-          animate={!isScrolled ? { opacity: 1 } : false}
-          transition={{ delay: 0.3 }}
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
-          className="rounded-lg border-2 border-[#D4AF37] bg-transparent px-6 py-2.5 text-[15px] font-medium text-white hover:bg-[#D4AF37]/10 transition-colors"
-        >
-          Login
-        </motion.button>
+
+        <LivePrice />
       </nav>
     </motion.header>
   );

@@ -5,15 +5,7 @@ import Link from "next/link";
 import LogoIcon from "../assets/LogoIcon";
 import Image from "next/image";
 import LivePrice from "../livePrice";
-
-const navLinks = [
-  { label: "Home", href: "/" },
-  { label: "Features", href: "/#features" },
-  { label: "Pricing", href: "/#pricing" },
-  { label: "About", href: "/about" },
-  { label: "Blog", href: "/blog" },
-  { label: "FAQ", href: "/faq" },
-];
+import { navLinks } from "../helper/CommonVariable";
 
 interface StickyHeaderProps {
   isVisible: boolean;
@@ -45,17 +37,17 @@ export default function StickyHeader({ isVisible }: StickyHeaderProps) {
       </Link>
 
       <nav className="flex items-center gap-8">
-        {navLinks.map(({ label, href }) => (
+        {navLinks?.map(({ label, href }) => (
           <Link
             key={label}
-            href={href}
             className="text-sm font-medium text-gray-700 hover:text-[#D4AF37] transition-colors"
+            href={label === "Pricing" ? "/#pricing" : href}
           >
             {label}
           </Link>
         ))}
-       
-       <LivePrice type="sticky" />
+
+        <LivePrice type="sticky" />
       </nav>
     </motion.header>
   );

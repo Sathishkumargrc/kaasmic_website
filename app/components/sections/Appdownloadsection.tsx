@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function AppDownloadSection() {
   return (
@@ -8,7 +9,7 @@ export default function AppDownloadSection() {
       {/* Animated Background Elements */}
       <div className="absolute inset-0">
         <motion.div
-          animate={{ 
+          animate={{
             scale: [1, 1.2, 1],
             opacity: [0.1, 0.2, 0.1],
           }}
@@ -16,7 +17,7 @@ export default function AppDownloadSection() {
           className="absolute top-0 left-1/4 w-96 h-96 bg-[#D4AF37] rounded-full blur-3xl"
         ></motion.div>
         <motion.div
-          animate={{ 
+          animate={{
             scale: [1.2, 1, 1.2],
             opacity: [0.1, 0.2, 0.1],
           }}
@@ -36,16 +37,19 @@ export default function AppDownloadSection() {
           >
             <div className="inline-flex items-center gap-2 bg-[#D4AF37]/20 backdrop-blur-sm border border-[#D4AF37]/30 rounded-full px-4 py-2 mb-6">
               <span className="w-2 h-2 bg-[#D4AF37] rounded-full animate-pulse"></span>
-              <span className="text-[#D4AF37] text-sm font-semibold">Download Now</span>
+              <span className="text-[#D4AF37] text-sm font-semibold">
+                Download Now
+              </span>
             </div>
 
             <h2 className="text-5xl font-bold text-white mb-6">
               Start Your Gold Investment Journey{" "}
               <span className="text-[#D4AF37]">Today</span>
             </h2>
-            
+
             <p className="text-xl text-white/80 mb-8 leading-relaxed">
-              Download the Kaasmic app and start investing in digital gold with just ₹100. Available on iOS and Android.
+              Download the Kaasmic app and start investing in digital gold with
+              just ₹100. Available on iOS and Android.
             </p>
 
             {/* Features List */}
@@ -54,7 +58,7 @@ export default function AppDownloadSection() {
                 "✅ Zero storage charges",
                 "✅ 24K pure gold guarantee",
                 "✅ Instant buy & sell",
-                "✅ Bank-grade security"
+                "✅ Bank-grade security",
               ].map((feature, index) => (
                 <motion.div
                   key={index}
@@ -76,8 +80,14 @@ export default function AppDownloadSection() {
                 whileTap={{ scale: 0.98 }}
                 className="bg-white text-[#0C173D] px-6 py-3 rounded-xl font-semibold flex items-center gap-3 shadow-xl hover:shadow-2xl transition-shadow"
               >
-                <div className="w-8 h-8 bg-black rounded-lg flex items-center justify-center">
-                  <span className="text-white text-xl">🍎</span>
+                <div className="w-12 h-12 rounded-lg flex items-center justify-center">
+                  <Image
+                    src="/assets/app-store.png"
+                    alt="App Store"
+                    width={130}
+                    height={130}
+                    className="object-contain"
+                  />
                 </div>
                 <div className="text-left">
                   <div className="text-xs text-gray-600">Download on the</div>
@@ -90,8 +100,13 @@ export default function AppDownloadSection() {
                 whileTap={{ scale: 0.98 }}
                 className="bg-white text-[#0C173D] px-6 py-3 rounded-xl font-semibold flex items-center gap-3 shadow-xl hover:shadow-2xl transition-shadow"
               >
-                <div className="w-8 h-8 bg-gradient-to-br from-green-400 to-blue-500 rounded-lg flex items-center justify-center">
-                  <span className="text-white text-xl">▶</span>
+                <div className="w-12 h-12 rounded-lg flex items-center justify-center">
+                  <Image
+                    src="/assets/google-play.png"
+                    alt="Google Play"
+                    width={100}
+                    height={100}
+                  />
                 </div>
                 <div className="text-left">
                   <div className="text-xs text-gray-600">Get it on</div>
@@ -109,7 +124,9 @@ export default function AppDownloadSection() {
               </div>
               <div className="text-white/80">
                 <p className="text-sm mb-1">Scan to download</p>
-                <p className="text-xs text-white/60">Available on iOS & Android</p>
+                <p className="text-xs text-white/60">
+                  Available on iOS & Android
+                </p>
               </div>
             </div>
           </motion.div>
@@ -125,25 +142,31 @@ export default function AppDownloadSection() {
             <div className="relative z-10">
               {/* Glow effect */}
               <div className="absolute inset-0 bg-[#D4AF37]/20 blur-3xl"></div>
-              
+
               {/* Phone mockup placeholder - replace with actual image */}
               <div className="relative bg-gray-900 rounded-[3rem] p-3 shadow-2xl border-8 border-gray-800 mx-auto max-w-sm">
                 <div className="bg-gradient-to-br from-[#0C173D] via-[#1A2664] to-[#0C173D] rounded-[2.5rem] overflow-hidden">
                   {/* Notch */}
                   <div className="bg-black h-8 rounded-b-3xl mx-auto w-40"></div>
-                  
+
                   {/* App Interface Mockup */}
                   <div className="p-6">
                     <div className="text-center mb-6">
                       <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
-                        <span className="text-white text-sm">Welcome to Kaasmic</span>
+                        <span className="text-white text-sm">
+                          Welcome to Kaasmic
+                        </span>
                       </div>
                     </div>
 
                     {/* Gold Price Card */}
                     <div className="bg-gradient-to-br from-[#D4AF37] to-[#F5D78E] rounded-2xl p-6 mb-4">
-                      <div className="text-[#0C173D] text-sm mb-1">Live Gold Price</div>
-                      <div className="text-[#0C173D] text-3xl font-bold">₹6,245.50</div>
+                      <div className="text-[#0C173D] text-sm mb-1">
+                        Live Gold Price
+                      </div>
+                      <div className="text-[#0C173D] text-3xl font-bold">
+                        ₹6,245.50
+                      </div>
                       <div className="text-[#0C173D] text-sm mt-1">↑ +2.3%</div>
                     </div>
 
@@ -161,9 +184,15 @@ export default function AppDownloadSection() {
 
                     {/* Portfolio */}
                     <div className="bg-white/5 backdrop-blur-sm rounded-xl p-4">
-                      <div className="text-white/60 text-xs mb-2">Your Portfolio</div>
-                      <div className="text-white text-xl font-bold">₹45,230</div>
-                      <div className="text-green-400 text-xs mt-1">+12.5% returns</div>
+                      <div className="text-white/60 text-xs mb-2">
+                        Your Portfolio
+                      </div>
+                      <div className="text-white text-xl font-bold">
+                        ₹45,230
+                      </div>
+                      <div className="text-green-400 text-xs mt-1">
+                        +12.5% returns
+                      </div>
                     </div>
                   </div>
                 </div>
