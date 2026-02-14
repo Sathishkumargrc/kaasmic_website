@@ -32,48 +32,48 @@ const benefits = [
 
 export default function WhyChooseSection() {
   return (
-    <section className="relative py-24 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
+    <section className="relative py-12 sm:py-16 lg:py-24 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-[#D4AF37]/5 to-transparent"></div>
       
-      <div className="relative max-w-7xl mx-auto px-8">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
           {/* Left: Image/Visual */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="relative"
+            className="relative order-2 lg:order-1"
           >
             <div className="relative">
               {/* Main Image Container */}
-              <div className="relative z-10 rounded-3xl overflow-hidden shadow-2xl">
-                <div className="bg-gradient-to-br from-[#0C173D] via-[#1A2664] to-[#0C173D] p-12">
-                  <div className="grid grid-cols-2 gap-6">
+              <div className="relative z-10 rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl">
+                <div className="bg-gradient-to-br from-[#0C173D] via-[#1A2664] to-[#0C173D] p-6 sm:p-10 lg:p-12">
+                  <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:gap-6">
                     {/* Stats Cards */}
-                    <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
-                      <div className="text-4xl mb-3">💰</div>
-                      <div className="text-3xl font-bold text-[#D4AF37]">₹100</div>
-                      <div className="text-sm text-white/80 mt-1">Min. Investment</div>
+                    <div className="bg-white/10 backdrop-blur-md rounded-xl sm:rounded-2xl p-4 sm:p-5 lg:p-6 border border-white/20">
+                      <div className="text-2xl sm:text-3xl lg:text-4xl mb-2 sm:mb-3">💰</div>
+                      <div className="text-2xl sm:text-2xl lg:text-3xl font-bold text-[#D4AF37]">₹100</div>
+                      <div className="text-xs sm:text-sm text-white/80 mt-1">Min. Investment</div>
                     </div>
                     
-                    <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
-                      <div className="text-4xl mb-3">📈</div>
-                      <div className="text-3xl font-bold text-[#D4AF37]">15%</div>
-                      <div className="text-sm text-white/80 mt-1">Avg. Returns</div>
+                    <div className="bg-white/10 backdrop-blur-md rounded-xl sm:rounded-2xl p-4 sm:p-5 lg:p-6 border border-white/20">
+                      <div className="text-2xl sm:text-3xl lg:text-4xl mb-2 sm:mb-3">📈</div>
+                      <div className="text-2xl sm:text-2xl lg:text-3xl font-bold text-[#D4AF37]">15%</div>
+                      <div className="text-xs sm:text-sm text-white/80 mt-1">Avg. Returns</div>
                     </div>
                     
-                    <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
-                      <div className="text-4xl mb-3">⚡</div>
-                      <div className="text-3xl font-bold text-[#D4AF37]">2 Min</div>
-                      <div className="text-sm text-white/80 mt-1">Quick Selling</div>
+                    <div className="bg-white/10 backdrop-blur-md rounded-xl sm:rounded-2xl p-4 sm:p-5 lg:p-6 border border-white/20">
+                      <div className="text-2xl sm:text-3xl lg:text-4xl mb-2 sm:mb-3">⚡</div>
+                      <div className="text-2xl sm:text-2xl lg:text-3xl font-bold text-[#D4AF37]">2 Min</div>
+                      <div className="text-xs sm:text-sm text-white/80 mt-1">Quick Selling</div>
                     </div>
                     
-                    <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
-                      <div className="text-4xl mb-3">🔒</div>
-                      <div className="text-3xl font-bold text-[#D4AF37]">100%</div>
-                      <div className="text-sm text-white/80 mt-1">Secure</div>
+                    <div className="bg-white/10 backdrop-blur-md rounded-xl sm:rounded-2xl p-4 sm:p-5 lg:p-6 border border-white/20">
+                      <div className="text-2xl sm:text-3xl lg:text-4xl mb-2 sm:mb-3">🔒</div>
+                      <div className="text-2xl sm:text-2xl lg:text-3xl font-bold text-[#D4AF37]">100%</div>
+                      <div className="text-xs sm:text-sm text-white/80 mt-1">Secure</div>
                     </div>
                   </div>
                 </div>
@@ -83,7 +83,7 @@ export default function WhyChooseSection() {
               <motion.div
                 animate={{ y: [0, -10, 0] }}
                 transition={{ duration: 3, repeat: Infinity }}
-                className="absolute -top-6 -right-6 z-20 bg-[#D4AF37] text-[#0C173D] px-6 py-3 rounded-full shadow-xl font-bold"
+                className="absolute -top-4 sm:-top-6 -right-4 sm:-right-6 z-20 bg-[#D4AF37] text-[#0C173D] px-4 sm:px-6 py-2 sm:py-3 rounded-full shadow-xl text-sm sm:text-base font-bold"
               >
                 ⭐ 4.8/5 Rating
               </motion.div>
@@ -94,23 +94,23 @@ export default function WhyChooseSection() {
           </motion.div>
 
           {/* Right: Content */}
-          <div>
+          <div className="order-1 lg:order-2">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-5xl font-bold text-[#0C173D] mb-6">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0C173D] mb-4 sm:mb-6">
                 Why Choose <span className="text-[#D4AF37]">Kaasmic</span>?
               </h2>
-              <p className="text-lg text-gray-600 mb-10">
+              <p className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8 lg:mb-10">
                 India&#39;s first and its most trusted digital gold platform with unmatched security, transparency, and convenience.
               </p>
             </motion.div>
 
             {/* Benefits List */}
-            <div className="space-y-6">
+            <div className="space-y-4 sm:space-y-6">
               {benefits.map((benefit, index) => (
                 <motion.div
                   key={index}
@@ -120,18 +120,18 @@ export default function WhyChooseSection() {
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   className="group"
                 >
-                  <div className="flex gap-4 p-6 rounded-2xl hover:bg-gray-50 transition-colors duration-300">
+                  <div className="flex gap-3 sm:gap-4 p-4 sm:p-6 rounded-xl sm:rounded-2xl hover:bg-gray-50 transition-colors duration-300">
                     <div className="flex-shrink-0">
-                      <div className="w-14 h-14 bg-gradient-to-br from-[#D4AF37] to-[#F5D78E] rounded-xl flex items-center justify-center text-2xl shadow-lg group-hover:scale-110 transition-transform duration-300">
+                      <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-[#D4AF37] to-[#F5D78E] rounded-xl flex items-center justify-center text-xl sm:text-2xl shadow-lg group-hover:scale-110 transition-transform duration-300">
                         {benefit.icon}
                       </div>
                     </div>
                     <div className="flex-1">
-                      <div className="flex items-center gap-3 mb-2">
-                        <h3 className="text-xl font-bold text-[#0C173D]">{benefit.title}</h3>
-                        <span className="text-2xl font-bold text-[#D4AF37]">{benefit.stat}</span>
+                      <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-2">
+                        <h3 className="text-lg sm:text-xl font-bold text-[#0C173D]">{benefit.title}</h3>
+                        <span className="text-xl sm:text-2xl font-bold text-[#D4AF37]">{benefit.stat}</span>
                       </div>
-                      <p className="text-gray-600 leading-relaxed">{benefit.description}</p>
+                      <p className="text-sm sm:text-base text-gray-600 leading-relaxed">{benefit.description}</p>
                     </div>
                   </div>
                 </motion.div>
@@ -144,12 +144,12 @@ export default function WhyChooseSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.6 }}
-              className="mt-10"
+              className="mt-6 sm:mt-8 lg:mt-10"
             >
               <motion.button
                 whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(212,175,55,0.4)" }}
                 whileTap={{ scale: 0.98 }}
-                className="bg-[#D4AF37] text-[#0C173D] px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:bg-[#F5D78E] transition-colors flex items-center gap-2"
+                className="bg-[#D4AF37] text-[#0C173D] px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-bold text-base sm:text-lg shadow-lg hover:bg-[#F5D78E] transition-colors flex items-center gap-2"
               >
                 Start Your Journey
                 <span>→</span>
