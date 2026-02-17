@@ -17,10 +17,10 @@ const profiles = [
     initials: "S",
   },
   {
-    name: "Sathish Kumar",
+    name: "Sathish Kumar Gobala krishnan",
     role: "COO",
     bio: "Chief Operating Officer of Kaasmic technology",
-    initials: "S",
+    initials: "SK",
   },
 ];
 
