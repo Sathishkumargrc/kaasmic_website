@@ -17,9 +17,9 @@ const features = [
     gradient: "from-green-500/20 to-emerald-600/20"
   },
   {
-    icon: "🔄",
-    title: "Exchange Gold",
-    description: "Exchange your digital gold for physical gold coins or jewelry. Seamless conversion with doorstep delivery.",
+    icon: "✨",
+    title: "Physical Gold & Silver",
+    description: "Physical gold and silver at best price in the Market.",
     gradient: "from-blue-500/20 to-cyan-600/20"
   },
   {
