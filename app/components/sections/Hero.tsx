@@ -239,7 +239,7 @@ export default function HeroWithHeader() {
             transition={{ ...transitionContent, delay: 2.6 }}
             className="mt-4 sm:mt-5 lg:mt-6 text-base sm:text-lg text-white/90 leading-relaxed max-w-[28rem] mx-auto lg:mx-0"
           >
-            Grow your wealth by investing in 24K digital gold securely, starting
+            Grow your wealth by investing in 24K gold & silver securely, starting
             with just <span className="font-bold text-white">₹100</span>.
           </motion.p>
 
