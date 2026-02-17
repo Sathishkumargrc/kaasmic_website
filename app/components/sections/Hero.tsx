@@ -228,9 +228,9 @@ export default function HeroWithHeader() {
             transition={{ ...transitionContent, delay: 2.4 }}
             className="text-3xl sm:text-4xl lg:text-5xl xl:text-[3.25rem] leading-[1.15] font-bold text-white tracking-tight"
           >
-            Invest in <span className="text-[#D4AF37]">Digital Gold</span>
+            Invest <span className="text-[#D4AF37]">Gold & Silver</span>
             <br />
-            with Ease
+            with Easy
           </motion.h1>
 
           <motion.p
