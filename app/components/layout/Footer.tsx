@@ -92,7 +92,7 @@ export default function Footer() {
           viewport={{ once: true }}
           className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 sm:pt-8 border-t border-white/10 text-xs sm:text-[13px] text-white/60"
         >
-          <p className="text-center sm:text-left">© 2024 GoldInvest. All rights reserved.</p>
+          <p className="text-center sm:text-left">© 2026 GoldInvest. All rights reserved.</p>
           <div className="flex gap-4 sm:gap-6">
             <a href="#" className="hover:text-white/90 transition-colors">
               Privacy Policy
