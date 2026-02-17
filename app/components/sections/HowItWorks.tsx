@@ -23,8 +23,8 @@ const steps = [
   },
   {
     number: "04",
-    title: "Manage Freely",
-    description: "Sell anytime, exchange for physical gold, or gift to loved ones - complete flexibility.",
+    title: "Buy Back Guaranteed",
+    description: "Sell your gold & silver anytime at the best market rate. 100% transparent pricing.",
     icon: "🎯"
   }
 ];
