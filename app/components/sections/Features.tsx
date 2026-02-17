@@ -65,7 +65,7 @@ export default function FeaturesSection() {
             <span className="text-[#D4AF37]">One App</span>
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Buy, sell, and exchange gold with just a few taps. Experience the future of gold investment.
+            Buy, sell gold & silver with just a few taps. Experience the future of gold investment.
           </p>
         </motion.div>
 
