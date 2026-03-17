@@ -18,9 +18,8 @@ const columns = [
     title: "Support",
     links: [
       { label: "FAQs", href: "/faq" },
-      { label: "Help Center", href: "#" },
-      { label: "Security", href: "#" },
-      { label: "Terms", href: "#" },
+      { label: "Terms & Conditions", href: "/terms-conditions" },
+      { label: "Privacy Policy", href: "/privacy-policy" },
     ],
   },
   {
