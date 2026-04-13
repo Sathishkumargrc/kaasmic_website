@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import "./globals.css";
 import AOSProvider from "./components/AOSProvider";
+import { MetalPricesProvider } from "./context/MetalPricesProvider";
 
 const roboto = Roboto({
   variable: "--font-roboto",
@@ -26,7 +27,11 @@ export default function RootLayout({
         className={`${roboto.variable} font-sans antialiased`}
         style={{ fontFamily: `var(--font-roboto), system-ui, sans-serif` }}
       >
-         <AOSProvider>{children}</AOSProvider>
+         <AOSProvider>
+           <MetalPricesProvider>
+             {children}
+           </MetalPricesProvider>
+         </AOSProvider>
       </body>
     </html>
   );

@@ -1,6 +1,7 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
+import { useMetalPrices } from "@/app/context/MetalPricesProvider";
 
 interface LivePriceProps {
   type?: "sticky" | "hero" | "drawer";
@@ -10,38 +11,18 @@ export default function LivePrice(props: LivePriceProps) {
   const { type = "hero" } = props;
   const isSticky = type === "sticky";
   const isDrawer = type === "drawer";
-  
-  const labelColor = isSticky 
-    ? "text-black/70" 
-    : isDrawer 
-    ? "text-white/60" 
-    : "text-white/70";
-    
-  const borderColor = isSticky 
-    ? "border-black/20" 
-    : "border-white/20";
-    
-  const goldText = isSticky 
-    ? "text-[#B8962E]" 
-    : "text-[#D4AF37]";
-    
-  const silverText = isSticky 
-    ? "text-gray-700" 
-    : "text-gray-300";
 
-  const [goldRate, setGoldRate] = useState(16012.5);
-  const [silverRate, setSilverRate] = useState(276.3);
-  const [goldChange, setGoldChange] = useState(2.3);
-  const [silverChange, setSilverChange] = useState(-1.2);
+  const { prices } = useMetalPrices();
+  console.log(prices)
 
-  // Simulate live rate updates (replace with real API)
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setGoldRate((prev) => prev + (Math.random() - 0.5) * 10);
-      setSilverRate((prev) => prev + (Math.random() - 0.5) * 0.5);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, []);
+  const labelColor = isSticky
+    ? "text-black/70"
+    : isDrawer
+      ? "text-white/60"
+      : "text-white/70";
+
+  const goldText = isSticky ? "text-[#B8962E]" : "text-[#D4AF37]";
+  const silverText = isSticky ? "text-gray-700" : "text-gray-300";
 
   // Drawer mode - full width card layout
   if (isDrawer) {
@@ -65,13 +46,13 @@ export default function LivePrice(props: LivePriceProps) {
             </div>
             <div className="flex items-baseline gap-2">
               <span className="text-lg font-bold text-[#D4AF37]">
-                ₹{goldRate.toFixed(2)}
+                ₹{prices?.gold?.buyPrice?.toFixed(2)}
               </span>
-              <span
+              {/* <span
                 className={`text-[10px] font-semibold ${goldChange >= 0 ? "text-green-400" : "text-red-400"}`}
               >
                 {goldChange >= 0 ? "↑" : "↓"} {Math.abs(goldChange)}%
-              </span>
+              </span> */}
             </div>
           </div>
 
@@ -83,13 +64,13 @@ export default function LivePrice(props: LivePriceProps) {
             </div>
             <div className="flex items-baseline gap-2">
               <span className="text-lg font-bold text-gray-300">
-                ₹{silverRate.toFixed(2)}
+                ₹{prices?.silver?.buyPrice?.toFixed(2)}
               </span>
-              <span
+              {/* <span
                 className={`text-[10px] font-semibold ${silverChange >= 0 ? "text-green-400" : "text-red-400"}`}
               >
                 {silverChange >= 0 ? "↑" : "↓"} {Math.abs(silverChange)}%
-              </span>
+              </span> */}
             </div>
           </div>
         </div>
@@ -118,13 +99,13 @@ export default function LivePrice(props: LivePriceProps) {
           </div>
           <div className="flex items-baseline gap-1 sm:gap-1.5 mt-0.5">
             <span className={`text-sm sm:text-base lg:text-[17px] font-bold ${goldText}`}>
-              ₹{goldRate.toFixed(2)}
+              ₹{prices?.gold?.buyPrice?.toFixed(2)}
             </span>
-            <span
+            {/* <span
               className={`text-[10px] sm:text-[11px] font-semibold ${goldChange >= 0 ? "text-green-400" : "text-red-400"}`}
             >
               {goldChange >= 0 ? "↑" : "↓"} {Math.abs(goldChange)}%
-            </span>
+            </span> */}
           </div>
         </div>
 
@@ -140,13 +121,13 @@ export default function LivePrice(props: LivePriceProps) {
           </div>
           <div className="flex items-baseline gap-1 sm:gap-1.5 mt-0.5">
             <span className={`text-sm sm:text-base lg:text-[17px] font-bold ${silverText}`}>
-              ₹{silverRate.toFixed(2)}
+              ₹{prices?.silver?.buyPrice?.toFixed(2)}
             </span>
-            <span
+            {/* <span
               className={`text-[10px] sm:text-[11px] font-semibold ${silverChange >= 0 ? "text-green-400" : "text-red-400"}`}
             >
               {silverChange >= 0 ? "↑" : "↓"} {Math.abs(silverChange)}%
-            </span>
+            </span> */}
           </div>
         </div>
       </motion.div>
