@@ -1,8 +1,8 @@
 import type { ApiResponse } from "@/app/types/api";
 
 // ─── Config from .env ───
-const API_BASE_URL = process.env.API_BASE_URL ?? "";
-const API_BEARER_TOKEN = process.env.API_BEARER_TOKEN ?? "";
+const API_BASE_URL = process.env.API_BASE_URL ?? "https://dev.mystacks.in/api/v1/";
+const API_BEARER_TOKEN = process.env.API_BEARER_TOKEN ?? "TEST109932340a8b85ba7eb4416e90de43239901";
 
 // ─── Error Class ───
 export class ApiError extends Error {
