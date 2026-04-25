@@ -4,8 +4,9 @@ import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 import { Input } from "../ui/input";
 import { useState } from "react";
+import { Variants } from "framer-motion";
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0, scale: 0.98, y: 30 },
   visible: {
     opacity: 1,
@@ -20,7 +21,7 @@ const containerVariants = {
   },
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { opacity: 0, y: 30 },
   visible: {
     opacity: 1,
