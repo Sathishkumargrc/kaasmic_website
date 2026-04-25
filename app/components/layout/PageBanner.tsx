@@ -14,13 +14,25 @@ export default function PageBanner({ title, description, children }: PageBannerP
       initial={{ opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="relative px-[5.5rem] py-16 text-center"
+      className="relative px-6 sm:px-8 lg:px-16 xl:px-[5.5rem] py-12 sm:py-16 text-center"
     >
-      <h1 className="text-3xl font-bold text-white md:text-4xl">{title}</h1>
+      <motion.h1 
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+        className="text-4xl font-bold text-white md:text-5xl lg:text-6xl tracking-tight"
+      >
+        {title}
+      </motion.h1>
       {description && (
-        <p className="mx-auto mt-4 max-w-2xl text-base text-white/85 leading-relaxed">
+        <motion.p 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="mx-auto mt-6 max-w-2xl text-base sm:text-lg text-white/80 leading-relaxed font-medium"
+        >
           {description}
-        </p>
+        </motion.p>
       )}
       {children && <div className="mt-8 flex justify-center">{children}</div>}
     </motion.section>

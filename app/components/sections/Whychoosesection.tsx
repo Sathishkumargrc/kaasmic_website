@@ -11,6 +11,12 @@ const benefits = [
     icon: "✨"
   },
   {
+    title: "99.9% Pure Silver",
+    description: "99.9% Pure Silver (999 Fine Silver) All our digital silver is backed by 999 (99.9% pure) physical silver stored in secure, insured vaults certified by international standards",
+    stat: "",
+    icon: "🥈"
+  },
+  {
     title: "Zero Storage Cost",
     description: "Unlike physical gold, there are no storage or making charges. What you see is what you get - transparent pricing always.",
     stat: "₹0",
@@ -22,12 +28,12 @@ const benefits = [
     stat: "2 min",
     icon: "⚡"
   },
-  {
-    title: "Trusted Platform",
-    description: "Over 5 lakh+ satisfied investors trust us with their gold investments. Join India's fastest-growing gold investment platform.",
-    stat: "10k+",
-    icon: "🛡️"
-  }
+  // {
+  //   title: "Trusted Platform",
+  //   description: "Over 5 lakh+ satisfied investors trust us with their gold investments. Join India's fastest-growing gold investment platform.",
+  //   stat: "10k+",
+  //   icon: "🛡️"
+  // }
 ];
 
 export default function WhyChooseSection() {
@@ -80,13 +86,13 @@ export default function WhyChooseSection() {
               </div>
 
               {/* Floating Badge */}
-              <motion.div
+              {/* <motion.div
                 animate={{ y: [0, -10, 0] }}
                 transition={{ duration: 3, repeat: Infinity }}
                 className="absolute -top-4 sm:-top-6 -right-4 sm:-right-6 z-20 bg-[#D4AF37] text-[#0C173D] px-4 sm:px-6 py-2 sm:py-3 rounded-full shadow-xl text-sm sm:text-base font-bold"
               >
                 ⭐ 4.8/5 Rating
-              </motion.div>
+              </motion.div> */}
 
               {/* Glow Effect */}
               <div className="absolute -inset-4 bg-gradient-to-r from-[#D4AF37]/20 to-[#1A2664]/20 blur-3xl -z-10"></div>
@@ -139,7 +145,7 @@ export default function WhyChooseSection() {
             </div>
 
             {/* CTA Button */}
-            <motion.div
+            {/* <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -154,7 +160,7 @@ export default function WhyChooseSection() {
                 Start Your Journey
                 <span>→</span>
               </motion.button>
-            </motion.div>
+            </motion.div> */}
           </div>
         </div>
       </div>

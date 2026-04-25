@@ -150,7 +150,16 @@ export default function LivePrice(props: LivePriceProps) {
   const isDrawer = type === "drawer";
   const isMobile = type === "mobile";
 
-  const { prices } = useMetalPrices();
+  const { prices, countdown } = useMetalPrices();
+
+  const formatTime = (seconds: number) => {
+    const mins = Math.floor(seconds / 60);
+    const secs = seconds % 60;
+    return `${mins}:${secs.toString().padStart(2, "0")}`;
+  };
+
+  
+  
 
   const labelColor = isSticky
     ? "text-black/70"
@@ -161,38 +170,41 @@ export default function LivePrice(props: LivePriceProps) {
   const goldText = isSticky ? "text-[#B8962E]" : "text-[#D4AF37]";
   const silverText = isSticky ? "text-gray-700" : "text-gray-300";
 
-  // Mobile mode — compact horizontal pill for header bar with labels
+  // Mobile mode — Premium compact card
   if (isMobile) {
     return (
-      <div className="flex items-center gap-2.5 bg-black/20 rounded-full px-3 py-1.5 border border-white/10">
+      <div className="flex items-center gap-2 bg-white/5 backdrop-blur-md rounded-xl p-1 border border-white/10 shadow-lg">
         {/* Gold */}
-        <div className="flex items-center gap-1">
+        <div className="flex items-center gap-2 bg-[#D4AF37]/10 rounded-lg px-2 py-1 border border-[#D4AF37]/20">
           <div className="w-1.5 h-1.5 rounded-full bg-[#D4AF37] animate-pulse shrink-0" />
           <div className="flex flex-col leading-none">
-            <span className="text-[9px] text-white/50 font-medium">Gold/gm</span>
-            <span className="text-[10px] font-bold text-[#D4AF37]">
-              ₹{prices?.gold?.buyPrice?.toFixed(0)}
+            <span className="text-[8px] text-[#D4AF37] font-bold uppercase tracking-tighter">Gold</span>
+            <span className="text-[11px] font-black text-white">
+              ₹{prices?.gold?.buyPrice}
             </span>
           </div>
         </div>
-        <div className="w-px h-5 bg-white/20" />
+
         {/* Silver */}
-        <div className="flex items-center gap-1">
+        <div className="flex items-center gap-2 bg-white/5 rounded-lg px-2 py-1 border border-white/10">
           <div className="w-1.5 h-1.5 rounded-full bg-gray-300 animate-pulse shrink-0" />
           <div className="flex flex-col leading-none">
-            <span className="text-[9px] text-white/50 font-medium">Silver/gm</span>
-            <span className="text-[10px] font-bold text-gray-300">
-              ₹{prices?.silver?.buyPrice?.toFixed(0)}
+            <span className="text-[8px] text-gray-400 font-bold uppercase tracking-tighter">Silver</span>
+            <span className="text-[11px] font-black text-white">
+              ₹{prices?.silver?.buyPrice}
             </span>
           </div>
+        </div>
+        
+        {/* Timer */}
+        <div className="flex flex-col items-center justify-center px-1.5 min-w-[30px]">
+          <span className="text-[7px] text-white/30 font-bold">NEXT</span>
+          <span className="text-[10px] font-mono font-bold text-[#D4AF37] leading-none">
+            {formatTime(countdown)}
+          </span>
         </div>
       </div>
     );
-  }
-
-  // Sticky mobile mode — same pill but with dark-on-light colors
-  if (isSticky && false) {
-    // handled below via isStickyMobile concept — keep unified
   }
 
   // Drawer mode - full width card layout
@@ -204,33 +216,36 @@ export default function LivePrice(props: LivePriceProps) {
         transition={{ delay: 0.1 }}
         className="w-full"
       >
-        <div className="flex flex-col gap-3 p-4 rounded-lg bg-white/5 border border-white/10">
-          <div className="text-[10px] font-semibold text-white/50 tracking-wider uppercase">
-            Live Rates
-          </div>
-
-          {/* Gold Rate */}
-          <div className="flex items-center justify-between pb-3 border-b border-white/10">
+        <div className="flex flex-col gap-4 p-5 rounded-2xl bg-gradient-to-br from-white/10 to-white/5 border border-white/10 shadow-xl backdrop-blur-xl">
+          <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <div className="w-2 h-2 rounded-full bg-[#D4AF37] animate-pulse"></div>
-              <span className="text-xs font-medium text-white/70">Gold/gm</span>
+              <div className="w-2 h-2 rounded-full bg-[#D4AF37] animate-ping" />
+              <div className="text-[10px] font-bold text-white/50 tracking-[0.2em] uppercase">
+                Live Market Rates
+              </div>
             </div>
-            <div className="flex items-baseline gap-2">
-              <span className="text-lg font-bold text-[#D4AF37]">
-                ₹{prices?.gold?.buyPrice?.toFixed(2)}
+            <div className="flex flex-col items-end">
+              <span className="text-[8px] text-white/30 font-bold uppercase">Updating in</span>
+              <span className="text-xs font-mono font-bold text-[#D4AF37]">
+                {formatTime(countdown)}
               </span>
             </div>
           </div>
 
-          {/* Silver Rate */}
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <div className="w-2 h-2 rounded-full bg-gray-300 animate-pulse"></div>
-              <span className="text-xs font-medium text-white/70">Silver/gm</span>
+          <div className="grid grid-cols-2 gap-3">
+            {/* Gold Rate Card */}
+            <div className="flex flex-col gap-1 p-3 rounded-xl bg-[#D4AF37]/10 border border-[#D4AF37]/20">
+              <span className="text-[9px] font-bold text-[#D4AF37] uppercase tracking-wider">Gold/gm</span>
+              <span className="text-xl font-black text-white">
+                ₹{prices?.gold?.buyPrice}
+              </span>
             </div>
-            <div className="flex items-baseline gap-2">
-              <span className="text-lg font-bold text-gray-300">
-                ₹{prices?.silver?.buyPrice?.toFixed(2)}
+
+            {/* Silver Rate Card */}
+            <div className="flex flex-col gap-1 p-3 rounded-xl bg-white/5 border border-white/10">
+              <span className="text-[9px] font-bold text-gray-400 uppercase tracking-wider">Silver/gm</span>
+              <span className="text-xl font-black text-white">
+                ₹{prices?.silver?.buyPrice}
               </span>
             </div>
           </div>
@@ -239,47 +254,67 @@ export default function LivePrice(props: LivePriceProps) {
     );
   }
 
-  // Default mode - horizontal layout (hero/sticky)
+  // Desktop/Sticky — Premium Glassmorphism Card
   return (
-    <div>
+    <div className="flex items-center gap-3">
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
+        initial={{ opacity: 0, x: 20 }}
+        animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 0.3 }}
-        className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 lg:gap-6 sm:ml-3 lg:ml-4 sm:pl-3 lg:pl-6 sm:border-l border-white/20"
+        className={`flex items-center gap-2 p-1.5 rounded-2xl backdrop-blur-md shadow-2xl border ${
+          isSticky 
+            ? "bg-white/80 border-gray-200 shadow-gray-200/50" 
+            : "bg-white/5 border-white/10"
+        }`}
       >
-        {/* Gold Rate */}
-        <div className="flex flex-col items-start sm:items-end w-full sm:w-auto">
-          <div className="flex items-center gap-1.5 sm:gap-2">
-            <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-[#D4AF37] animate-pulse"></div>
-            <span
-              className={`text-[10px] sm:text-[11px] font-medium tracking-wide ${labelColor}`}
-            >
-              Gold/gm
-            </span>
-          </div>
-          <div className="flex items-baseline gap-1 sm:gap-1.5 mt-0.5">
-            <span className={`text-sm sm:text-base lg:text-[17px] font-bold ${goldText}`}>
-              ₹{prices?.gold?.buyPrice?.toFixed(2)}
+        {/* Gold Card */}
+        <div className={`flex items-center gap-3 px-4 py-2 rounded-xl transition-all duration-300 ${
+          isSticky 
+            ? "bg-[#D4AF37]/10 border border-[#D4AF37]/20" 
+            : "bg-gradient-to-br from-[#D4AF37]/20 to-transparent border border-[#D4AF37]/30 shadow-[0_0_15px_rgba(212,175,55,0.1)]"
+        }`}>
+          <div className="flex flex-col">
+            <div className="flex items-center gap-2">
+              <div className="w-1.5 h-1.5 rounded-full bg-[#D4AF37] animate-pulse" />
+              <span className={`text-[10px] font-bold uppercase tracking-widest ${isSticky ? "text-[#B8962E]" : "text-[#D4AF37]"}`}>
+                Gold/gm
+              </span>
+            </div>
+            <span className={`text-lg lg:text-xl font-black leading-tight ${isSticky ? "text-[#0C173D]" : "text-white"}`}>
+              ₹{prices?.gold?.buyPrice}
             </span>
           </div>
         </div>
 
-        {/* Silver Rate */}
-        <div className="flex flex-col items-start sm:items-end w-full sm:w-auto">
-          <div className="flex items-center gap-1.5 sm:gap-2">
-            <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-gray-300 animate-pulse"></div>
-            <span
-              className={`text-[10px] sm:text-[11px] font-medium tracking-wide ${labelColor}`}
-            >
-              Silver/gm
+        {/* Silver Card */}
+        <div className={`flex items-center gap-3 px-4 py-2 rounded-xl transition-all duration-300 ${
+          isSticky 
+            ? "bg-gray-100 border border-gray-200" 
+            : "bg-white/5 border border-white/10"
+        }`}>
+          <div className="flex flex-col">
+            <div className="flex items-center gap-2">
+              <div className="w-1.5 h-1.5 rounded-full bg-gray-400 animate-pulse" />
+              <span className={`text-[10px] font-bold uppercase tracking-widest ${isSticky ? "text-gray-500" : "text-gray-400"}`}>
+                Silver/gm
+              </span>
+            </div>
+            <span className={`text-lg lg:text-xl font-black leading-tight ${isSticky ? "text-[#0C173D]" : "text-white"}`}>
+              ₹{prices?.silver?.buyPrice}
             </span>
           </div>
-          <div className="flex items-baseline gap-1 sm:gap-1.5 mt-0.5">
-            <span className={`text-sm sm:text-base lg:text-[17px] font-bold ${silverText}`}>
-              ₹{prices?.silver?.buyPrice?.toFixed(2)}
-            </span>
-          </div>
+        </div>
+
+        {/* Timer Card */}
+        <div className={`flex flex-col items-center justify-center px-4 min-w-[70px] border-l ${
+          isSticky ? "border-gray-200" : "border-white/10"
+        }`}>
+          <span className={`text-[9px] font-black uppercase tracking-tighter ${isSticky ? "text-gray-400" : "text-white/40"}`}>
+            Update In
+          </span>
+          <span className={`text-sm font-mono font-black ${isSticky ? "text-[#D4AF37]" : "text-[#D4AF37]"}`}>
+            {formatTime(countdown)}
+          </span>
         </div>
       </motion.div>
     </div>

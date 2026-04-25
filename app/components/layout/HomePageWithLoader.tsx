@@ -12,6 +12,7 @@ import LivePriceSection from "../sections/Livepricesection";
 import WhyChooseSection from "../sections/Whychoosesection";
 import TestimonialsSection from "../sections/Testimonialssection";
 import AppDownloadSection from "../sections/Appdownloadsection";
+import Certifications from "../sections/Certifications";
 
 export default function HomePageWithLoader() {
   const [loaderDone, setLoaderDone] = useState(false);
@@ -31,7 +32,7 @@ export default function HomePageWithLoader() {
   return (
     <>
       <PageLoader onComplete={() => setLoaderDone(true)} />
-      
+
       <AnimatePresence>
         {loaderDone && (
           <motion.div
@@ -42,11 +43,23 @@ export default function HomePageWithLoader() {
           >
             {/* Sticky Header (appears on scroll) */}
             <StickyHeader isVisible={showStickyHeader} />
-            
+
             {/* Hero Section with integrated header */}
             <HeroWithHeader />
-            
+
             {/* Rest of the content */}
+            <div className="bg-white">
+              <Features />
+              <HowItWorksSection />
+              <LivePriceSection />
+              <WhyChooseSection />
+              <Certifications />
+              <TestimonialsSection />
+              <AppDownloadSection />
+              <Footer />
+            </div>
+
+            {/* Old Layout (Commented out)
             <div className="bg-white">
               <Features />
               <HowItWorksSection />
@@ -56,6 +69,7 @@ export default function HomePageWithLoader() {
               <AppDownloadSection />
               <Footer />
             </div>
+            */}
           </motion.div>
         )}
       </AnimatePresence>

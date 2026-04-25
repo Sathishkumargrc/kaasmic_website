@@ -376,6 +376,13 @@ export default function HeroWithHeader() {
   const particles = useMemo(() => generateParticles(), []);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  const scrollToAppDownload = () => {
+    const section = document.getElementById("appdownload");
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section className="relative min-h-screen overflow-hidden bg-gradient-to-br from-[#0C173D] via-[#1A2664] to-[#0C173D]">
       {/* Header Navigation - Integrated with Hero */}
@@ -550,9 +557,9 @@ export default function HeroWithHeader() {
             transition={{ ...transitionContent, delay: 2.4 }}
             className="text-3xl sm:text-4xl lg:text-5xl xl:text-[3.25rem] leading-[1.15] font-bold text-white tracking-tight"
           >
-            Invest <span className="text-[#D4AF37]">Gold & Silver</span>
+            Invest in  <span className="text-[#D4AF37]">Gold & Silver</span>
             <br />
-            with Easy
+            with Ease
           </motion.h1>
 
           <motion.p
@@ -574,17 +581,18 @@ export default function HeroWithHeader() {
             <motion.button
               whileHover={{ scale: 1.03, boxShadow: "0 0 30px rgba(212,175,55,0.4)" }}
               whileTap={{ scale: 0.98 }}
-              className="rounded-lg bg-[#D4AF37] px-6 sm:px-8 py-3 sm:py-3.5 text-sm sm:text-base font-semibold text-[#0C173D] shadow-lg"
+              className="rounded-lg bg-[#D4AF37] px-6 sm:px-8 py-3 sm:py-3.5 text-sm sm:text-base font-semibold text-[#0C173D] shadow-lg cursor-pointer"
+              onClick={scrollToAppDownload}
             >
               Get Started
             </motion.button>
-            <motion.button
+            {/* <motion.button
               whileHover={{ scale: 1.03, borderColor: "#F5D78E" }}
               whileTap={{ scale: 0.98 }}
               className="rounded-lg border-2 border-[#D4AF37] bg-transparent px-6 sm:px-8 py-3 sm:py-3.5 text-sm sm:text-base font-medium text-white"
             >
               Learn More
-            </motion.button>
+            </motion.button> */}
           </motion.div>
         </div>
 

@@ -20,11 +20,7 @@ const generateMockData = (goldBase: number, silverBase: number) => {
 };
 
 const timeframes = [
-  { label: "1H", value: "1h" },
-  { label: "24H", value: "24h" },
-  { label: "1W", value: "1w" },
-  { label: "1M", value: "1m" },
-  { label: "1Y", value: "1y" },
+{ label: "1Y", value: "1y" },
 ];
 
 export default function LivePriceSection() {

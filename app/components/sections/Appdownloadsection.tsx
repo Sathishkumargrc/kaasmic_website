@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function AppDownloadSection() {
   return (
-    <section className="relative py-24 bg-gradient-to-br from-[#0C173D] via-[#1A2664] to-[#0C173D] overflow-hidden">
+    <section id="appdownload" className="relative py-24 bg-gradient-to-br from-[#0C173D] via-[#1A2664] to-[#0C173D] overflow-hidden">
       {/* Animated Background Elements */}
       <div className="absolute inset-0">
         <motion.div

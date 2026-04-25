@@ -36,8 +36,8 @@ const features = [
   },
   {
     icon: "🎁",
-    title: "Gift Gold",
-    description: "Send digital gold as gifts to your loved ones. Perfect for festivals and special occasions.",
+    title: "Refer and Earn",
+    description: "Invite your friends and earn rewards when they join and make their first purchase. The more you refer, the more you earn!",
     gradient: "from-pink-500/20 to-fuchsia-600/20"
   }
 ];

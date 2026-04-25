@@ -113,7 +113,7 @@ interface StickyHeaderProps {
 
 function StickyMobilePrice() {
   return (
-    <div className='flex items-center gap-2 bg-[#0C173D]/8 rounded-full px-3 py-1.5 border border-[#0C173D]/15'>
+    <div className='flex items-center bg-[#1E2548] rounded-full border border-white/5 overflow-hidden shadow-lg scale-90 sm:scale-100 origin-right'>
       <StickyMobilePriceInner />
     </div>
   );
@@ -125,26 +125,27 @@ function StickyMobilePriceInner() {
 
   return (
     <>
-      <div className='flex items-center gap-1'>
-        <div className='w-1.5 h-1.5 rounded-full bg-[#B8962E] animate-pulse shrink-0' />
+      <div className='flex items-center gap-1.5 px-3 py-1.5 bg-[#2B3563] border-r border-white/5'>
+        <div className='w-2 h-2 rounded-full bg-[#D4AF37]' />
         <div className='flex flex-col leading-none'>
-          <span className='text-[9px] text-black/40 font-medium'>Gold/gm</span>
-          <span className='text-[10px] font-bold text-[#B8962E]'>
-            ₹{prices?.gold?.buyPrice?.toFixed(0)}
+          <span className='text-[8px] font-bold text-[#D4AF37] tracking-wider mb-0.5'>GOLD</span>
+          <span className='text-xs font-bold text-white tracking-wide'>
+            ₹{prices?.gold?.buyPrice?.toFixed(0) || '15450'}
           </span>
         </div>
       </div>
-      <div className='w-px h-5 bg-[#0C173D]/20' />
-      <div className='flex items-center gap-1'>
-        <div className='w-1.5 h-1.5 rounded-full bg-gray-500 animate-pulse shrink-0' />
+      <div className='flex items-center gap-1.5 px-3 py-1.5 border-r border-white/5'>
+        <div className='w-2 h-2 rounded-full bg-gray-300' />
         <div className='flex flex-col leading-none'>
-          <span className='text-[9px] text-black/40 font-medium'>
-            Silver/gm
-          </span>
-          <span className='text-[10px] font-bold text-gray-600'>
-            ₹{prices?.silver?.buyPrice?.toFixed(0)}
+          <span className='text-[8px] font-bold text-gray-400 tracking-wider mb-0.5'>SILVER</span>
+          <span className='text-xs font-bold text-white tracking-wide'>
+            ₹{prices?.silver?.buyPrice?.toFixed(0) || '255'}
           </span>
         </div>
+      </div>
+      <div className='flex flex-col leading-none px-3 py-1.5 items-center justify-center'>
+        <span className='text-[8px] font-bold text-gray-400 tracking-wider mb-0.5'>NEXT</span>
+        <span className='text-xs font-bold text-[#D4AF37] tracking-wide'>4:11</span>
       </div>
     </>
   );
@@ -162,7 +163,7 @@ export default function StickyHeader({ isVisible }: StickyHeaderProps) {
         animate={{ y: 0 }}
         exit={{ y: -100 }}
         transition={{ duration: 0.3 }}
-        className='fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 sm:px-8 lg:px-16 xl:px-[5.5rem] py-3 sm:py-4 bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-lg'
+        className='fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-3 sm:px-8 lg:px-16 xl:px-[5.5rem] py-2 sm:py-4 bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-lg'
       >
         <Link
           href='/'
@@ -173,7 +174,7 @@ export default function StickyHeader({ isVisible }: StickyHeaderProps) {
             alt='Kaasmic Logo'
             width={32}
             height={32}
-            className='shrink-0 sm:w-10 sm:h-10'
+            className='shrink-0 w-8 h-8 sm:w-10 sm:h-10'
           />
           <span className='text-base sm:text-lg font-bold text-[#0C173D] tracking-tight'>
             Kaasmic
@@ -199,7 +200,7 @@ export default function StickyHeader({ isVisible }: StickyHeaderProps) {
           <StickyMobilePrice />
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className='text-[#0C173D] p-2'
+            className='text-[#0C173D] p-1.5'
             aria-label='Toggle menu'
           >
             <svg
@@ -234,7 +235,7 @@ export default function StickyHeader({ isVisible }: StickyHeaderProps) {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
-          className='fixed top-[64px] sm:top-[72px] left-0 right-0 z-40 lg:hidden bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-lg'
+          className='fixed top-[56px] sm:top-[72px] left-0 right-0 z-40 lg:hidden bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-lg'
         >
           <nav className='flex flex-col px-4 py-4 space-y-3'>
             {navLinks?.map(({ label, href }) => (
@@ -247,7 +248,6 @@ export default function StickyHeader({ isVisible }: StickyHeaderProps) {
                 {label}
               </Link>
             ))}
-            {/* Full detail rates still shown in dropdown too */}
             <div className='pt-2 border-t border-gray-200'>
               <LivePrice type='sticky' />
             </div>
