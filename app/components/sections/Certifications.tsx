@@ -15,11 +15,11 @@ const certifications = [
     description: "We provide only 24K pure gold, tested and certified by international laboratories.",
     image: "/assets/purity_100.png"
   },
-  {
-    title: "NABL Certified",
-    description: "Our gold is verified by NABL accredited labs to ensure the highest quality standards.",
-    image: "/assets/hallmark.png"
-  },
+  // {
+  //   title: "NABL Certified",
+  //   description: "Our gold is verified by NABL accredited labs to ensure the highest quality standards.",
+  //   image: "/assets/hallmark.png"
+  // },
   {
     title: "100% Insured",
     description: "Your gold is stored in secure, insured vaults with 100% protection against any risk.",
