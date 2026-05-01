@@ -89,16 +89,16 @@ export default function HowItWorksSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.15 }}
-              className="relative"
+              className="relative h-full flex flex-col"
             >
               {/* Connector line */}
               {index < steps.length - 1 && (
-                <div className="hidden lg:block absolute top-12 left-[60%] w-full h-0.5 bg-gradient-to-r from-[#D4AF37] to-transparent"></div>
+                <div className="hidden lg:block absolute top-12 left-[60%] w-full h-0.5 bg-gradient-to-r from-[#D4AF37] to-transparent z-0"></div>
               )}
 
-              <div className="relative bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-[#D4AF37]/50 transition-all duration-300 group hover:bg-white/10">
+              <div className="relative z-10 h-full bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-[#D4AF37]/50 transition-all duration-300 group hover:bg-white/10 flex flex-col">
                 {/* Step number */}
-                <div className="absolute -top-6 -left-4 w-16 h-16 bg-gradient-to-br from-[#D4AF37] to-[#F5D78E] rounded-full flex items-center justify-center shadow-xl">
+                <div className="absolute -top-6 -left-4 w-16 h-16 bg-gradient-to-br from-[#D4AF37] to-[#F5D78E] rounded-full flex items-center justify-center shadow-xl z-20">
                   <span className="text-2xl font-bold text-[#0C173D]">{step.number}</span>
                 </div>
 
@@ -111,7 +111,7 @@ export default function HowItWorksSection() {
                 <h3 className="text-2xl font-bold text-white mb-3">
                   {step.title}
                 </h3>
-                <p className="text-white/70 leading-relaxed">
+                <p className="text-white/70 leading-relaxed flex-grow">
                   {step.description}
                 </p>
               </div>

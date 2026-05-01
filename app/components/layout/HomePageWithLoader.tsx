@@ -13,6 +13,7 @@ import WhyChooseSection from "../sections/Whychoosesection";
 import TestimonialsSection from "../sections/Testimonialssection";
 import AppDownloadSection from "../sections/Appdownloadsection";
 import Certifications from "../sections/Certifications";
+import ProductDisplay from "../sections/ProductDisplay";
 
 export default function HomePageWithLoader() {
   const [loaderDone, setLoaderDone] = useState(false);
@@ -54,6 +55,7 @@ export default function HomePageWithLoader() {
               <LivePriceSection />
               <WhyChooseSection />
               <Certifications />
+              <ProductDisplay />
               <TestimonialsSection />
               <AppDownloadSection />
               <Footer />
