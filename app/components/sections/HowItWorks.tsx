@@ -29,6 +29,13 @@ const steps = [
   }
 ];
 
+  const scrollToAppDownload = () => {
+    const section = document.getElementById("appdownload");
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
 // Generate random positions and durations outside of render
 const particlePositions = [...Array(20)].map(() => ({
   left: Math.random() * 100,
@@ -130,6 +137,7 @@ export default function HowItWorksSection() {
           <motion.button
             whileHover={{ scale: 1.05, boxShadow: "0 0 40px rgba(212,175,55,0.5)" }}
             whileTap={{ scale: 0.98 }}
+            onClick={scrollToAppDownload}
             className="bg-[#D4AF37] text-[#0C173D] px-10 py-4 rounded-xl font-bold text-lg shadow-xl hover:bg-[#F5D78E] transition-colors"
           >
             Start Investing Now

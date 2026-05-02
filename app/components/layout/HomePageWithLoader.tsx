@@ -14,6 +14,9 @@ import TestimonialsSection from "../sections/Testimonialssection";
 import AppDownloadSection from "../sections/Appdownloadsection";
 import Certifications from "../sections/Certifications";
 import ProductDisplay from "../sections/ProductDisplay";
+import ProcessCircular from "../sections/ProcessCircular";
+import WealthSection from "../sections/WealthSection";
+import ScrollToTop from "./ScrollToTop";
 
 export default function HomePageWithLoader() {
   const [loaderDone, setLoaderDone] = useState(false);
@@ -52,13 +55,16 @@ export default function HomePageWithLoader() {
             <div className="bg-white">
               <Features />
               <HowItWorksSection />
+              <ProcessCircular />
               <LivePriceSection />
               <WhyChooseSection />
               <Certifications />
               <ProductDisplay />
               <TestimonialsSection />
               <AppDownloadSection />
+              <WealthSection />
               <Footer />
+              <ScrollToTop />
             </div>
 
             {/* Old Layout (Commented out)

@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function ProductDisplay() {
   const products = [
@@ -102,6 +102,22 @@ export default function ProductDisplay() {
 
 function ProductCard({ product, index }: { product: any; index: number }) {
   const [activeImage, setActiveImage] = useState(0);
+  const images = product.images;
+
+  useEffect(() => {
+    // Offset the start time based on index so they don't change at the same moment
+    let interval: NodeJS.Timeout;
+    const timeout = setTimeout(() => {
+      interval = setInterval(() => {
+        setActiveImage((prev) => (prev + 1) % images.length);
+      }, 2500); // Consistent speed for all cards
+    }, index * 800); // 800ms offset between each card's start
+
+    return () => {
+      clearTimeout(timeout);
+      if (interval) clearInterval(interval);
+    };
+  }, [images.length, index]);
 
   const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
     e.currentTarget.src = "/images/product-placeholder.png";
@@ -116,13 +132,22 @@ function ProductCard({ product, index }: { product: any; index: number }) {
       className="bg-white rounded-2xl p-4 shadow-sm hover:shadow-xl transition-shadow duration-300 border border-gray-100 flex flex-col h-full"
     >
       <div className="relative w-full aspect-square rounded-xl overflow-hidden mb-3 bg-gray-100 group">
-        
-        <img 
-          src={product.images[activeImage]} 
-          alt={product.title}
-          onError={handleImageError}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-        />
+        <AnimatePresence>
+          <motion.img 
+            key={activeImage}
+            src={product.images[activeImage]} 
+            alt={product.title}
+            initial={{ opacity: 0, scale: 1.1, y: 10 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.9, y: -10 }}
+            transition={{ 
+              duration: 0.8,
+              ease: [0.4, 0, 0.2, 1] 
+            }}
+            onError={handleImageError}
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+        </AnimatePresence>
       </div>
       
       {/* 4 Thumbnails */}

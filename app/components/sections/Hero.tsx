@@ -492,47 +492,23 @@ export default function HeroWithHeader() {
           aria-hidden
         >
           <motion.div
-            initial={{ x: "75%", y: "-75%", opacity: 0 }}
+            initial={{ x: "75%", y: 0, opacity: 0 }}
             animate={{ x: 0, y: 0, opacity: 1 }}
             transition={{ ...shapeTransition, delay: 0.1 }}
             className="absolute top-0 right-0 w-full h-full"
           >
-            <svg
-              className="h-full w-full object-right-top object-fit opacity-20 lg:opacity-30"
-              viewBox="0 0 1350 850"
-              fill="none"
-              preserveAspectRatio="xMaxYMin meet"
-            >
-              <path
-                d="M0 0H1414V640L1028 972C1028 972 887 1068 774 927L0 0Z"
-                fill="rgba(255, 255, 255, 0.2)"
-              />
-            </svg>
+           
           </motion.div>
 
           <motion.div
-            initial={{ x: "75%", y: "-75%", opacity: 0 }}
+            initial={{ x: "75%", y: 0, opacity: 0 }}
             animate={{ x: 0, y: 0, opacity: 1 }}
-            transition={{ ...shapeTransition, delay: 0.35 }}
+            transition={{ ...shapeTransition, delay: 0.2 }}
             className="absolute top-0 right-0 w-[85%] h-full"
           >
-            <svg
-              className="h-full w-full object-right-top object-cover opacity-15 lg:opacity-20"
-              viewBox="0 0 1200 920"
-              fill="none"
-              preserveAspectRatio="xMaxYMin meet"
-            >
-              <defs>
-                <linearGradient id="shape-gradient" x1="0%" x2="50%" y1="86.603%" y2="0%">
-                  <stop offset="50%" stopColor="rgba(255, 255, 255, 0.2)" stopOpacity="1" />
-                  <stop offset="100%" stopColor="rgba(255, 255, 255, 0.2)" stopOpacity="1" />
-                </linearGradient>
-              </defs>
-              <path
-                d="M0 0H1245V640L941 890C941 890 812 978 709 849L0 0Z"
-                fill="url(#shape-gradient)"
-              />
-            </svg>
+           
+              
+            
           </motion.div>
         </div>
 
@@ -550,11 +526,11 @@ export default function HeroWithHeader() {
         </div>
 
         {/* Left content */}
-        <div className="relative z-10 text-center lg:text-left" data-aos="fade-up" data-aos-delay="2400" data-aos-duration="800" data-aos-once="true">
+        <div className="relative z-10 text-center lg:text-left" data-aos="fade-up" data-aos-delay="100" data-aos-duration="600" data-aos-once="true">
           <motion.h1
             initial={{ y: 75, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ ...transitionContent, delay: 2.4 }}
+            transition={{ ...transitionContent, delay: 0.1 }}
             className="text-3xl sm:text-4xl lg:text-5xl xl:text-[3.25rem] leading-[1.15] font-bold text-white tracking-tight"
           >
             Invest in  <span className="text-[#D4AF37]">Gold & Silver</span>
@@ -565,7 +541,7 @@ export default function HeroWithHeader() {
           <motion.p
             initial={{ y: 75, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ ...transitionContent, delay: 2.6 }}
+            transition={{ ...transitionContent, delay: 0.2 }}
             className="mt-4 sm:mt-5 lg:mt-6 text-base sm:text-lg text-white/90 leading-relaxed max-w-[28rem] mx-auto lg:mx-0"
           >
             Grow your wealth by investing in 24K gold & silver securely, starting
@@ -575,7 +551,7 @@ export default function HeroWithHeader() {
           <motion.div
             initial={{ y: 75, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ ...transitionContent, delay: 2.8 }}
+            transition={{ ...transitionContent, delay: 0.3 }}
             className="mt-6 sm:mt-8 lg:mt-10 flex flex-col sm:flex-row gap-4 sm:gap-5 justify-center lg:justify-start"
           >
             <motion.button
@@ -599,13 +575,12 @@ export default function HeroWithHeader() {
         {/* Right: phone + gold images */}
         <div
           className="relative z-10 h-[350px] sm:h-[420px] lg:h-[520px] flex justify-center items-center order-first lg:order-last"
-          data-aos="fade-right" data-aos-delay="2600" data-aos-duration="1000" data-aos-once="true"
         >
           <div className="relative w-full h-full flex justify-center items-center">
             <motion.div
               initial={{ x: 40, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
-              transition={{ ...transitionContent, delay: 2.8 }}
+              transition={{ ...transitionContent, delay: 0.7 }}
               className="absolute w-[280px] sm:w-[350px] lg:w-[420px] h-[280px] sm:h-[350px] lg:h-[420px] rounded-full bg-[#D4AF37]/20 blur-[80px] lg:blur-[100px]"
             />
             <motion.div
@@ -614,20 +589,20 @@ export default function HeroWithHeader() {
               className="absolute w-[250px] sm:w-[320px] lg:w-[380px] h-[250px] sm:h-[320px] lg:h-[380px] rounded-full bg-[#D4AF37]/15 blur-2xl lg:blur-3xl"
             />
 
-            <div data-aos="zoom-in" data-aos-delay="2800" data-aos-duration="600" data-aos-once="true" className="absolute w-48 sm:w-64 lg:w-80 left-[50%] sm:left-[55%] top-[50%]">
-              <motion.div initial={{ scale: 0.5, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ ...transitionZoom, delay: 3.0 }}>
+            <div className="absolute w-48 sm:w-64 lg:w-80 left-[50%] sm:left-[55%] top-[50%]">
+              <motion.div initial={{ scale: 0.5, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ ...transitionZoom, delay: 0.9 }}>
                 <Image src="/assets/gold_coin.png" alt="" width={300} height={256} className="w-full h-auto" />
               </motion.div>
             </div>
 
-            <div data-aos="fade-left" data-aos-delay="3200" data-aos-duration="800" data-aos-once="true" className="relative z-10 blur-sm lg:blur-lg">
-              <motion.div initial={{ scale: 0.5, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ ...transitionZoom, delay: 3.4 }}>
+            <div className="relative z-10">
+              <motion.div initial={{ scale: 0.5, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ ...transitionZoom, delay: 1.1 }}>
                 <Image
                   src="/assets/iPhone_15.png"
-                  alt="GoldInvest app"
+                  alt="GoldInvest app"  
                   width={550}
                   height={520}
-                  className="drop-shadow-2xl object-contain w-[300px] sm:w-[400px] lg:w-[550px] h-auto"
+                  className="object-contain w-[300px] sm:w-[400px] lg:w-[550px] h-auto"
                   title="🚀 Mobile app launching soon"
                 />
               </motion.div>
