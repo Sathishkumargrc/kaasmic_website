@@ -29,12 +29,12 @@ const steps = [
   }
 ];
 
-  const scrollToAppDownload = () => {
-    const section = document.getElementById("appdownload");
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
-    }
-  };
+const scrollToAppDownload = () => {
+  const section = document.getElementById("appdownload");
+  if (section) {
+    section.scrollIntoView({ behavior: "smooth" });
+  }
+};
 
 // Generate random positions and durations outside of render
 const particlePositions = [...Array(20)].map(() => ({
@@ -80,7 +80,7 @@ export default function HowItWorksSection() {
           className="text-center mb-20"
         >
           <h2 className="text-5xl font-bold text-white mb-4">
-            How It <span className="text-[#D4AF37]">Works</span>
+            Get  <span className="text-[#D4AF37]">Started</span>
           </h2>
           <p className="text-lg text-white/80 max-w-2xl mx-auto">
             Start your gold investment journey in 4 simple steps
@@ -126,7 +126,7 @@ export default function HowItWorksSection() {
           ))}
         </div>
 
-        
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

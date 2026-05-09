@@ -41,7 +41,7 @@ export default function WhyChooseSection() {
     <section className="relative py-12 sm:py-16 lg:py-24 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-[#D4AF37]/5 to-transparent"></div>
-      
+
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
           {/* Left: Image/Visual */}
@@ -63,19 +63,19 @@ export default function WhyChooseSection() {
                       <div className="text-2xl sm:text-2xl lg:text-3xl font-bold text-[#D4AF37]">₹100</div>
                       <div className="text-xs sm:text-sm text-white/80 mt-1">Min. Investment</div>
                     </div>
-                    
+
                     <div className="bg-white/10 backdrop-blur-md rounded-xl sm:rounded-2xl p-4 sm:p-5 lg:p-6 border border-white/20">
                       <div className="text-2xl sm:text-3xl lg:text-4xl mb-2 sm:mb-3">📈</div>
                       <div className="text-2xl sm:text-2xl lg:text-3xl font-bold text-[#D4AF37]">15%</div>
                       <div className="text-xs sm:text-sm text-white/80 mt-1">Avg. Returns</div>
                     </div>
-                    
+
                     <div className="bg-white/10 backdrop-blur-md rounded-xl sm:rounded-2xl p-4 sm:p-5 lg:p-6 border border-white/20">
                       <div className="text-2xl sm:text-3xl lg:text-4xl mb-2 sm:mb-3">⚡</div>
                       <div className="text-2xl sm:text-2xl lg:text-3xl font-bold text-[#D4AF37]">2 Min</div>
                       <div className="text-xs sm:text-sm text-white/80 mt-1">Quick Selling</div>
                     </div>
-                    
+
                     <div className="bg-white/10 backdrop-blur-md rounded-xl sm:rounded-2xl p-4 sm:p-5 lg:p-6 border border-white/20">
                       <div className="text-2xl sm:text-3xl lg:text-4xl mb-2 sm:mb-3">🔒</div>
                       <div className="text-2xl sm:text-2xl lg:text-3xl font-bold text-[#D4AF37]">100%</div>

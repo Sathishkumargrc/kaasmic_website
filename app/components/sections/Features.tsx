@@ -82,7 +82,7 @@ export default function FeaturesSection() {
               className="group relative"
             >
               <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
-              
+
               <div className="relative bg-white rounded-2xl p-8 shadow-lg border border-gray-100 h-full transition-all duration-300 group-hover:shadow-2xl">
                 <div className="text-5xl mb-4">{feature.icon}</div>
                 <h3 className="text-2xl font-bold text-[#0C173D] mb-3">

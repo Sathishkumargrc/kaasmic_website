@@ -183,7 +183,7 @@ function CircularProcess({
   }
 
   return (
-    <div style={{ width: SIZE, height: SIZE }} className="relative">
+    <div style={{ width: SIZE, height: SIZE }} className="relative ">
 
       {/* SVG: arcs + arrowheads + number badges */}
       <svg width={SIZE} height={SIZE} viewBox={`0 0 ${SIZE} ${SIZE}`} className="absolute inset-0">
@@ -267,12 +267,26 @@ function CircularProcess({
   );
 }
 
+// ── Wrapper to make it responsive ─────────────────────────────────────────────
+function ResponsiveCircularProcess(props: {
+  color: string;
+  type: "gold" | "silver";
+  steps: typeof silverSteps;
+}) {
+  return (
+    <div className="relative w-full flex justify-center items-center overflow-hidden py-10 sm:py-0 h-[400px] sm:h-[600px]">
+      <div className="scale-[0.55] sm:scale-[0.8] lg:scale-100 origin-center transition-transform duration-500">
+        <CircularProcess {...props} />
+      </div>
+    </div>
+  );
+}
 
 // ── Main section ──────────────────────────────────────────────────────────────
 export default function ProcessCircular() {
   return (
-    <section className="py-20 bg-white overflow-x-hidden">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="py-12 sm:py-20 bg-white overflow-hidden hidden  lg:block">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
 
         {/* Header */}
         <motion.div
@@ -282,7 +296,7 @@ export default function ProcessCircular() {
           viewport={{ once: true }}
         >
           <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-3">
-            How it <span className="text-[#3D2D6E]">works</span>
+            How it <span className="text-[#D4AF37]">works</span>
           </h2>
           <div className="flex items-center justify-center gap-3 mb-4">
             <div className="h-px w-20 bg-gray-200" />
@@ -306,7 +320,7 @@ export default function ProcessCircular() {
             <p className="text-[#3D2D6E] text-[11px] font-bold tracking-widest mb-4 uppercase">
               999 Pure Silver
             </p>
-            <CircularProcess color="#6B5DD3" type="silver" steps={silverSteps} />
+            <ResponsiveCircularProcess color="#6B5DD3" type="silver" steps={silverSteps} />
           </div>
 
           {/* Vertical separator */}
@@ -321,7 +335,7 @@ export default function ProcessCircular() {
             <p className="text-[#D4AF37] text-[11px] font-bold tracking-widest mb-4 uppercase">
               24K Pure Gold
             </p>
-            <CircularProcess color="#D4AF37" type="gold" steps={goldSteps} />
+            <ResponsiveCircularProcess color="#D4AF37" type="gold" steps={goldSteps} />
           </div>
         </div>
 
