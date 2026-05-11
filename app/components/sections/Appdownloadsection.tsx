@@ -142,14 +142,15 @@ export default function AppDownloadSection() {
             <div className="relative z-10">
               {/* Glow effect */}
               <div className="absolute inset-0 bg-[#D4AF37]/20 blur-3xl"></div>
+              <img src="../assets/K 2.png" alt="app-download image" />
 
               {/* Phone mockup placeholder - replace with actual image */}
-              <div className="relative bg-gray-900 rounded-[3rem] p-3 shadow-2xl border-8 border-gray-800 mx-auto max-w-sm">
+              {/* <div className="relative bg-gray-900 rounded-[3rem] p-3 shadow-2xl border-8 border-gray-800 mx-auto max-w-sm">
                 <div className="bg-gradient-to-br from-[#0C173D] via-[#1A2664] to-[#0C173D] rounded-[2.5rem] overflow-hidden">
-                  {/* Notch */}
+                 
                   <div className="bg-black h-8 rounded-b-3xl mx-auto w-40"></div>
 
-                  {/* App Interface Mockup */}
+            
                   <div className="p-6">
                     <div className="text-center mb-6">
                       <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
@@ -159,7 +160,7 @@ export default function AppDownloadSection() {
                       </div>
                     </div>
 
-                    {/* Gold Price Card */}
+                
                     <div className="bg-gradient-to-br from-[#D4AF37] to-[#F5D78E] rounded-2xl p-6 mb-4">
                       <div className="text-[#0C173D] text-sm mb-1">
                         Live Gold Price
@@ -170,7 +171,6 @@ export default function AppDownloadSection() {
                       <div className="text-[#0C173D] text-sm mt-1">↑ +2.3%</div>
                     </div>
 
-                    {/* Quick Actions */}
                     <div className="grid grid-cols-2 gap-3 mb-4">
                       <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center">
                         <div className="text-2xl mb-2">💰</div>
@@ -182,7 +182,7 @@ export default function AppDownloadSection() {
                       </div>
                     </div>
 
-                    {/* Portfolio */}
+                   
                     <div className="bg-white/5 backdrop-blur-sm rounded-xl p-4">
                       <div className="text-white/60 text-xs mb-2">
                         Your Portfolio
@@ -196,7 +196,7 @@ export default function AppDownloadSection() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> */}
 
               {/* Floating Elements */}
               <motion.div
