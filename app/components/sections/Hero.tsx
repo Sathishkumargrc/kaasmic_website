@@ -33,14 +33,14 @@ const GeometricShape = ({ shape, color, size, top, left, delay, rotate, depth }:
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0 }}
-      animate={{ 
-        opacity: 0.4, 
+      animate={{
+        opacity: 0.4,
         scale: 1,
         x: position.x,
         y: position.y,
         rotate: rotate + position.x * 2
       }}
-      transition={{ 
+      transition={{
         opacity: { duration: 1, delay },
         scale: { duration: 1, delay },
         x: { type: "spring", damping: 20, stiffness: 50 },
@@ -49,7 +49,7 @@ const GeometricShape = ({ shape, color, size, top, left, delay, rotate, depth }:
       className="absolute pointer-events-none"
       style={{ top, left, zIndex: Math.floor(depth) }}
     >
-      <div 
+      <div
         className={`relative ${size} ${color} blur-[1px] shadow-2xl`}
         style={{
           borderRadius: shape === "circle" ? "50%" : shape === "rect" ? "12px" : "4px",
@@ -111,7 +111,7 @@ export default function HeroWithHeader() {
   ], []);
 
   return (
-    <section 
+    <section
       ref={containerRef}
       onMouseMove={handleMouseMove}
       className="relative min-h-screen overflow-hidden bg-[#050A1F]"
@@ -119,7 +119,7 @@ export default function HeroWithHeader() {
       {/* Dynamic Background */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,#1A2664_0%,#050A1F_100%)]" />
-        <motion.div 
+        <motion.div
           style={{ scale, filter: `blur(${blur}px)` }}
           className="absolute inset-0 opacity-30"
         >
@@ -230,7 +230,7 @@ export default function HeroWithHeader() {
       {/* Hero Main Content */}
       <div className="relative min-h-screen container mx-auto px-6 lg:px-24 flex flex-col lg:grid lg:grid-cols-2 items-center gap-16 pt-32 pb-20 z-10">
         {/* Left Section */}
-        <motion.div 
+        <motion.div
           style={{ y: textY, opacity }}
           className="text-center lg:text-left space-y-8"
         >
@@ -247,20 +247,20 @@ export default function HeroWithHeader() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-5xl md:text-7xl lg:text-[5rem] font-bold text-white leading-[1.1] tracking-tight"
+              className="text-4xl md:text-6xl lg:text-[4.2rem] font-extrabold text-white leading-[1.15] md:leading-[1.2] tracking-normal"
             >
               Invest in <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] via-[#F5D78E] to-[#D4AF37] animate-gradient-x">
-                Gold & Silver
+                Gold & Silver With Ease
               </span>
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-lg md:text-xl text-white/60 max-w-lg mx-auto lg:mx-0 leading-relaxed font-light"
+              className="text-base md:text-lg text-white/70 max-w-xl mx-auto lg:mx-0 leading-relaxed font-normal"
             >
-              Experience the next generation of asset growth. Secure your future with 24K pure digital assets starting with just <span className="text-white font-semibold">₹100</span>.
+              Grow your wealth by investing in 24K gold & silver securely, starting with just <span className="text-white font-semibold">₹100</span>.
             </motion.p>
           </div>
 
@@ -271,13 +271,13 @@ export default function HeroWithHeader() {
             className="flex flex-col sm:flex-row items-center gap-6"
           >
             <motion.button
-              whileHover={{ 
-                scale: 1.05, 
+              whileHover={{
+                scale: 1.05,
                 boxShadow: "0 20px 40px rgba(212,175,55,0.3)",
                 translateY: -2
               }}
               whileTap={{ scale: 0.98 }}
-              className="w-full sm:w-auto px-10 py-5 bg-[#D4AF37] text-[#050A1F] rounded-2xl font-bold text-lg shadow-2xl transition-all"
+              className="w-full sm:w-auto px-8 py-4 bg-[#D4AF37] text-[#050A1F] rounded-xl font-bold text-base shadow-2xl transition-all cursor-pointer"
               onClick={scrollToAppDownload}
             >
               Start Investing
@@ -288,13 +288,13 @@ export default function HeroWithHeader() {
         {/* Right Section: 3D Visualization */}
         <motion.div
           style={{ y: imageY, opacity }}
-          className="relative w-full h-[400px] lg:h-[600px] flex items-center justify-center"
+          className="relative w-full h-[400px] lg:h-[600px] flex items-center justify-center lg:translate-y-40"
         >
           {/* Main Visual Group */}
           <div className="relative w-full h-full">
             {/* Background Glow */}
             <motion.div
-              animate={{ 
+              animate={{
                 scale: [1, 1.2, 1],
                 opacity: [0.3, 0.5, 0.3]
               }}
@@ -304,13 +304,13 @@ export default function HeroWithHeader() {
 
             {/* Floating Assets */}
             <motion.div
-              animate={{ 
+              animate={{
                 y: [0, -30, 0],
                 rotateY: [0, 15, 0],
                 rotateX: [0, 5, 0]
               }}
               transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-              className="relative z-20 flex items-center justify-center"
+              className="relative z-20 flex  items-center justify-center"
             >
               <div className="relative">
                 {/* Phone Mockup with Glassmorphism */}
@@ -329,7 +329,7 @@ export default function HeroWithHeader() {
 
                 {/* Floating Coin 1 */}
                 <motion.div
-                  animate={{ 
+                  animate={{
                     y: [0, 20, 0],
                     rotate: [0, 360, 0]
                   }}
@@ -347,7 +347,7 @@ export default function HeroWithHeader() {
 
                 {/* Floating Coin 2 */}
                 <motion.div
-                  animate={{ 
+                  animate={{
                     y: [0, -40, 0],
                     x: [0, 20, 0],
                     rotate: [0, -360, 0]
