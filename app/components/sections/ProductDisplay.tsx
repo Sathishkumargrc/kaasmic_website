@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
 
 export default function ProductDisplay() {
   const products = [
@@ -177,8 +178,23 @@ function ProductCard({ product, index }: { product: any; index: number }) {
           <span className="text-sm text-gray-400 line-through mb-1">{product.originalPrice}</span>
         </div>
 
-        {/* Buttons in one row */}
-       
+        <Link href="/checkout" className="w-full">
+          <motion.button
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            className="w-full py-3 bg-[#D4AF37] text-white rounded-xl font-bold text-sm shadow-lg shadow-[#D4AF37]/20 hover:bg-[#B8962E] transition-all flex items-center justify-center gap-2 group cursor-pointer"
+          >
+            <span>Buy Now</span>
+            <svg 
+              className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" 
+              fill="none" 
+              stroke="currentColor" 
+              viewBox="0 0 24 24"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </motion.button>
+        </Link>
       </div>
     </motion.div>
   );

@@ -13,56 +13,8 @@ import {
   DrawerHeader,
   DrawerTitle,
 } from "../ui/drawer";
+import NeuralNetworkBackground from "../NeuralNetworkBackground";
 
-// Geometric Shape Component
-const GeometricShape = ({ shape, color, size, top, left, delay, rotate, depth }: any) => {
-  const mouseRef = useRef({ x: 0, y: 0 });
-  const [position, setPosition] = useState({ x: 0, y: 0 });
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      const { clientX, clientY } = e;
-      const x = (clientX - window.innerWidth / 2) / (20 * depth);
-      const y = (clientY - window.innerHeight / 2) / (20 * depth);
-      setPosition({ x, y });
-    };
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, [depth]);
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0 }}
-      animate={{
-        opacity: 0.4,
-        scale: 1,
-        x: position.x,
-        y: position.y,
-        rotate: rotate + position.x * 2
-      }}
-      transition={{
-        opacity: { duration: 1, delay },
-        scale: { duration: 1, delay },
-        x: { type: "spring", damping: 20, stiffness: 50 },
-        y: { type: "spring", damping: 20, stiffness: 50 }
-      }}
-      className="absolute pointer-events-none"
-      style={{ top, left, zIndex: Math.floor(depth) }}
-    >
-      <div
-        className={`relative ${size} ${color} blur-[1px] shadow-2xl`}
-        style={{
-          borderRadius: shape === "circle" ? "50%" : shape === "rect" ? "12px" : "4px",
-          transform: shape === "triangle" ? "rotate(45deg)" : "none",
-          boxShadow: `0 20px 40px rgba(0,0,0,0.3), inset 0 0 20px rgba(255,255,255,0.1)`,
-          background: `linear-gradient(135deg, ${color} 0%, rgba(255,255,255,0.1) 100%)`,
-        }}
-      >
-        <div className="absolute inset-0 bg-white/5 backdrop-blur-[2px] rounded-[inherit]" />
-      </div>
-    </motion.div>
-  );
-};
 
 export default function HeroWithHeader() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -102,13 +54,6 @@ export default function HeroWithHeader() {
     }
   };
 
-  const shapes = useMemo(() => [
-    { shape: "circle", color: "bg-[#D4AF37]/30", size: "w-24 h-24", top: "15%", left: "10%", depth: 2, rotate: 0, delay: 0.2 },
-    { shape: "rect", color: "bg-white/10", size: "w-32 h-32", top: "65%", left: "5%", depth: 3, rotate: 45, delay: 0.4 },
-    { shape: "triangle", color: "bg-[#D4AF37]/20", size: "w-20 h-20", top: "20%", left: "80%", depth: 1.5, rotate: -15, delay: 0.6 },
-    { shape: "circle", color: "bg-white/5", size: "w-40 h-40", top: "70%", left: "75%", depth: 4, rotate: 0, delay: 0.8 },
-    { shape: "rect", color: "bg-[#D4AF37]/10", size: "w-16 h-16", top: "40%", left: "85%", depth: 2.5, rotate: 120, delay: 1.0 },
-  ], []);
 
   return (
     <section
@@ -128,12 +73,7 @@ export default function HeroWithHeader() {
         </motion.div>
       </div>
 
-      {/* Floating 3D Shapes */}
-      <div className="absolute inset-0 z-1 pointer-events-none">
-        {shapes.map((s, i) => (
-          <GeometricShape key={i} {...s} />
-        ))}
-      </div>
+      <NeuralNetworkBackground />
 
       {/* Header Navigation */}
       <motion.header
