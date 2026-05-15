@@ -1,6 +1,8 @@
 "use client";
 
-const sections = [
+import { useGetPrivacyPolicyQuery } from "@/app/redux/features/api/privacyApi";
+
+const staticSections = [
   {
     number: 1,
     title: "Collection of Information",
@@ -77,90 +79,111 @@ const sections = [
 ];
 
 export default function PrivacyPolicy() {
-  return (
-    <div className="min-h-screen bg-white text-gray-800">
+  const { data, isLoading } = useGetPrivacyPolicyQuery();
 
+  const apiContent = data?.data?.page?.content;
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-white flex items-center justify-center">
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900"></div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="min-h-screen bg-white text-gray-800 pb-20">
       {/* Page Header */}
       <div className="border-b border-gray-200 bg-gray-50 px-6 py-10 text-center">
-        <h1 className="text-3xl font-semibold text-gray-900">Privacy Policy</h1>
+        <h1 className="text-3xl font-semibold text-gray-900">
+          {data?.data?.page?.title || "Privacy Policy"}
+        </h1>
       </div>
 
-      {/* Content */}
+      {/* Content Area */}
       <div className="mx-auto max-w-4xl px-6 py-12">
+        {apiContent ? (
+          <div 
+            className="prose prose-sm max-w-none text-gray-600 leading-7"
+            dangerouslySetInnerHTML={{ __html: apiContent }} 
+          />
+        ) : (
+          <>
+            {/* Intro Fallback */}
+            <div className="mb-10">
+              <p className="text-sm leading-7 text-gray-600">
+                This Privacy Policy is incorporated by reference into Kaasmic Terms and Conditions (the &quot;Terms&quot;).
+                The website{" "}
+                <a href="https://kaasmic.in" className="text-blue-400 underline">
+                  https://kaasmic.in
+                </a>{" "}
+                and/or the mobile application <strong>&apos;Kaasmic&apos;</strong> (collectively referred to as the &quot;Platform&quot;)
+                is owned and operated by{" "}
+                <strong>KAASMIC TECHNOLOGIES PRIVATE LIMITED</strong>, a private limited company having its
+                registered office at 67/1, Appasamy Road, Shevapet, Shevapet Bazaar, Salem - 636002, India
+                (together referred to as &quot;Company&quot;, &quot;We&quot;, &quot;Us&quot; or &quot;Our&quot;).
+              </p>
+              <p className="mt-4 text-sm leading-7 text-gray-600">
+                This Privacy Policy applies to all Users whose Personal Information has been processed by Us in
+                the course of our business, mobile applications, forums, blogs, and other online or offline
+                offerings. Please read this Privacy Policy carefully before using or registering on the Platform
+                or accessing the Services, in relation to purchase of physical gold and silver products (such as
+                coins, bars, or jewelry items) that are delivered via secure courier (&quot;Services&quot;).
+              </p>
+              <p className="mt-4 text-sm leading-7 text-gray-600">
+                By visiting the Platform, You (&quot;You&quot; or &quot;Your&quot;) accept and agree to be bound by this Privacy
+                Policy, which is incorporated into and subject to the Terms.
+              </p>
+            </div>
 
-        {/* Intro */}
-        <div className="mb-10">
-          <p className="text-sm leading-7 text-gray-600">
-            This Privacy Policy is incorporated by reference into Kaasmic Terms and Conditions (the &quot;Terms&quot;).
-            The website{" "}
-            <a href="https://kaasmic.in" className="text-blue-400 underline">
-              https://kaasmic.in
-            </a>{" "}
-            and/or the mobile application <strong>&apos;Kaasmic&apos;</strong> (collectively referred to as the &quot;Platform&quot;)
-            is owned and operated by{" "}
-            <strong>KAASMIC TECHNOLOGIES PRIVATE LIMITED</strong>, a private limited company having its
-            registered office at 67/1, Appasamy Road, Shevapet, Shevapet Bazaar, Salem - 636002, India
-            (together referred to as &quot;Company&quot;, &quot;We&quot;, &quot;Us&quot; or &quot;Our&quot;).
-          </p>
-          <p className="mt-4 text-sm leading-7 text-gray-600">
-            This Privacy Policy applies to all Users whose Personal Information has been processed by Us in
-            the course of our business, mobile applications, forums, blogs, and other online or offline
-            offerings. Please read this Privacy Policy carefully before using or registering on the Platform
-            or accessing the Services, in relation to purchase of physical gold and silver products (such as
-            coins, bars, or jewelry items) that are delivered via secure courier (&quot;Services&quot;).
-          </p>
-          <p className="mt-4 text-sm leading-7 text-gray-600">
-            By visiting the Platform, You (&quot;You&quot; or &quot;Your&quot;) accept and agree to be bound by this Privacy
-            Policy, which is incorporated into and subject to the Terms.
-          </p>
-        </div>
+            {/* Sections Fallback */}
+            <div className="space-y-10">
+              {staticSections.map((section: any) => (
+                <div key={section.number}>
+                  {/* Section heading */}
+                  <h2 className="mb-4 text-base font-semibold uppercase tracking-wide text-gray-900">
+                    {section.number}. {section.title}
+                  </h2>
 
-        {/* Sections */}
-        <div className="space-y-2">
-          {sections?.map((section) => (
-            <div key={section.number}>
-              {/* Section heading */}
-              <h2 className="mb-4 text-base font-semibold uppercase tracking-wide text-gray-900">
-                {section?.number}. {section?.title}
-              </h2>
+                  {/* Nested blocks with subtitle */}
+                  {section.content?.map((block: any, bi: number) => (
+                    <div key={bi} className="mb-5">
+                      <h3 className="mb-2 text-sm font-semibold text-gray-800">
+                        {block.subtitle}
+                      </h3>
+                      <ul className="ml-4 list-disc space-y-2 mt-2">
+                        {block.items?.map((item: string, ii: number) => (
+                          <li key={ii} className="text-sm leading-7 text-gray-600">
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
 
-              {/* Nested blocks with subtitle */}
-              {section?.content?.map((block, bi) => (
-                <div key={bi} className="mb-5">
-                  <h3 className="mb-2 text-sm font-semibold text-gray-800">
-                    {block?.subtitle}
-                  </h3>
-                  <ul className="ml-4 list-disc space-y-2">
-                    {block?.items?.map((item, ii) => (
-                      <li key={ii} className="text-sm leading-7 text-gray-600">
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
+                  {/* Flat list */}
+                  {section.items && section.items.length > 0 && (
+                    <ul className="ml-4 list-disc space-y-2 mt-2">
+                      {section.items.map((item: string, ii: number) => (
+                        <li key={ii} className="text-sm leading-7 text-gray-600">
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+
+                  {/* Body paragraph */}
+                  {section.body && (
+                    <p className="text-sm leading-7 text-gray-600 mt-2">{section.body}</p>
+                  )}
                 </div>
               ))}
-
-              {/* Flat list */}
-              {section?.items && (
-                <ul className="ml-4 list-disc space-y-2">
-                  {section?.items?.map((item, ii) => (
-                    <li key={ii} className="text-sm leading-7 text-gray-600">
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              )}
-
-              {/* Body paragraph */}
-              {section?.body && (
-                <p className="text-sm leading-7 text-gray-600">{section?.body}</p>
-              )}
             </div>
-          ))}
-        </div>
+          </>
+        )}
 
         {/* Contact */}
-        <div className="mt-10 rounded-md border border-gray-200 bg-gray-50 px-6 py-5">
+        <div className="mt-12 rounded-md border border-gray-200 bg-gray-50 px-6 py-5">
           <p className="text-sm text-gray-600">
             For any privacy-related queries or to exercise your rights, please contact us at:{" "}
             <a
@@ -171,7 +194,6 @@ export default function PrivacyPolicy() {
             </a>
           </p>
         </div>
-
       </div>
     </div>
   );

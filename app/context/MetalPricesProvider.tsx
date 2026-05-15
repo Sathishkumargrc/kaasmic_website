@@ -93,7 +93,7 @@ export function MetalPricesProvider({ children }: { children: ReactNode }) {
   const startPolling = useCallback(() => {
     if (intervalRef.current) return;
     intervalRef.current = setInterval(fetchPrices, POLL_INTERVAL_MS);
-    
+
     // Countdown timer
     if (countdownRef.current) clearInterval(countdownRef.current);
     countdownRef.current = setInterval(() => {

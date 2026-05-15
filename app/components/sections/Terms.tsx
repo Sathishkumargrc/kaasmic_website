@@ -1,6 +1,8 @@
 "use client";
 
-const sections = [
+import { useGetTermsQuery } from "@/app/redux/features/api/termsApi";
+
+const staticSections = [
   {
     number: 1,
     title: "SERVICES",
@@ -81,52 +83,75 @@ const sections = [
 ];
 
 export default function TermsandConditions() {
-  return (
-    <div className="min-h-screen bg-white text-gray-800">
+  const { data, isLoading } = useGetTermsQuery();
 
+  const apiContent = data?.data?.page?.content;
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-white flex items-center justify-center">
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900"></div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="min-h-screen bg-white text-gray-800 pb-20">
       {/* Header */}
       <div className="border-b border-gray-200 bg-gray-50 px-6 py-10 text-center">
-        <h1 className="text-3xl font-semibold text-gray-900">Terms and Conditions</h1>
+        <h1 className="text-3xl font-semibold text-gray-900">
+          {data?.data?.page?.title || "Terms and Conditions"}
+        </h1>
       </div>
 
-      {/* Intro */}
+      {/* Content Area */}
       <div className="mx-auto max-w-4xl px-6 py-12">
-        <div className="mb-10">
-          <p className="text-sm leading-7 text-gray-600">
-            These Terms govern your access and use of the Platform (https://kaasmic.in and Kaasmic mobile app)
-            operated by KAASMIC TECHNOLOGIES PRIVATE LIMITED (registered at 67/1, Appasamy Road,
-            Shevapet, Shevapet Bazaar, Salem - 636002, India) (“Company”, “We”, “Us”, “Our”).
-          </p>
-          <p className="mt-4 text-sm leading-7 text-gray-600">
-            By accessing/using the Platform or purchasing physical gold/silver products (delivered via secure courier),
-            you agree to these Terms (and incorporate Privacy Policy). If you disagree, do not use the Platform.
-          </p>
-        </div>
-
-        {/* Sections */}
-        <div className="space-y-6">
-          {sections?.map((section) => (
-            <div key={section.number}>
-              <h2 className="mb-3 text-base font-semibold uppercase text-gray-900">
-                {section?.number}. {section?.title}
-              </h2>
-
-              {section?.body && (
-                <p className="text-sm leading-7 text-gray-600">{section?.body}</p>
-              )}
-
-              {section?.items && (
-                <ul className="ml-4 list-disc space-y-2">
-                  {section?.items?.map((item, i) => (
-                    <li key={i} className="text-sm leading-7 text-gray-600">
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              )}
+        {apiContent ? (
+          <div 
+            className="prose prose-sm max-w-none text-gray-600 leading-7"
+            dangerouslySetInnerHTML={{ __html: apiContent }} 
+          />
+        ) : (
+          <>
+            {/* Intro Fallback */}
+            <div className="mb-10">
+              <p className="text-sm leading-7 text-gray-600">
+                These Terms govern your access and use of the Platform (https://kaasmic.in and Kaasmic mobile app)
+                operated by KAASMIC TECHNOLOGIES PRIVATE LIMITED (registered at 67/1, Appasamy Road,
+                Shevapet, Shevapet Bazaar, Salem - 636002, India) (“Company”, “We”, “Us”, “Our”).
+              </p>
+              <p className="mt-4 text-sm leading-7 text-gray-600">
+                By accessing/using the Platform or purchasing physical gold/silver products (delivered via secure courier),
+                you agree to these Terms (and incorporate Privacy Policy). If you disagree, do not use the Platform.
+              </p>
             </div>
-          ))}
-        </div>
+
+            {/* Sections Fallback */}
+            <div className="space-y-8">
+              {staticSections.map((section: any) => (
+                <div key={section.number}>
+                  <h2 className="mb-3 text-base font-semibold uppercase text-gray-900">
+                    {section.number}. {section.title}
+                  </h2>
+
+                  {section.body && (
+                    <p className="text-sm leading-7 text-gray-600">{section.body}</p>
+                  )}
+
+                  {section.items && section.items.length > 0 && (
+                    <ul className="ml-4 list-disc space-y-2 mt-2">
+                      {section.items.map((item: string, i: number) => (
+                        <li key={i} className="text-sm leading-7 text-gray-600">
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              ))}
+            </div>
+          </>
+        )}
       </div>
     </div>
   );
