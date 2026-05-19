@@ -9,7 +9,7 @@ import {
 } from "../ui/accordion";
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 
-import { useGetFaqsQuery } from "@/app/redux/features/api/faqApi";
+import { useGetFaqsQuery, FAQItem } from "@/app/redux/features/api/faqApi";
 
 const staticFaqs = [
   {
@@ -37,7 +37,8 @@ const staticFaqs = [
 export default function FAQContent() {
   const { data, isLoading, error } = useGetFaqsQuery();
 
-  const faqs = data?.data?.faqs || [];
+  // Flatten all items across all categories
+  const faqs: FAQItem[] = data?.data?.faqs?.flatMap((cat) => cat.items) ?? [];
 
   if (isLoading) {
     return (
@@ -64,7 +65,7 @@ export default function FAQContent() {
           <CardContent className="p-4 sm:p-6 pt-0">
             {faqs.length > 0 ? (
               <Accordion type="single" collapsible className="w-full">
-                {faqs.map((faq: any, i: number) => (
+                {faqs.map((faq: FAQItem, i: number) => (
                   <AccordionItem key={i} value={`item-${i}`}>
                     <AccordionTrigger className="text-white hover:text-[#D4AF37] text-sm sm:text-base text-left transition-colors">
                       {faq.question}

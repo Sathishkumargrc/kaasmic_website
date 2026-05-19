@@ -1,10 +1,14 @@
 import { apiSlice } from "./apiSlice";
 
-export interface FAQ {
+export interface FAQItem {
   id: string;
   question: string;
   answer: string;
-  // Add other fields if necessary based on actual data
+}
+
+export interface FAQCategory {
+  category: string;
+  items: FAQItem[];
 }
 
 export interface FAQResponse {
@@ -12,7 +16,7 @@ export interface FAQResponse {
   status: number;
   message: string;
   data: {
-    faqs: FAQ[];
+    faqs: FAQCategory[];
     total: number;
   };
   errors: any;

@@ -103,9 +103,19 @@ export default function PrivacyPolicy() {
       {/* Content Area */}
       <div className="mx-auto max-w-4xl px-6 py-12">
         {apiContent ? (
-          <div 
-            className="prose prose-sm max-w-none text-gray-600 leading-7"
-            dangerouslySetInnerHTML={{ __html: apiContent }} 
+          <div
+            className="
+              [&_h1]:text-3xl [&_h1]:font-bold [&_h1]:text-gray-900 [&_h1]:mt-8 [&_h1]:mb-4 [&_h1]:leading-tight
+              [&_h2]:text-xl [&_h2]:font-semibold [&_h2]:text-gray-800 [&_h2]:mt-8 [&_h2]:mb-3 [&_h2]:pb-1.5 [&_h2]:border-b [&_h2]:border-gray-200 [&_h2]:leading-snug
+              [&_h3]:text-base [&_h3]:font-semibold [&_h3]:text-gray-700 [&_h3]:mt-5 [&_h3]:mb-2 [&_h3]:leading-normal
+              [&_p]:text-sm [&_p]:text-gray-600 [&_p]:leading-7 [&_p]:mb-3
+              [&_ol]:ml-6 [&_ol]:mb-4
+              [&_ul]:ml-6 [&_ul]:mb-4
+              [&_li]:text-sm [&_li]:text-gray-600 [&_li]:leading-7 [&_li]:mb-1.5 [&_li]:list-disc
+              [&_.ql-ui]:hidden
+              [&_a]:text-amber-700 [&_a]:underline [&_a]:underline-offset-2 hover:[&_a]:text-amber-900
+            "
+            dangerouslySetInnerHTML={{ __html: apiContent }}
           />
         ) : (
           <>

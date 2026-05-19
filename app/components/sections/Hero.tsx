@@ -13,7 +13,7 @@ import {
   DrawerHeader,
   DrawerTitle,
 } from "../ui/drawer";
-import NeuralNetworkBackground from "../NeuralNetworkBackground";
+import MotherboardBackground from "../NeuralNetworkBackground";
 
 
 export default function HeroWithHeader() {
@@ -73,7 +73,7 @@ export default function HeroWithHeader() {
         </motion.div>
       </div>
 
-      <NeuralNetworkBackground />
+      <MotherboardBackground />
 
       {/* Header Navigation */}
       <motion.header
@@ -253,9 +253,8 @@ export default function HeroWithHeader() {
               className="relative z-20 flex  items-center justify-center"
             >
               <div className="relative">
-                {/* Phone Mockup with Glassmorphism */}
-                <div className="relative p-4 bg-white/5 backdrop-blur-xl rounded-[3rem] border border-white/10 shadow-2xl overflow-hidden group">
-                  <div className="absolute inset-0 bg-gradient-to-tr from-[#D4AF37]/10 to-transparent opacity-50" />
+                {/* Phone Mockup without container background */}
+                <div className="relative group">
                   <Image
                     src="/assets/iPhone_15.png"
                     alt="App Preview"
@@ -263,8 +262,6 @@ export default function HeroWithHeader() {
                     height={760}
                     className="relative z-10 w-[280px] lg:w-[320px] drop-shadow-[0_30px_60px_rgba(0,0,0,0.5)]"
                   />
-                  {/* Subtle highlight */}
-                  <div className="absolute -top-[100%] left-[-100%] w-[300%] h-[300%] bg-gradient-to-br from-white/20 to-transparent rotate-45 pointer-events-none group-hover:animate-shine" />
                 </div>
 
                 {/* Floating Coin 1 */}

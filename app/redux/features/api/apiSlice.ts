@@ -13,7 +13,7 @@ export const apiSlice = createApi({
       return headers;
     },
   }),
-  tagTypes: ['FAQ', 'Blog'], // Add tags here for cache invalidation
+  tagTypes: ['FAQ', 'Blog', 'Jewellery'], // Add tags here for cache invalidation
   endpoints: (builder) => ({
     // We will inject endpoints in separate files or add them here
   }),

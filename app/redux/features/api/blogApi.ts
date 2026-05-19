@@ -12,15 +12,21 @@ export interface BlogArticle {
 }
 
 export interface BlogMeta {
-  found: number;
-  returned: number;
-  limit: number;
-  page: number;
+  current_page: number;
+  last_page: number;
+  per_page: number;
+  total: number;
 }
 
 export interface BlogResponse {
-  data: BlogArticle[];
-  meta: BlogMeta;
+  success: boolean;
+  status: number;
+  message: string;
+  data: {
+    posts: BlogArticle[];
+    meta: BlogMeta;
+  };
+  errors: any;
 }
 
 export const blogApi = apiSlice.injectEndpoints({

@@ -1,7 +1,8 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
+import { useGetBlogsQuery } from "../../redux/features/api/blogApi";
 import { motion } from "framer-motion";
 import {
   Card,
@@ -32,34 +33,13 @@ interface BlogArticle {
 }
 
 interface BlogMeta {
-  found: number;
-  returned: number;
-  limit: number;
-  page: number;
+  current_page: number;
+  last_page: number;
+  per_page: number;
+  total: number;
 }
 
-const FALLBACK_ARTICLES: BlogArticle[] = [
-  {
-    uuid: "1",
-    title: "Why digital gold is gaining traction in India",
-    description: "Digital gold allows investors to buy and hold 24K gold in small amounts with ease.",
-    snippet: "Digital gold allows investors to buy and hold 24K gold in small amounts with ease.",
-    url: "#",
-    image_url: null,
-    source: "Sample",
-    published_at: new Date().toISOString(),
-  },
-  {
-    uuid: "2",
-    title: "Gold prices and market outlook",
-    description: "Finance experts weigh in on gold as a store of value and inflation hedge.",
-    snippet: "Finance experts weigh in on gold as a store of value and inflation hedge.",
-    url: "#",
-    image_url: null,
-    source: "Sample",
-    published_at: new Date().toISOString(),
-  },
-];
+
 
 export default function BlogContent() {
   const router = useRouter();
@@ -67,34 +47,20 @@ export default function BlogContent() {
   const search = searchParams.get("search")?.trim() || "gold investment finance";
   const page = Math.max(1, parseInt(searchParams.get("page") ?? "1", 10));
 
-  const [data, setData] = useState<BlogArticle[]>([]);
-  const [meta, setMeta] = useState<BlogMeta>({ found: 0, returned: 0, limit: 10, page: 1 });
-  const [loading, setLoading] = useState(true);
   const [selected, setSelected] = useState<BlogArticle | null>(null);
 
-  const fetchBlogs = useCallback(async () => {
-    setLoading(true);
-    try {
-      const params = new URLSearchParams({ search, page: String(page), limit: "10" });
-      const res = await fetch(`/api/blog?${params.toString()}`);
-      const json = await res.json();
-      setData(Array.isArray(json.data) ? json.data : []);
-      setMeta(
-        json.meta ?? { found: 0, returned: 0, limit: 10, page: 1 }
-      );
-    } catch {
-      setData(FALLBACK_ARTICLES);
-      setMeta({ found: FALLBACK_ARTICLES.length, returned: FALLBACK_ARTICLES.length, limit: 10, page: 1 });
-    } finally {
-      setLoading(false);
-    }
-  }, [search, page]);
+  // Fetch blogs using RTK Query hook
+  const { data: blogResponse, isLoading } = useGetBlogsQuery({
+    search,
+    page,
+    limit: 10,
+  });
 
-  useEffect(() => {
-    fetchBlogs();
-  }, [fetchBlogs]);
+  const loading = isLoading;
+  const data = blogResponse?.data?.posts ?? [];
+  const meta = blogResponse?.data?.meta;
 
-  const totalPages = Math.max(1, Math.ceil((meta.found || 0) / meta.limit));
+  const totalPages = meta?.last_page ?? 1;
 
   const handlePageChange = (newPage: number) => {
     const params = new URLSearchParams(searchParams.toString());
@@ -102,8 +68,8 @@ export default function BlogContent() {
     router.push(`/blog?${params.toString()}`);
   };
 
-  const displayArticles = data.length > 0 ? data : FALLBACK_ARTICLES;
-  const showPagination = meta.found > meta.limit;
+  const displayArticles = data;
+  const showPagination = meta ? meta.total > meta.per_page : false;
 
   return (
     <section className="px-[5.5rem] py-12 pb-20">
