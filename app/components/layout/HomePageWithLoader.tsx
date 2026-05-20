@@ -59,7 +59,7 @@ export default function HomePageWithLoader() {
               <LivePriceSection />
               <WhyChooseSection />
               <Certifications />
-              <ProductDisplay />
+              {/* <ProductDisplay /> */}
               <TestimonialsSection />
               <AppDownloadSection />
               <WealthSection />

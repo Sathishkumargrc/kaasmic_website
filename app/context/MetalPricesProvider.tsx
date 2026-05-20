@@ -18,8 +18,8 @@ import type {
 } from "@/app/types/api";
 import { DEFAULT_METAL_PRICES } from "@/app/types/api";
 
-// ─── Poll every 5 minutes ───
-const POLL_INTERVAL_MS = 5 * 60 * 1000;
+// ─── Poll every 2 minutes ───
+const POLL_INTERVAL_MS = 2 * 60 * 1000;
 
 // ─── Context shape ───
 interface MetalPricesContextValue {

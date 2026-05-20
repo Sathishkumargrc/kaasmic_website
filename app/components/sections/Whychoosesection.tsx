@@ -7,7 +7,7 @@ const benefits = [
   {
     title: "99.9% Pure Gold",
     description: "All our digital gold is backed by 24K (99.9% pure) physical gold stored in secure, insured vaults certified by international standards.",
-    stat: "24K",
+    stat: "24K , 22K",
     icon: "✨"
   },
   {
@@ -23,11 +23,11 @@ const benefits = [
     icon: "🏦"
   },
   {
-    title: "Instant Liquidity",
-    description: "Sell your gold anytime and get money in your bank account within minutes. No waiting, no hassle.",
-    stat: "2 min",
-    icon: "⚡"
-  },
+  title: "916 Hallmarked Gold",
+  description: "Certified 916 hallmark gold with guaranteed purity and trusted quality assurance for every purchase.",
+  stat: "916 BIS",
+  icon: "✔️"
+},
   // {
   //   title: "Trusted Platform",
   //   description: "Over 5 lakh+ satisfied investors trust us with their gold investments. Join India's fastest-growing gold investment platform.",

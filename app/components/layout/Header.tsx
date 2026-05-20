@@ -222,7 +222,7 @@ export default function Header({
         </nav>
 
         {/* Mobile right side: price pill + hamburger */}
-        <div className="lg:hidden flex items-center gap-2">
+        <div className="lg:hidden flex items-center gap-2 sm:gap-4">
           <LivePrice type="mobile" />
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}

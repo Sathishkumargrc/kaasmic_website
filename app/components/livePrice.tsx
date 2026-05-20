@@ -34,33 +34,33 @@ export default function LivePrice(props: LivePriceProps) {
   // Mobile mode — Premium compact card
   if (isMobile) {
     return (
-      <div className="flex items-center gap-2 bg-white/5 backdrop-blur-md rounded-xl p-1 border border-white/10 shadow-lg">
+      <div className="flex items-center gap-2 sm:gap-3 bg-white/5 backdrop-blur-md rounded-xl sm:rounded-2xl p-1 sm:p-1.5 border border-white/10 shadow-lg transition-all duration-300">
         {/* Gold */}
-        <div className="flex items-center gap-2 bg-[#D4AF37]/10 rounded-lg px-2 py-1 border border-[#D4AF37]/20">
-          <div className="w-1.5 h-1.5 rounded-full bg-[#D4AF37] animate-pulse shrink-0" />
+        <div className="flex items-center gap-2 sm:gap-2.5 bg-[#D4AF37]/10 rounded-lg sm:rounded-xl px-2 sm:px-3 py-1 sm:py-1.5 border border-[#D4AF37]/20">
+          <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-[#D4AF37] animate-pulse shrink-0" />
           <div className="flex flex-col leading-none">
-            <span className="text-[8px] text-[#D4AF37] font-bold uppercase tracking-tighter">Gold</span>
-            <span className="text-[11px] font-black text-white">
+            <span className="text-[8px] sm:text-[9px] text-[#D4AF37] font-bold uppercase tracking-tighter sm:tracking-wider mb-0.5">Gold</span>
+            <span className="text-[11px] sm:text-[13px] font-black text-white">
               {prices?.gold?.buyPrice ? `₹${prices.gold.buyPrice}` : "---"}
             </span>
           </div>
         </div>
 
         {/* Silver */}
-        <div className="flex items-center gap-2 bg-white/5 rounded-lg px-2 py-1 border border-white/10">
-          <div className="w-1.5 h-1.5 rounded-full bg-gray-300 animate-pulse shrink-0" />
+        <div className="flex items-center gap-2 sm:gap-2.5 bg-white/5 rounded-lg sm:rounded-xl px-2 sm:px-3 py-1 sm:py-1.5 border border-white/10">
+          <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-gray-300 animate-pulse shrink-0" />
           <div className="flex flex-col leading-none">
-            <span className="text-[8px] text-gray-400 font-bold uppercase tracking-tighter">Silver</span>
-            <span className="text-[11px] font-black text-white">
+            <span className="text-[8px] sm:text-[9px] text-gray-400 font-bold uppercase tracking-tighter sm:tracking-wider mb-0.5">Silver</span>
+            <span className="text-[11px] sm:text-[13px] font-black text-white">
               {prices?.silver?.buyPrice ? `₹${prices.silver.buyPrice}` : "---"}
             </span>
           </div>
         </div>
         
         {/* Timer */}
-        <div className="flex flex-col items-center justify-center px-1.5 min-w-[30px]">
-          <span className="text-[7px] text-white/30 font-bold">NEXT</span>
-          <span className="text-[10px] font-mono font-bold text-[#D4AF37] leading-none">
+        <div className="flex flex-col items-center justify-center px-1.5 sm:px-3.5 min-w-[30px] sm:min-w-[55px]">
+          <span className="text-[7px] sm:text-[9px] text-white/30 font-bold tracking-wider mb-0.5">NEXT</span>
+          <span className="text-[10px] sm:text-[14px] font-mono font-bold text-[#D4AF37] leading-none">
             {countdown > 0 ? formatTime(countdown) : "--:--"}
           </span>
         </div>

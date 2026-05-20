@@ -113,7 +113,7 @@ interface StickyHeaderProps {
 
 function StickyMobilePrice() {
   return (
-    <div className='flex items-center bg-[#1E2548] rounded-full border border-white/5 overflow-hidden shadow-lg scale-90 sm:scale-100 origin-right'>
+    <div className='flex items-center bg-[#1E2548] rounded-full border border-white/5 overflow-hidden shadow-lg scale-90 sm:scale-100 origin-right transition-all duration-300'>
       <StickyMobilePriceInner />
     </div>
   );
@@ -121,31 +121,40 @@ function StickyMobilePrice() {
 
 function StickyMobilePriceInner() {
   const { useMetalPrices } = require('@/app/context/MetalPricesProvider');
-  const { prices } = useMetalPrices();
+  const { prices, countdown } = useMetalPrices();
+
+  const formatTime = (seconds: number) => {
+    if (seconds <= 0) return '0:00';
+    const mins = Math.floor(seconds / 60);
+    const secs = seconds % 60;
+    return `${mins}:${secs.toString().padStart(2, '0')}`;
+  };
 
   return (
     <>
-      <div className='flex items-center gap-1.5 px-3 py-1.5 bg-[#2B3563] border-r border-white/5'>
-        <div className='w-2 h-2 rounded-full bg-[#D4AF37]' />
+      <div className='flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-[#2B3563] border-r border-white/5'>
+        <div className='w-2 h-2 rounded-full bg-[#D4AF37] animate-pulse' />
         <div className='flex flex-col leading-none'>
-          <span className='text-[8px] font-bold text-[#D4AF37] tracking-wider mb-0.5'>GOLD</span>
-          <span className='text-xs font-bold text-white tracking-wide'>
+          <span className='text-[8px] sm:text-[9px] font-bold text-[#D4AF37] tracking-wider mb-0.5 uppercase'>GOLD</span>
+          <span className='text-xs sm:text-sm font-bold text-white tracking-wide'>
             ₹{prices?.gold?.buyPrice?.toFixed(0) || '15450'}
           </span>
         </div>
       </div>
-      <div className='flex items-center gap-1.5 px-3 py-1.5 border-r border-white/5'>
-        <div className='w-2 h-2 rounded-full bg-gray-300' />
+      <div className='flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 border-r border-white/5'>
+        <div className='w-2 h-2 rounded-full bg-gray-300 animate-pulse' />
         <div className='flex flex-col leading-none'>
-          <span className='text-[8px] font-bold text-gray-400 tracking-wider mb-0.5'>SILVER</span>
-          <span className='text-xs font-bold text-white tracking-wide'>
+          <span className='text-[8px] sm:text-[9px] font-bold text-gray-400 tracking-wider mb-0.5 uppercase'>SILVER</span>
+          <span className='text-xs sm:text-sm font-bold text-white tracking-wide'>
             ₹{prices?.silver?.buyPrice?.toFixed(0) || '255'}
           </span>
         </div>
       </div>
-      <div className='flex flex-col leading-none px-3 py-1.5 items-center justify-center'>
-        <span className='text-[8px] font-bold text-gray-400 tracking-wider mb-0.5'>NEXT</span>
-        <span className='text-xs font-bold text-[#D4AF37] tracking-wide'>4:11</span>
+      <div className='flex flex-col leading-none px-3 sm:px-4 py-1.5 sm:py-2 items-center justify-center min-w-[45px] sm:min-w-[55px]'>
+        <span className='text-[8px] sm:text-[9px] font-bold text-gray-400 tracking-wider mb-0.5 uppercase'>NEXT</span>
+        <span className='text-xs sm:text-[14px] font-mono font-bold text-[#D4AF37] tracking-wide leading-none'>
+          {countdown > 0 ? formatTime(countdown) : '0:00'}
+        </span>
       </div>
     </>
   );
@@ -196,7 +205,7 @@ export default function StickyHeader({ isVisible }: StickyHeaderProps) {
         </nav>
 
         {/* Mobile right side: price pill + hamburger */}
-        <div className='lg:hidden flex items-center gap-2'>
+        <div className='lg:hidden flex items-center gap-2 sm:gap-4'>
           <StickyMobilePrice />
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}

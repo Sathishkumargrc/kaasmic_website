@@ -200,7 +200,7 @@ export default function HeroWithHeader() {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-base md:text-lg text-white/70 max-w-xl mx-auto lg:mx-0 leading-relaxed font-normal"
             >
-              Grow your wealth by investing in 24K gold & silver securely, starting with just <span className="text-white font-semibold">₹100</span>.
+              Grow your wealth by investing in 24K , 22K gold & silver securely, starting with just <span className="text-white font-semibold">₹100</span>.
             </motion.p>
           </div>
 
@@ -208,7 +208,7 @@ export default function HeroWithHeader() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="flex flex-col sm:flex-row items-center gap-6"
+            className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-6"
           >
             <motion.button
               whileHover={{
