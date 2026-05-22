@@ -13,14 +13,7 @@ export default function LivePrice(props: LivePriceProps) {
   const isDrawer = type === "drawer";
   const isMobile = type === "mobile";
 
-  const { prices, countdown } = useMetalPrices();
-
-  const formatTime = (seconds: number) => {
-    if (seconds <= 0) return "0:00";
-    const mins = Math.floor(seconds / 60);
-    const secs = seconds % 60;
-    return `${mins}:${secs.toString().padStart(2, "0")}`;
-  };
+  const { prices } = useMetalPrices();
 
   const labelColor = isSticky
     ? "text-black/70"
@@ -58,12 +51,7 @@ export default function LivePrice(props: LivePriceProps) {
         </div>
         
         {/* Timer */}
-        <div className="flex flex-col items-center justify-center px-1.5 sm:px-3.5 min-w-[30px] sm:min-w-[55px]">
-          <span className="text-[7px] sm:text-[9px] text-white/30 font-bold tracking-wider mb-0.5">NEXT</span>
-          <span className="text-[10px] sm:text-[14px] font-mono font-bold text-[#D4AF37] leading-none">
-            {countdown > 0 ? formatTime(countdown) : "--:--"}
-          </span>
-        </div>
+       
       </div>
     );
   }
@@ -84,12 +72,6 @@ export default function LivePrice(props: LivePriceProps) {
               <div className="text-[10px] font-bold text-white/50 tracking-[0.2em] uppercase">
                 Live Market Rates
               </div>
-            </div>
-            <div className="flex flex-col items-end">
-              <span className="text-[8px] text-white/30 font-bold uppercase">Updating in</span>
-              <span className="text-xs font-mono font-bold text-[#D4AF37]">
-                {countdown > 0 ? formatTime(countdown) : "--:--"}
-              </span>
             </div>
           </div>
 
@@ -167,16 +149,7 @@ export default function LivePrice(props: LivePriceProps) {
         </div>
 
         {/* Timer Card */}
-        <div className={`flex flex-col items-center justify-center px-4 min-w-[70px] border-l ${
-          isSticky ? "border-gray-200" : "border-white/10"
-        }`}>
-          <span className={`text-[9px] font-black uppercase tracking-tighter ${isSticky ? "text-gray-400" : "text-white/40"}`}>
-            Update In
-          </span>
-          <span className={`text-sm font-mono font-black ${isSticky ? "text-[#D4AF37]" : "text-[#D4AF37]"}`}>
-            {countdown > 0 ? formatTime(countdown) : "--:--"}
-          </span>
-        </div>
+       
       </motion.div>
     </div>
   );
