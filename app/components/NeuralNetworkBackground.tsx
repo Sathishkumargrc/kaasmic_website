@@ -240,8 +240,8 @@ export default function MotherboardBackground() {
           rotation2: 0,
           rotation3: 0,
           rotationSpeed: 1.0,
-          name: "KAASMIC_SECURE_VAULT",
-          status: "ENCRYPTED_ONLINE",
+          name: "",
+          status: "",
           frequency: "24K_GOLD_VAL",
           color: GOLD,
           glowColor: GOLD_GLOW,
@@ -259,7 +259,7 @@ export default function MotherboardBackground() {
           rotation2: -Math.PI / 4,
           rotation3: Math.PI / 2,
           rotationSpeed: 1.2,
-          name: "LEDGER_BUS_v1.0",
+          name: "",
           status: "SYNC_COMPLETE",
           frequency: "99.9%_AG_VAL",
           color: CYAN,
@@ -495,8 +495,7 @@ export default function MotherboardBackground() {
       
       ctx!.fillStyle = "rgba(255, 255, 255, 0.15)";
       ctx!.font = "7px monospace";
-      ctx!.fillText(`STATUS // ${status}`, x, y + radius + 26);
-      ctx!.fillText(`FREQ // ${frequency}`, x, y + radius + 36);
+     
 
       // Symmetrical technical brackets
       ctx!.strokeStyle = color === GOLD ? "rgba(212,175,55,0.1)" : "rgba(0,240,255,0.08)";
