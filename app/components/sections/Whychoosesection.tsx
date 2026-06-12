@@ -17,23 +17,23 @@ const benefits = [
     icon: "🥈"
   },
   {
-    title: "Zero Storage Cost",
-    description: "Unlike physical gold, there are no storage or making charges. What you see is what you get - transparent pricing always.",
-    stat: "₹0",
-    icon: "🏦"
+    title: "916 Hallmarked Gold",
+    description: "Certified 916 hallmark gold with guaranteed purity and trusted quality assurance for every purchase.",
+    stat: "916 BIS",
+    icon: "✔️"
   },
   {
-  title: "916 Hallmarked Gold",
-  description: "Certified 916 hallmark gold with guaranteed purity and trusted quality assurance for every purchase.",
-  stat: "916 BIS",
-  icon: "✔️"
-},
-  // {
-  //   title: "Trusted Platform",
-  //   description: "Over 5 lakh+ satisfied investors trust us with their gold investments. Join India's fastest-growing gold investment platform.",
-  //   stat: "10k+",
-  //   icon: "🛡️"
-  // }
+    title: "Insured Shipping",
+    description: "Your precious metals travel with complete insurance coverage from vault to doorstep. Every delivery is tracked, verified, and protected — so you receive exactly what you own, safely.",
+    stat: "Fully Covered",
+    icon: "🚚"
+  },
+  {
+    title: "Secure Packaging",
+    description: "Each delivery is sealed in premium, tamper-evident packaging designed to safeguard your gold and silver. Arrives intact, authenticated, and ready to treasure.",
+    stat: "Tamper-Proof",
+    icon: "📦"
+  }
 ];
 
 export default function WhyChooseSection() {
@@ -135,7 +135,9 @@ export default function WhyChooseSection() {
                     <div className="flex-1">
                       <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-2">
                         <h3 className="text-lg sm:text-xl font-bold text-[#0C173D]">{benefit.title}</h3>
-                        <span className="text-xl sm:text-2xl font-bold text-[#D4AF37]">{benefit.stat}</span>
+                        {benefit.stat && (
+                          <span className="text-xl sm:text-2xl font-bold text-[#D4AF37]">{benefit.stat}</span>
+                        )}
                       </div>
                       <p className="text-sm sm:text-base text-gray-600 leading-relaxed">{benefit.description}</p>
                     </div>
