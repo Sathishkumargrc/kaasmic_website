@@ -22,7 +22,7 @@ export default function ContactPage() {
       >
         <PageBanner
           title="Contact Us"
-          description="We're here to help you secure your future with digital gold. Reach out to our team for support or visit our office in Salem."
+          description="We're here to help you secure your future with Kaasmic gold. Reach out to our team for support or visit our office in Salem."
         />
       </motion.div>
       

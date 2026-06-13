@@ -84,7 +84,7 @@ export default function ContactContent() {
               Get in <span className="text-[#D4AF37]">Touch</span>
             </motion.h2>
             <motion.p variants={itemVariants} className="text-white/70 mb-8 text-base sm:text-lg">
-              Have questions about digital gold? Our team is here to help you every step of the way.
+              Have questions about Kaasmic gold? Our team is here to help you every step of the way.
             </motion.p>
 
             <form onSubmit={handleSubmit} className="space-y-4">

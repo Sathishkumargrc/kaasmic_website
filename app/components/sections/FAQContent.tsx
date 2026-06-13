@@ -13,12 +13,12 @@ import { useGetFaqsQuery, FAQItem } from "@/app/redux/features/api/faqApi";
 
 const staticFaqs = [
   {
-    question: "What is digital gold?",
-    answer: "Digital gold is a way to own 24K physical gold in electronic form. Your balance is backed by real gold stored in secure vaults. You can buy in small amounts (e.g. from ₹100), accumulate over time, and redeem as cash or physical gold coins when you want.",
+    question: "What is Kaasmic gold?",
+    answer: "Kaasmic gold is a way to own 24K physical gold in electronic form. Your balance is backed by real gold stored in secure vaults. You can buy in small amounts (e.g. from ₹100), accumulate over time, and redeem as cash or physical gold coins when you want.",
   },
   {
-    question: "How do I buy and sell digital gold?",
-    answer: "You can buy digital gold through our app or website in a few taps. Choose the amount you want to invest; the equivalent weight of 24K gold is added to your balance at the current rate. Selling works the same way—you convert your gold balance to cash, which is credited to your linked account.",
+    question: "How do I buy and sell Kaasmic gold?",
+    answer: "You can buy Kaasmic gold through our app or website in a few taps. Choose the amount you want to invest; the equivalent weight of 24K gold is added to your balance at the current rate. Selling works the same way—you convert your gold balance to cash, which is credited to your linked account.",
   },
   {
     question: "What is the minimum investment?",
@@ -30,7 +30,7 @@ const staticFaqs = [
   },
   {
     question: "Is my gold safe and secure?",
-    answer: "Yes. Your digital gold is backed by physical 24K gold held with regulated custodians. We do not lend or use your holdings for any other purpose. Our platform uses industry-standard security and we are committed to compliance and transparency.",
+    answer: "Yes. Your Kaasmic gold is backed by physical 24K gold held with regulated custodians. We do not lend or use your holdings for any other purpose. Our platform uses industry-standard security and we are committed to compliance and transparency.",
   },
 ];
 

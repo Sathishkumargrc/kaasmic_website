@@ -6,14 +6,14 @@ import Image from "next/image";
 const features = [
   {
     icon: "💰",
-    title: "Buy Digital Gold",
-    description: "Purchase 24K digital gold starting from just ₹100. Build your wealth gram by gram with secure transactions.",
+    title: "Buy Kaasmic Gold",
+    description: "Purchase 24K Kaasmic gold starting from just ₹100. Build your wealth gram by gram with secure transactions.",
     gradient: "from-yellow-500/20 to-amber-600/20"
   },
   {
     icon: "💸",
     title: "Sell Anytime",
-    description: "Convert your digital gold to cash instantly at live market rates. No hidden charges, complete transparency.",
+    description: "Convert your Kaasmic gold to cash instantly at live market rates. No hidden charges, complete transparency.",
     gradient: "from-green-500/20 to-emerald-600/20"
   },
   {

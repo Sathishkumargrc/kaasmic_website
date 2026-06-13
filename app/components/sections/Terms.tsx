@@ -6,7 +6,7 @@ const staticSections = [
   {
     number: 1,
     title: "SERVICES",
-    body: "We offer purchase of physical gold and silver products (e.g., coins, bars) displayed on the Platform. Products are delivered to your registered address via secure courier. No digital gold, investments, or demat services. Blog content is informational only.",
+    body: "We offer purchase of physical gold and silver products (e.g., coins, bars) displayed on the Platform. Products are delivered to your registered address via secure courier. No Kaasmic gold, investments, or demat services. Blog content is informational only.",
   },
   {
     number: 2,

@@ -6,13 +6,13 @@ import Image from "next/image";
 const benefits = [
   {
     title: "99.9% Pure Gold",
-    description: "All our digital gold is backed by 24K (99.9% pure) physical gold stored in secure, insured vaults certified by international standards.",
+    description: "All our Kaasmic gold is backed by 24K (99.9% pure) physical gold stored in secure, insured vaults certified by international standards.",
     stat: "24K , 22K",
     icon: "✨"
   },
   {
     title: "99.9% Pure Silver",
-    description: "99.9% Pure Silver (999 Fine Silver) All our digital silver is backed by 999 (99.9% pure) physical silver stored in secure, insured vaults certified by international standards",
+    description: "99.9% Pure Silver (999 Fine Silver) All our Kaasmic silver is backed by 999 (99.9% pure) physical silver stored in secure, insured vaults certified by international standards",
     stat: "",
     icon: "🥈"
   },
@@ -111,7 +111,7 @@ export default function WhyChooseSection() {
                 Why Choose <span className="text-[#D4AF37]">Kaasmic</span>?
               </h2>
               <p className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8 lg:mb-10">
-                India&#39;s first and its most trusted digital gold platform with unmatched security, transparency, and convenience.
+                India&#39;s first and its most trusted Kaasmic gold platform with unmatched security, transparency, and convenience.
               </p>
             </motion.div>
 

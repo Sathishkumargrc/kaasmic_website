@@ -18,7 +18,7 @@ const steps = [
   {
     number: "03",
     title: "Start Investing",
-    description: "Buy digital gold starting from ₹100. Track your portfolio and watch your wealth grow.",
+    description: "Buy Kaasmic gold starting from ₹100. Track your portfolio and watch your wealth grow.",
     icon: "💎"
   },
   {

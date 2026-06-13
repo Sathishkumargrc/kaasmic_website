@@ -9,7 +9,7 @@ export default function FAQPage() {
       <Header />
       <PageBanner
         title="Frequently Asked Questions"
-        description="Find answers to common questions about digital gold, buying, selling, and redemption."
+        description="Find answers to common questions about Kaasmic gold, buying, selling, and redemption."
       />
       <FAQContent />
       <Footer />

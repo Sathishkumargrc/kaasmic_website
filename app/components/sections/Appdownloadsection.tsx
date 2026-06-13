@@ -48,7 +48,7 @@ export default function AppDownloadSection() {
             </h2>
 
             <p className="text-xl text-white/80 mb-8 leading-relaxed">
-              Download the Kaasmic app and start investing in digital gold with
+              Download the Kaasmic app and start investing in Kaasmic gold with
               just ₹100. Available on iOS and Android.
             </p>
 

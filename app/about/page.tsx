@@ -9,7 +9,7 @@ export default function AboutPage() {
       <Header />
       <PageBanner
         title="About Us"
-        description="We are building a trusted platform for digital gold investment. Our mission is to make 24K gold accessible, secure, and simple for everyone."
+        description="We are building a trusted platform for Kaasmic gold investment. Our mission is to make 24K gold accessible, secure, and simple for everyone."
       />
       <AboutContent />
       <Footer />

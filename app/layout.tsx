@@ -14,14 +14,14 @@ const roboto = Roboto({
 export const metadata: Metadata = {
   title: "Kassmic – Gold Savings & Investment App",
   description:
-    "Grow your wealth by investing in 24K digital gold securely, starting with just ₹100.",
+    "Grow your wealth by investing in 24K Kaasmic gold securely, starting with just ₹100.",
   icons: {
     icon: "/assets/kassmic_logo.png",
     apple: "/assets/kassmic_logo.png",
   },
   openGraph: {
     title: "Kassmic – Gold Savings & Investment App",
-    description: "Grow your wealth by investing in 24K digital gold securely, starting with just ₹100.",
+    description: "Grow your wealth by investing in 24K Kaasmic gold securely, starting with just ₹100.",
     images: ["/assets/kassmic_logo.png"],
   },
 };

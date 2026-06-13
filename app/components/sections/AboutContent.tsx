@@ -82,8 +82,8 @@ export default function AboutContent() {
         </h2>
         <p className="text-sm sm:text-base text-white/85 leading-relaxed">
           Kaasmic was founded to bridge the gap between traditional gold
-          ownership and modern digital convenience. We partner with regulated
-          custodians and refineries so every unit of digital gold on our
+          ownership and modern Kaasmic convenience. We partner with regulated
+          custodians and refineries so every unit of Kaasmic gold on our
           platform is backed by physical 24K gold stored in secure vaults.
         </p>
         <p className="text-sm sm:text-base text-white/85 leading-relaxed">
