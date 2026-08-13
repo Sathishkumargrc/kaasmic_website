@@ -15,16 +15,28 @@ const steps = [
     description: "Quick and secure verification process. Upload your documents and get verified instantly.",
     icon: "✅"
   },
+  // {
+  //   number: "03",
+  //   title: "Start Investing",
+  //   description: "Buy Kaasmic gold starting from ₹100. Track your portfolio and watch your wealth grow.",
+  //   icon: "💎"
+  // },
+  // {
+  //   number: "04",
+  //   title: "Buy Back Guaranteed",
+  //   description: "Sell your gold & silver anytime at the best market rate. 100% transparent pricing.",
+  //   icon: "🎯"
+  // }
   {
     number: "03",
-    title: "Start Investing",
-    description: "Buy Kaasmic gold starting from ₹100. Track your portfolio and watch your wealth grow.",
+    title: "Browse Products",
+    description: "Explore our curated collection of physical gold and silver products at live market prices.",
     icon: "💎"
   },
   {
     number: "04",
-    title: "Buy Back Guaranteed",
-    description: "Sell your gold & silver anytime at the best market rate. 100% transparent pricing.",
+    title: "Place Your Order",
+    description: "Select your preferred physical gold or silver product and complete your purchase securely.",
     icon: "🎯"
   }
 ];

@@ -304,7 +304,7 @@ export default function ProcessCircular() {
             <div className="h-px w-20 bg-gray-200" />
           </div>
           <p className="text-gray-500">
-            Buy 24K Gold &amp; 999 Silver digitally. Safe. Transparent. Convenient.
+            Buy 24K Gold &amp; 999 Silver. Safe. Transparent. Convenient.
           </p>
         </motion.div>
 

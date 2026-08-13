@@ -57,7 +57,7 @@ export default function AppDownloadSection() {
               {[
                 "✅ Zero storage charges",
                 "✅ 24K pure gold guarantee",
-                "✅ Instant buy & sell",
+                // "✅ Instant buy & sell",
                 "✅ Bank-grade security",
               ].map((feature, index) => (
                 <motion.div
@@ -207,13 +207,13 @@ export default function AppDownloadSection() {
                 💎 Start at ₹100
               </motion.div>
 
-              <motion.div
+              {/* <motion.div
                 animate={{ y: [0, 20, 0], rotate: [0, -5, 0] }}
                 transition={{ duration: 4, repeat: Infinity, delay: 2 }}
                 className="absolute -bottom-8 -right-8 bg-white text-[#0C173D] px-4 py-2 rounded-full shadow-xl font-bold text-sm"
               >
                 ⚡ Instant Sell
-              </motion.div>
+              </motion.div> */}
             </div>
           </motion.div>
         </div>

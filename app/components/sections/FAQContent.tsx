@@ -12,22 +12,22 @@ import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 import { useGetFaqsQuery, FAQItem } from "@/app/redux/features/api/faqApi";
 
 const staticFaqs = [
-  {
-    question: "What is Kaasmic gold?",
-    answer: "Kaasmic gold is a way to own 24K physical gold in electronic form. Your balance is backed by real gold stored in secure vaults. You can buy in small amounts (e.g. from ₹100), accumulate over time, and redeem as cash or physical gold coins when you want.",
-  },
-  {
-    question: "How do I buy and sell Kaasmic gold?",
-    answer: "You can buy Kaasmic gold through our app or website in a few taps. Choose the amount you want to invest; the equivalent weight of 24K gold is added to your balance at the current rate. Selling works the same way—you convert your gold balance to cash, which is credited to your linked account.",
-  },
-  {
-    question: "What is the minimum investment?",
-    answer: "You can start with as little as ₹100. There is no upper limit. You can add to your balance anytime and benefit from gold's long-term value while avoiding the hassle of storing physical gold.",
-  },
-  {
-    question: "How do I redeem my gold?",
-    answer: "You can redeem anytime. Choose to either get the value in cash (credited to your bank account) or request physical gold coins delivered to you. Redemption is subject to our terms and may have a minimum amount; full details are in the app.",
-  },
+  // {
+  //   question: "What is Kaasmic gold?",
+  //   answer: "Kaasmic gold is a way to own 24K physical gold in electronic form. Your balance is backed by real gold stored in secure vaults. You can buy in small amounts (e.g. from ₹100), accumulate over time, and redeem as cash or physical gold coins when you want.",
+  // },
+  // {
+  //   question: "How do I buy and sell Kaasmic gold?",
+  //   answer: "You can buy Kaasmic gold through our app or website in a few taps. Choose the amount you want to invest; the equivalent weight of 24K gold is added to your balance at the current rate. Selling works the same way—you convert your gold balance to cash, which is credited to your linked account.",
+  // },
+  // {
+  //   question: "What is the minimum investment?",
+  //   answer: "You can start with as little as ₹100. There is no upper limit. You can add to your balance anytime and benefit from gold's long-term value while avoiding the hassle of storing physical gold.",
+  // },
+  // {
+  //   question: "How do I redeem my gold?",
+  //   answer: "You can redeem anytime. Choose to either get the value in cash (credited to your bank account) or request physical gold coins delivered to you. Redemption is subject to our terms and may have a minimum amount; full details are in the app.",
+  // },
   {
     question: "Is my gold safe and secure?",
     answer: "Yes. Your Kaasmic gold is backed by physical 24K gold held with regulated custodians. We do not lend or use your holdings for any other purpose. Our platform uses industry-standard security and we are committed to compliance and transparency.",

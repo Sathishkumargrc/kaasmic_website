@@ -19,7 +19,7 @@ const testimonials = [
     location: "Bangalore, Karnataka",
     image: "👨‍💼",
     rating: 5,
-    text: "Best platform for digital gold! I sold some gold during a family emergency and got the money in my account within 2 minutes. No hassle at all. Highly recommended!",
+    text: "Best platform for Kaasmic gold! I sold some gold during a family emergency and got the money in my account within 2 minutes. No hassle at all. Highly recommended!",
     investment: "₹1,25,000"
   },
   {
@@ -27,7 +27,7 @@ const testimonials = [
     location: "Pune, Maharashtra",
     image: "👩",
     rating: 5,
-    text: "I gift digital gold to my children on every festival through Kaasmic. It's a perfect way to save for their future. The security and transparency give me complete peace of mind.",
+    text: "I gift Kaasmic gold to my children on every festival through Kaasmic. It's a perfect way to save for their future. The security and transparency give me complete peace of mind.",
     investment: "₹80,000"
   },
   {
@@ -43,7 +43,7 @@ const testimonials = [
     location: "Chennai, Tamil Nadu",
     image: "👩‍🦳",
     rating: 5,
-    text: "I converted my digital gold to physical gold coins for my daughter's wedding. The process was seamless and the coins arrived within 3 days. Wonderful experience!",
+    text: "I converted my Kaasmic gold to physical gold coins for my daughter's wedding. The process was seamless and the coins arrived within 3 days. Wonderful experience!",
     investment: "₹2,50,000"
   },
   {

@@ -70,11 +70,11 @@ export default function WhyChooseSection() {
                       <div className="text-sm sm:text-base text-white/80 mt-1 sm:mt-2">Avg. Returns</div>
                     </div>
 
-                    <div className="bg-white/10 backdrop-blur-md rounded-xl sm:rounded-2xl p-6 sm:p-8 border border-white/20 aspect-[4/3] flex flex-col justify-center">
+                    {/* <div className="bg-white/10 backdrop-blur-md rounded-xl sm:rounded-2xl p-6 sm:p-8 border border-white/20 aspect-[4/3] flex flex-col justify-center">
                       <div className="text-3xl sm:text-4xl lg:text-5xl mb-3 sm:mb-4">⚡</div>
                       <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#D4AF37]">2 Min</div>
                       <div className="text-sm sm:text-base text-white/80 mt-1 sm:mt-2">Quick Selling</div>
-                    </div>
+                    </div> */}
 
                     <div className="bg-white/10 backdrop-blur-md rounded-xl sm:rounded-2xl p-6 sm:p-8 border border-white/20 aspect-[4/3] flex flex-col justify-center">
                       <div className="text-3xl sm:text-4xl lg:text-5xl mb-3 sm:mb-4">🔒</div>

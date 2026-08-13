@@ -4,30 +4,30 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 const features = [
-  {
-    icon: "💰",
-    title: "Buy Kaasmic Gold",
-    description: "Purchase 24K Kaasmic gold starting from just ₹100. Build your wealth gram by gram with secure transactions.",
-    gradient: "from-yellow-500/20 to-amber-600/20"
-  },
-  {
-    icon: "💸",
-    title: "Sell Anytime",
-    description: "Convert your Kaasmic gold to cash instantly at live market rates. No hidden charges, complete transparency.",
-    gradient: "from-green-500/20 to-emerald-600/20"
-  },
+  // {
+  //   icon: "💰",
+  //   title: "Buy Kaasmic Gold",
+  //   description: "Purchase 24K Kaasmic gold starting from just ₹100. Build your wealth gram by gram with secure transactions.",
+  //   gradient: "from-yellow-500/20 to-amber-600/20"
+  // },
+  // {
+  //   icon: "💸",
+  //   title: "Sell Anytime",
+  //   description: "Convert your Kaasmic gold to cash instantly at live market rates. No hidden charges, complete transparency.",
+  //   gradient: "from-green-500/20 to-emerald-600/20"
+  // },
   {
     icon: "✨",
     title: "Physical Gold & Silver",
     description: "Physical gold and silver at best price in the Market.",
     gradient: "from-blue-500/20 to-cyan-600/20"
   },
-  {
-    icon: "📊",
-    title: "Track Portfolio",
-    description: "Monitor your investments in real-time with detailed analytics and performance tracking.",
-    gradient: "from-purple-500/20 to-violet-600/20"
-  },
+  // {
+  //   icon: "📊",
+  //   title: "Track Portfolio",
+  //   description: "Monitor your investments in real-time with detailed analytics and performance tracking.",
+  //   gradient: "from-purple-500/20 to-violet-600/20"
+  // },
   {
     icon: "🔒",
     title: "100% Secure",
