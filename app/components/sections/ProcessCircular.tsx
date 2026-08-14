@@ -9,7 +9,7 @@ const silverSteps = [
   { id: "03", title: "Choose silver\nquantity", icon: "weight", angle: 30 },
   { id: "04", title: "Make\npayment", icon: "card", angle: 90 },
   { id: "05", title: "Silver\npurchased", icon: "purchased", angle: 150 },
-  { id: "06", title: "Stored securely\nin your account", icon: "vault", angle: 210 },
+  { id: "06", title: "Securely delivered\nin your address", icon: "vault", angle: 210 },
 ];
 
 const goldSteps = [
@@ -18,11 +18,11 @@ const goldSteps = [
   { id: "03", title: "Choose gold\nquantity", icon: "weight", angle: 30 },
   { id: "04", title: "Make\npayment", icon: "card", angle: 90 },
   { id: "05", title: "Gold\npurchased", icon: "purchased", angle: 150 },
-  { id: "06", title: "Stored securely\nin your account", icon: "vault", angle: 210 },
+  { id: "06", title: "Securely delivered\nin your address", icon: "vault", angle: 210 },
 ];
 
 const badges = [
-  { title: "100% Secure", subtitle: "Safe & insured storage", icon: "shield" },
+  // { title: "100% Secure", subtitle: "Safe & insured storage", icon: "shield" },
   { title: "Transparent", subtitle: "Live market prices", icon: "eye" },
   { title: "Flexible", subtitle: "Buy any quantity", icon: "rupee" },
   { title: "24x7 Access", subtitle: "Anytime, anywhere", icon: "clock" },
@@ -340,7 +340,7 @@ export default function ProcessCircular() {
         </div>
 
         {/* Trust badges */}
-        <div className="mt-12 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 max-w-5xl mx-auto">
+        <div className="mt-12 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
           {badges.map((b, i) => {
             const Icon = SvgIcons[b.icon];
             return (

@@ -31,7 +31,7 @@ const features = [
   {
     icon: "🔒",
     title: "100% Secure",
-    description: "Bank-grade security with insurance coverage. Your gold is stored in verified, insured vaults.",
+    description: "Bank-grade security with insurance coverage. You gold or silver securly packed and deliverd.",
     gradient: "from-red-500/20 to-rose-600/20"
   },
   {

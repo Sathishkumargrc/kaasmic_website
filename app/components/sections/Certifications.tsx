@@ -20,11 +20,11 @@ const certifications = [
   //   description: "Our gold is verified by NABL accredited labs to ensure the highest quality standards.",
   //   image: "/assets/hallmark.png"
   // },
-  {
-    title: "100% Insured",
-    description: "Your gold is stored in secure, insured vaults with 100% protection against any risk.",
-    image: "/assets/guarantee.png"
-  },
+  // {
+  //   title: "100% Insured",
+  //   description: "Your gold is stored in secure, insured vaults with 100% protection against any risk.",
+  //   image: "/assets/guarantee.png"
+  // },
    {
     title: "Live MCX Pricing",
     description: "We offer real-time, transparent pricing directly synced with MCX live rates.",
