@@ -194,14 +194,24 @@ export default function HeroWithHeader() {
                 Gold & Silver With Ease
               </span>
             </motion.h1>
-            <motion.p
+            {/* <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-base md:text-lg text-white/70 max-w-xl mx-auto lg:mx-0 leading-relaxed font-normal"
             >
               Grow your wealth by investing in 24K , 22K gold & silver securely, starting with just <span className="text-white font-semibold">₹100</span>.
-            </motion.p>
+            </motion.p> */}
+            <motion.p
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.8, delay: 0.4 }}
+  className="text-base md:text-lg text-white/70 max-w-xl mx-auto lg:mx-0 leading-relaxed font-normal"
+>
+  Grow your wealth by investing in 24K and 22K physical gold & silver,
+  securely and confidently. Own authentic precious metals with trust and
+  transparency.
+</motion.p>
           </div>
 
           <motion.div

@@ -47,15 +47,20 @@ export default function AppDownloadSection() {
               <span className="text-[#D4AF37]">Today</span>
             </h2>
 
-            <p className="text-xl text-white/80 mb-8 leading-relaxed">
+            {/* <p className="text-xl text-white/80 mb-8 leading-relaxed">
               Download the Kaasmic app and start investing in Kaasmic gold with
               just ₹100. Available on iOS and Android.
-            </p>
+            </p> */}
+            <p className="text-xl text-white/80 mb-8 leading-relaxed">
+  Discover Kaasmic physical gold and own real gold with confidence.
+  Secure, trusted, and made for you.
+</p>
 
             {/* Features List */}
             <div className="space-y-4 mb-10">
               {[
-                "✅ Zero storage charges",
+                // "✅ Zero storage charges",
+                "✅ Certified physical gold",
                 "✅ 24K pure gold guarantee",
                 // "✅ Instant buy & sell",
                 "✅ Bank-grade security",
@@ -204,7 +209,7 @@ export default function AppDownloadSection() {
                 transition={{ duration: 4, repeat: Infinity }}
                 className="absolute -top-8 -left-8 bg-[#D4AF37] text-[#0C173D] px-4 py-2 rounded-full shadow-xl font-bold text-sm"
               >
-                💎 Start at ₹100
+               💎 Premium Quality
               </motion.div>
 
               {/* <motion.div

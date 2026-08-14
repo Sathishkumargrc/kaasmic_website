@@ -86,13 +86,12 @@ export default function AboutContent() {
           custodians and refineries so every unit of Kaasmic gold on our
           platform is backed by physical 24K gold stored in secure vaults.
         </p>
-        <p className="text-sm sm:text-base text-white/85 leading-relaxed">
-          Our platform lets you buy, save, and redeem gold in small
-          amounts—starting from as little as ₹100—without worrying about
-          storage, purity, or authenticity. Whether you are saving for the long
-          term or want the flexibility to redeem cash or physical coins, we are
-          here to make it simple and transparent.
-        </p>
+       <p className="text-sm sm:text-base text-white/85 leading-relaxed">
+  Our platform makes it simple to buy and own physical gold with confidence,
+  without worrying about purity or authenticity. Whether you are building
+  your gold collection for the long term or looking to purchase physical
+  coins, we are here to make the experience simple, secure, and transparent.
+</p>
         <p className="text-sm sm:text-base text-white/85 leading-relaxed">
           We are committed to security, compliance, and customer trust. Your
           gold balance is yours; we never lend or use your holdings for any

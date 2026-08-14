@@ -88,7 +88,7 @@ const testimonials = [
     location: "Delhi, NCR",
     image: "/assets/t4.png",
     rating: 5,
-    text: "As a young professional, I wanted to start investing but didn't have much capital. Kaasmic allowed me to start with just ₹100. Now it's become a habit and my portfolio is growing!",
+    text: "As a young professional, I wanted to start investing in physical gold without making the process complicated. Kaasmic made it easy to own authentic 24K gold. Now it's become a habit and my gold collection is growing!",
     investment: "₹32,000"
   },
   {

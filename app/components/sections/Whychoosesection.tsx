@@ -56,32 +56,40 @@ export default function WhyChooseSection() {
               {/* Main Image Container */}
               <div className="relative z-10 rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl">
                 <div className="bg-gradient-to-br from-[#0C173D] via-[#1A2664] to-[#0C173D] p-8 sm:p-12 lg:p-16 xl:p-20">
-                  <div className="grid grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
-                    {/* Stats Cards */}
-                    <div className="bg-white/10 backdrop-blur-md rounded-xl sm:rounded-2xl p-6 sm:p-8 border border-white/20 aspect-[4/3] flex flex-col justify-center">
-                      <div className="text-3xl sm:text-4xl lg:text-5xl mb-3 sm:mb-4">💰</div>
-                      <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#D4AF37]">₹100</div>
-                      <div className="text-sm sm:text-base text-white/80 mt-1 sm:mt-2">Min. Investment</div>
-                    </div>
+                    <div className="grid grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
+                      {/* Stats Cards */}
+                      {/* <div className="bg-white/10 backdrop-blur-md rounded-xl sm:rounded-2xl p-6 sm:p-8 border border-white/20 aspect-[4/3] flex flex-col justify-center">
+                        <div className="text-3xl sm:text-4xl lg:text-5xl mb-3 sm:mb-4">💰</div>
+                        <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#D4AF37]">₹100</div>
+                        <div className="text-sm sm:text-base text-white/80 mt-1 sm:mt-2">Min. Investment</div>
+                      </div> */}
+<div className="bg-white/10 backdrop-blur-md rounded-xl sm:rounded-2xl p-6 sm:p-8 border border-white/20 aspect-[4/3] flex flex-col justify-center">
+  <div className="text-3xl sm:text-4xl lg:text-5xl mb-3 sm:mb-4">💎</div>
+  <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#D4AF37]">
+    500+
+  </div>
+  <div className="text-sm sm:text-base text-white/80 mt-1 sm:mt-2">
+    Premium Products
+  </div>
+</div>
+                      <div className="bg-white/10 backdrop-blur-md rounded-xl sm:rounded-2xl p-6 sm:p-8 border border-white/20 aspect-[4/3] flex flex-col justify-center">
+                        <div className="text-3xl sm:text-4xl lg:text-5xl mb-3 sm:mb-4">📈</div>
+                        <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#D4AF37]">15%</div>
+                        <div className="text-sm sm:text-base text-white/80 mt-1 sm:mt-2">Avg. Returns</div>
+                      </div>
 
-                    <div className="bg-white/10 backdrop-blur-md rounded-xl sm:rounded-2xl p-6 sm:p-8 border border-white/20 aspect-[4/3] flex flex-col justify-center">
-                      <div className="text-3xl sm:text-4xl lg:text-5xl mb-3 sm:mb-4">📈</div>
-                      <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#D4AF37]">15%</div>
-                      <div className="text-sm sm:text-base text-white/80 mt-1 sm:mt-2">Avg. Returns</div>
-                    </div>
+                      {/* <div className="bg-white/10 backdrop-blur-md rounded-xl sm:rounded-2xl p-6 sm:p-8 border border-white/20 aspect-[4/3] flex flex-col justify-center">
+                        <div className="text-3xl sm:text-4xl lg:text-5xl mb-3 sm:mb-4">⚡</div>
+                        <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#D4AF37]">2 Min</div>
+                        <div className="text-sm sm:text-base text-white/80 mt-1 sm:mt-2">Quick Selling</div>
+                      </div> */}
 
-                    {/* <div className="bg-white/10 backdrop-blur-md rounded-xl sm:rounded-2xl p-6 sm:p-8 border border-white/20 aspect-[4/3] flex flex-col justify-center">
-                      <div className="text-3xl sm:text-4xl lg:text-5xl mb-3 sm:mb-4">⚡</div>
-                      <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#D4AF37]">2 Min</div>
-                      <div className="text-sm sm:text-base text-white/80 mt-1 sm:mt-2">Quick Selling</div>
-                    </div> */}
-
-                    <div className="bg-white/10 backdrop-blur-md rounded-xl sm:rounded-2xl p-6 sm:p-8 border border-white/20 aspect-[4/3] flex flex-col justify-center">
-                      <div className="text-3xl sm:text-4xl lg:text-5xl mb-3 sm:mb-4">🔒</div>
-                      <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#D4AF37]">100%</div>
-                      <div className="text-sm sm:text-base text-white/80 mt-1 sm:mt-2">Secure</div>
+                      <div className="bg-white/10 backdrop-blur-md rounded-xl sm:rounded-2xl p-6 sm:p-8 border border-white/20 aspect-[4/3] flex flex-col justify-center">
+                        <div className="text-3xl sm:text-4xl lg:text-5xl mb-3 sm:mb-4">🔒</div>
+                        <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#D4AF37]">100%</div>
+                        <div className="text-sm sm:text-base text-white/80 mt-1 sm:mt-2">Secure</div>
+                      </div>
                     </div>
-                  </div>
                 </div>
               </div>
 
