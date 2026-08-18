@@ -21,6 +21,8 @@ const columns = [
       { label: "FAQs", href: "/faq" },
       { label: "Terms & Conditions", href: "/terms-conditions" },
       { label: "Privacy Policy", href: "/privacy-policy" },
+      { label: "Refund & Policy", href: "/refund-policy" },
+      { label: "Cancellation & Policy", href: "/cancellation-policy" },
     ],
   },
   {
